@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dddjjkbptktyu"]
+
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/ingredients/Ingredient.gd" id="1_im71i"]
+[ext_resource type="Texture2D" uid="uid://c8jmbhknvly17" path="res://DemonsOnDemand/sprites/items/wings/item_wing_01.png" id="2_2revm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jgpd4"]
+size = Vector3(0.386, 0.318, 0.15)
+
+[node name="Wings" type="RigidBody3D"]
+collision_layer = 40
+collision_mask = 6
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+freeze_mode = 1
+script = ExtResource("1_im71i")
+ingredient_type = 6
+refinement_duration = 8.0
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0001221, 0.0165888, 0)
+shape = SubResource("BoxShape3D_jgpd4")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0.05, 0)
+billboard = 1
+texture_filter = 0
+texture = ExtResource("2_2revm")

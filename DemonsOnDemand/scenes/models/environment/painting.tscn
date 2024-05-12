@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb8pesqluqeri"]
+
+[ext_resource type="ArrayMesh" uid="uid://c4hbattnxtiuc" path="res://DemonsOnDemand/models/environment/painting.obj" id="1_vp3hj"]
+[ext_resource type="Texture2D" uid="uid://dtdjau822d47j" path="res://DemonsOnDemand/sprites/environment/unsus.png" id="2_ll1nh"]
+[ext_resource type="Material" uid="uid://cdm5np3nbmbqu" path="res://DemonsOnDemand/materials/wood.tres" id="2_oohp2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ke4md"]
+albedo_texture = ExtResource("2_ll1nh")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Painting" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+mesh = ExtResource("1_vp3hj")
+surface_material_override/0 = ExtResource("2_oohp2")
+surface_material_override/1 = SubResource("StandardMaterial3D_ke4md")

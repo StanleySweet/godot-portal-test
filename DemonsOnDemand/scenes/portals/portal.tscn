@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckft31nc1b4qk"]
+
+[ext_resource type="Shader" uid="uid://dnpnivcxlye23" path="res://DemonsOnDemand/shaders/portal/portal_shader.tres" id="1_4pydy"]
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/portals/portal.gd" id="1_7dlan"]
+[ext_resource type="Texture2D" uid="uid://bcsr2c5cy4cvb" path="res://DemonsOnDemand/shaders/portal/textures/portal_texture.png" id="1_c2xhb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ayse4"]
+render_priority = 0
+shader = ExtResource("1_4pydy")
+shader_parameter/ColorIntensity = 3.0
+shader_parameter/PortalColor = Color(0.509804, 0.67451, 0.760784, 1)
+shader_parameter/TextureRepetition = 1.0
+shader_parameter/SpeedXY = Vector2(-0.3, 0.3)
+shader_parameter/PortalTexture = ExtResource("1_c2xhb")
+
+[sub_resource type="QuadMesh" id="QuadMesh_p1txg"]
+
+[node name="Portal" type="Node3D"]
+script = ExtResource("1_7dlan")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_ayse4")
+mesh = SubResource("QuadMesh_p1txg")

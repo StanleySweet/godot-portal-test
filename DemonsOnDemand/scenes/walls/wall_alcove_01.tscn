@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://i67tad5yknls"]
+
+[ext_resource type="PackedScene" uid="uid://b0u8ofnporwaa" path="res://DemonsOnDemand/scenes/models/environment/wall_alcove_01.tscn" id="1_0qace"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bptvx"]
+size = Vector3(0.725342, 1.25314, 2.00317)
+
+[node name="WallAlcove01" type="StaticBody3D"]
+collision_layer = 31
+collision_mask = 0
+
+[node name="wall_alcove_01" parent="." instance=ExtResource("1_0qace")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27063, 0.576431, -0.00012207)
+shape = SubResource("BoxShape3D_bptvx")

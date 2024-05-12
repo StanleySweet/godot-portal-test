@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RequestTemplate" load_steps=3 format=3 uid="uid://caal6s0v5xxr0"]
+
+[ext_resource type="Texture2D" uid="uid://bdem2tlafhqv1" path="res://DemonsOnDemand/scenes/ui/summonings/ingredient_request_panel.png" id="1_adi5l"]
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/ui/summonings/request_template.gd" id="3_l4jsx"]
+
+[resource]
+script = ExtResource("3_l4jsx")
+portal_type = 0
+inner_color = Color(0.396078, 0.396078, 0.396078, 1)
+outer_color = Color(0, 0, 0, 1)
+horn = ExtResource("1_adi5l")
+horns = ExtResource("1_adi5l")
+tentacle = ExtResource("1_adi5l")
+wing = ExtResource("1_adi5l")

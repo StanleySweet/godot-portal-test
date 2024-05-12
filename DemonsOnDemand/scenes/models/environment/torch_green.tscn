@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://brjv5d4o63orj"]
+
+[ext_resource type="PackedScene" uid="uid://diwsr2qtv10j2" path="res://DemonsOnDemand/models/environment/torch.glb" id="1_0x2y6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2sd2q"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0.447059)
+
+[sub_resource type="SphereMesh" id="SphereMesh_h2ugk"]
+material = SubResource("StandardMaterial3D_2sd2q")
+radius = 0.01
+height = 0.02
+radial_segments = 10
+
+[sub_resource type="Gradient" id="Gradient_3pv5o"]
+colors = PackedColorArray(0.173161, 0.320153, 0, 1, 5.48691e-06, 0.812894, 0.281236, 1)
+
+[node name="torch" instance=ExtResource("1_0x2y6")]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0912758, 0.164672, 0)
+amount = 20
+lifetime = 0.35
+mesh = SubResource("SphereMesh_h2ugk")
+emission_shape = 3
+emission_box_extents = Vector3(0.02, 0.02, 0.02)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 0.2
+initial_velocity_max = 0.2
+scale_amount_min = 2.75
+scale_amount_max = 4.6
+color_ramp = SubResource("Gradient_3pv5o")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2"]
+light_color = Color(0.392157, 0.772549, 0.109804, 1)
+light_energy = 2.0
+distance_fade_enabled = true
+distance_fade_begin = 7.0
+omni_range = 2.0

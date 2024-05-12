@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://n2v8qvstuw6a"]
+
+[ext_resource type="PackedScene" uid="uid://gydh8clswwws" path="res://DemonsOnDemand/models/environment/candle_03.glb" id="1_21swl"]
+
+[node name="candle_03" instance=ExtResource("1_21swl")]

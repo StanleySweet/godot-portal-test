@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://da1wcnb32xoik"]
+
+[ext_resource type="Texture2D" uid="uid://vnt8gliou6xu" path="res://DemonsOnDemand/sprites/environment/column_diffuse.png" id="1_glsws"]
+
+[resource]
+albedo_texture = ExtResource("1_glsws")

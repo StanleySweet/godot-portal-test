@@ -1,0 +1,150 @@
+[gd_scene load_steps=22 format=3 uid="uid://ooula06nr0nq"]
+
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/stations/station.gd" id="1_lejdo"]
+[ext_resource type="Texture2D" uid="uid://da781u4l8aa7t" path="res://DemonsOnDemand/sprites/items/tentacles/item_tentacle.png" id="2_po7kv"]
+[ext_resource type="PackedScene" uid="uid://c8wmtlg2n8115" path="res://DemonsOnDemand/models/environment/table.glb" id="3_7v6uh"]
+[ext_resource type="PackedScene" uid="uid://c63c5iftb6pt0" path="res://DemonsOnDemand/scenes/components/timer_bar/timer_bar.tscn" id="6_okmwk"]
+[ext_resource type="AudioStream" uid="uid://8y85tbmxnu5p" path="res://DemonsOnDemand/sfx/ciseling/cisel_3.mp3" id="7_x2yum"]
+[ext_resource type="PackedScene" uid="uid://doyp6axrxp0a8" path="res://DemonsOnDemand/scenes/models/environment/cutting_board.tscn" id="8_cdyeo"]
+[ext_resource type="AudioStream" uid="uid://8he2m28g5mr4" path="res://DemonsOnDemand/sfx/ciseling/cisel_4.mp3" id="8_wfq5q"]
+[ext_resource type="AudioStream" uid="uid://dqcb1nxmu0m4e" path="res://DemonsOnDemand/sfx/ciseling/cisel_5.mp3" id="9_3q8cr"]
+[ext_resource type="PackedScene" uid="uid://52q8ss3u1s3g" path="res://DemonsOnDemand/scenes/models/environment/knife_01.tscn" id="9_ne8y2"]
+[ext_resource type="PackedScene" uid="uid://dtj1a2sdeed8o" path="res://DemonsOnDemand/scenes/models/environment/knife_02.tscn" id="10_lg8h5"]
+[ext_resource type="AudioStream" uid="uid://whnno8tii3gg" path="res://DemonsOnDemand/sfx/Stations/Ding.mp3" id="10_p3ps6"]
+[ext_resource type="AudioStream" uid="uid://dw71pj4hv8avf" path="res://DemonsOnDemand/sfx/Stations/Cut/cut_approx.mp3" id="11_saeh4"]
+[ext_resource type="Texture2D" uid="uid://btnde7f5akb6e" path="res://DemonsOnDemand/sprites/generic/action_feedback.png" id="13_qofnx"]
+[ext_resource type="Texture2D" uid="uid://cqc7y4iajjlgp" path="res://DemonsOnDemand/sprites/environment/image 50.png" id="13_qysc3"]
+[ext_resource type="Texture2D" uid="uid://cxhrxf8wyaqta" path="res://DemonsOnDemand/sprites/infos/info_make_tentacle.png" id="15_mrep4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5rs7a"]
+size = Vector3(0.948272, 0.443604, 0.471436)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_a3y2f"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lc3y2"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("13_qysc3")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_yhoba"]
+material = SubResource("StandardMaterial3D_lc3y2")
+size = Vector2(0.1, 0.1)
+
+[sub_resource type="Curve" id="Curve_euo7b"]
+min_value = 0.5
+max_value = 2.0
+_data = [Vector2(0, 0.0149981), 0.0, 0.0, 0, 0, Vector2(1e-05, 0.560479), 0.0, 0.0, 0, 0, Vector2(0.501149, 1.9962), 0.0, 0.0, 0, 0, Vector2(0.993103, 0.571874), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8fk24"]
+size = Vector3(1.2, 0.7, 0.712)
+
+[node name="OctopusCuttingStation" type="StaticBody3D" node_paths=PackedStringArray("timer", "interact_hand", "info") groups=["Interactable"]]
+collision_layer = 5
+collision_mask = 11
+script = ExtResource("1_lejdo")
+type = 3
+allowed_ingredient_type = 4
+timer = NodePath("SubViewport/TimerBar")
+refined_texture = ExtResource("2_po7kv")
+color = 3
+ingr_type = 5
+interact_hand = NodePath("Interact")
+info = NodePath("Info")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0027616, 0.12303, -0.0645752)
+shape = SubResource("BoxShape3D_5rs7a")
+
+[node name="table" parent="." instance=ExtResource("3_7v6uh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.113763, 0)
+
+[node name="cutting_board" parent="table" instance=ExtResource("8_cdyeo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0169433, 0.363398, -0.0619957)
+
+[node name="knife_01" parent="table/cutting_board" instance=ExtResource("9_ne8y2")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.30115, 0, 0)
+
+[node name="knife_02" parent="table/cutting_board" instance=ExtResource("10_lg8h5")]
+transform = Transform3D(4.37114e-08, -1, -3.82137e-15, -0.685437, -2.99614e-08, -0.728132, 0.728132, 3.18276e-08, -0.685437, 0, 0.125147, 0.0719056)
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Sound1" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("7_x2yum")
+volume_db = -5.0
+
+[node name="Sound2" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_wfq5q")
+volume_db = -5.0
+
+[node name="Sound3" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("9_3q8cr")
+volume_db = -5.0
+
+[node name="Ding" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("10_p3ps6")
+volume_db = -5.0
+
+[node name="Approx" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("11_saeh4")
+volume_db = -5.0
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(460, 128)
+
+[node name="TimerBar" parent="SubViewport" instance=ExtResource("6_okmwk")]
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.7, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_a3y2f")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0272536, 0.342109, 0)
+emitting = false
+amount = 22
+lifetime = 0.2
+mesh = SubResource("QuadMesh_yhoba")
+emission_shape = 3
+emission_box_extents = Vector3(0.2, 0.1, 0.1)
+direction = Vector3(0, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_euo7b")
+
+[node name="Interact" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.7, 0)
+visible = false
+billboard = 1
+texture = ExtResource("13_qofnx")
+
+[node name="Info" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.7, 0)
+billboard = 1
+texture = ExtResource("15_mrep4")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 7
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003, 0.2, -0.063)
+shape = SubResource("BoxShape3D_8fk24")
+
+[connection signal="timer_elapsed" from="SubViewport/TimerBar" to="." method="_on_refinement_ended"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

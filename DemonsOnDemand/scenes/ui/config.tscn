@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b53sry0yvgqyv"]
+
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/ui/summonings/Config.gd" id="1_mjjdc"]
+
+[node name="Config" type="Node"]
+script = ExtResource("1_mjjdc")

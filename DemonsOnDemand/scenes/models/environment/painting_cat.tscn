@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckmgdnypdkkpi"]
+
+[ext_resource type="ArrayMesh" uid="uid://c4hbattnxtiuc" path="res://DemonsOnDemand/models/environment/painting.obj" id="1_h4iru"]
+[ext_resource type="Texture2D" uid="uid://c8xbuatnqflte" path="res://DemonsOnDemand/textures/carpet/kitty.png" id="2_4hgel"]
+[ext_resource type="Material" uid="uid://cdm5np3nbmbqu" path="res://DemonsOnDemand/materials/wood.tres" id="2_s6ric"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23j1r"]
+albedo_texture = ExtResource("2_4hgel")
+uv1_scale = Vector3(5.03, 1.65, 1)
+uv1_offset = Vector3(-0.58, -0.49, 2.08165e-12)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Painting" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_h4iru")
+surface_material_override/0 = ExtResource("2_s6ric")
+surface_material_override/1 = SubResource("StandardMaterial3D_23j1r")

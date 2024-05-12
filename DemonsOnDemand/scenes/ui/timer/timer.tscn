@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://bapomslg5v1sm"]
+
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/ui/timer/timer.gd" id="1_6toxw"]
+[ext_resource type="Texture2D" uid="uid://dffjolnsjxexs" path="res://DemonsOnDemand/sprites/UI/IG/Frame 5.png" id="2_wqrqi"]
+[ext_resource type="FontFile" uid="uid://p11t7pomjknx" path="res://DemonsOnDemand/fonts/Source Serif 4/Variants/SourceSerif4-Regular-700.tres" id="3_qseej"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_65kux"]
+
+[sub_resource type="FontVariation" id="FontVariation_jku5a"]
+base_font = ExtResource("3_qseej")
+variation_opentype = {
+1869640570: null,
+2003265652: 700
+}
+
+[sub_resource type="Theme" id="Theme_snlvu"]
+default_font = SubResource("FontVariation_jku5a")
+default_font_size = 30
+
+[node name="Timer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 41.0
+offset_right = 41.0
+script = ExtResource("1_6toxw")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_65kux")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+offset_left = -23.0
+offset_top = 15.0
+offset_right = 7.0
+offset_bottom = 57.0
+texture = ExtResource("2_wqrqi")
+stretch_mode = 2
+
+[node name="CurrentTimeLabel" type="RichTextLabel" parent="Panel"]
+clip_contents = false
+layout_mode = 1
+offset_left = 12.0
+offset_top = 7.0
+offset_right = 76.0
+offset_bottom = 50.0
+theme = SubResource("Theme_snlvu")
+text = "3:30"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

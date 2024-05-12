@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://qjfge30803e8"]
+
+[ext_resource type="Texture2D" uid="uid://d1vu4eh4kjpef" path="res://DemonsOnDemand/textures/carpet/blue_square_carpet.png" id="1_2g1gm"]
+
+[resource]
+albedo_texture = ExtResource("1_2g1gm")

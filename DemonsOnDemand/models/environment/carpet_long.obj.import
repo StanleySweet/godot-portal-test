@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://gp12q7yubchm"
+path="res://.godot/imported/carpet_long.obj-2ebefc0fcf711adb1a2c69fd46494b01.mesh"
+
+[deps]
+
+files=["res://.godot/imported/carpet_long.obj-2ebefc0fcf711adb1a2c69fd46494b01.mesh"]
+
+source_file="res://DemonsOnDemand/models/environment/carpet_long.obj"
+dest_files=["res://.godot/imported/carpet_long.obj-2ebefc0fcf711adb1a2c69fd46494b01.mesh", "res://.godot/imported/carpet_long.obj-2ebefc0fcf711adb1a2c69fd46494b01.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

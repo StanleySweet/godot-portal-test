@@ -1,0 +1,95 @@
+[gd_scene load_steps=20 format=3 uid="uid://dvqsb1hsnqwvo"]
+
+[ext_resource type="PackedScene" uid="uid://dk03vykcniafp" path="res://DemonsOnDemand/scenes/levels/level_environment.tscn" id="1_j3f6f"]
+[ext_resource type="PackedScene" uid="uid://b7cp0osmleqok" path="res://DemonsOnDemand/scenes/levels/tiled_floor.tscn" id="6_muone"]
+[ext_resource type="PackedScene" uid="uid://cu5lmkvr6q1fi" path="res://DemonsOnDemand/scenes/characters/Summoner/Summoner.tscn" id="6_p24ey"]
+[ext_resource type="PackedScene" uid="uid://c46ug3l6wve33" path="res://DemonsOnDemand/scenes/stations/golden_horn_modeling_station.tscn" id="7_bm5sg"]
+[ext_resource type="PackedScene" uid="uid://dtf25lfdl3qmb" path="res://DemonsOnDemand/scenes/ingredients/horns.tscn" id="11_frc8p"]
+[ext_resource type="PackedScene" uid="uid://cgdbt5d4nu2a1" path="res://DemonsOnDemand/scenes/ingredients/octopus.tscn" id="14_p6xk3"]
+[ext_resource type="PackedScene" uid="uid://dddjjkbptktyu" path="res://DemonsOnDemand/scenes/ingredients/wings.tscn" id="15_6r2ym"]
+[ext_resource type="PackedScene" uid="uid://by6tegffmanqk" path="res://DemonsOnDemand/scenes/ingredients/body.tscn" id="15_btk71"]
+[ext_resource type="PackedScene" uid="uid://ooula06nr0nq" path="res://DemonsOnDemand/scenes/stations/octopus_cutting_station.tscn" id="16_3tg5u"]
+[ext_resource type="PackedScene" uid="uid://7af1g282b3ar" path="res://DemonsOnDemand/scenes/stock/horn_stock.tscn" id="16_rr825"]
+[ext_resource type="PackedScene" uid="uid://bsw6pqludn2j6" path="res://DemonsOnDemand/scenes/stations/pointy_horn_station.tscn" id="16_sl6i3"]
+[ext_resource type="PackedScene" uid="uid://ms0py8kf6b2d" path="res://DemonsOnDemand/scenes/stations/blue_coloring_station.tscn" id="17_tfsta"]
+[ext_resource type="PackedScene" uid="uid://cm7dn00noptd8" path="res://DemonsOnDemand/scenes/stations/green_coloring_station.tscn" id="18_4kiae"]
+[ext_resource type="PackedScene" uid="uid://dmnuht6cee63e" path="res://DemonsOnDemand/scenes/stations/yellow_coloring_station.tscn" id="19_4u1wo"]
+[ext_resource type="PackedScene" uid="uid://3sxk0hu5inss" path="res://DemonsOnDemand/scenes/stock/body_stock.tscn" id="24_jcops"]
+[ext_resource type="PackedScene" uid="uid://bsxasj52ssci0" path="res://DemonsOnDemand/scenes/levels/level_ui.tscn" id="25_6kffa"]
+[ext_resource type="PackedScene" uid="uid://dw7t5t1nokx2l" path="res://DemonsOnDemand/scenes/stock/bath/bath.tscn" id="25_yghkh"]
+[ext_resource type="PackedScene" uid="uid://nh611woxb4fa" path="res://DemonsOnDemand/scenes/stock/bird_cage.tscn" id="26_jgh8c"]
+[ext_resource type="PackedScene" uid="uid://dylqadng1sc8x" path="res://DemonsOnDemand/scenes/gates/summon_gate.tscn" id="27_6tqd5"]
+
+[node name="Main" type="Node3D"]
+
+[node name="LevelEnvironment" parent="." instance=ExtResource("1_j3f6f")]
+
+[node name="TiledFloor" parent="." instance=ExtResource("6_muone")]
+
+[node name="Summoner" parent="." instance=ExtResource("6_p24ey")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, -3)
+
+[node name="UI" parent="." instance=ExtResource("25_6kffa")]
+
+[node name="Items" type="Node" parent="."]
+
+[node name="Wings" parent="Items" instance=ExtResource("15_6r2ym")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75202, 0.616375, -2.1809)
+
+[node name="Calamar" parent="Items" instance=ExtResource("14_p6xk3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67495, 0.50023, -2.37126)
+
+[node name="horn" parent="Items" instance=ExtResource("11_frc8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09648, 0.705518, -2.24183)
+
+[node name="Body" parent="Items" instance=ExtResource("15_btk71")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00109, 1.00535, -8.00946)
+
+[node name="Stations" type="Node" parent="."]
+
+[node name="Pointy_Horn_Station" parent="Stations" instance=ExtResource("16_sl6i3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.21609, 0.106897, -4.25949)
+isBlockingStation = true
+
+[node name="HornModelingStation" parent="Stations" instance=ExtResource("7_bm5sg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -4)
+
+[node name="OctopusCuttingStation" parent="Stations" instance=ExtResource("16_3tg5u")]
+transform = Transform3D(0.998557, 0, 0, 0, 0.998557, 0, 0, 0, 0.998557, -3, 0, -4)
+
+[node name="BlueColoringStation" parent="Stations" instance=ExtResource("17_tfsta")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.166, 0, -4.059)
+
+[node name="GreenColoringStation" parent="Stations" instance=ExtResource("18_4kiae")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.269, 0, -4.182)
+
+[node name="YellowColoringStation" parent="Stations" instance=ExtResource("19_4u1wo")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5.085, 0, -4.23)
+
+[node name="Stocks" type="Node" parent="."]
+
+[node name="HornStock" parent="Stocks" instance=ExtResource("16_rr825")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -7)
+
+[node name="BodyStock" parent="Stocks" instance=ExtResource("24_jcops")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13251, 0, -10.0093)
+
+[node name="bath" parent="Stocks" instance=ExtResource("25_yghkh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.54038, 0, -6.45738)
+
+[node name="bird_cage" parent="Stocks" instance=ExtResource("26_jgh8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.76839, 0, -7.62121)
+
+[node name="Gates" type="Node" parent="."]
+
+[node name="GreenGate" parent="Gates" instance=ExtResource("27_6tqd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -1)
+
+[node name="BlueGate" parent="Gates" instance=ExtResource("27_6tqd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -1)
+
+[node name="RedGate" parent="Gates" instance=ExtResource("27_6tqd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1)
+
+[node name="YellowGate" parent="Gates" instance=ExtResource("27_6tqd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -1)

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c63c5iftb6pt0"]
+
+[ext_resource type="Texture2D" uid="uid://bqpoalw8oe8b5" path="res://DemonsOnDemand/scenes/components/timer_bar/bar_background.png" id="1_g3x63"]
+[ext_resource type="Texture2D" uid="uid://bi0j6gdiooygb" path="res://DemonsOnDemand/scenes/components/timer_bar/bar_fill.png" id="2_5vma7"]
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/components/timer_bar/timer_bar.gd" id="2_8xlse"]
+
+[node name="TimerBar" type="TextureProgressBar"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -70.0
+offset_right = 230.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+value = 20.0
+texture_under = ExtResource("1_g3x63")
+texture_progress = ExtResource("2_5vma7")
+texture_progress_offset = Vector2(25, 28)
+script = ExtResource("2_8xlse")

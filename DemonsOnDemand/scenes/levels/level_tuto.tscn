@@ -1,0 +1,133 @@
+[gd_scene load_steps=15 format=3 uid="uid://dmbla65f8kx3f"]
+
+[ext_resource type="PackedScene" uid="uid://dk03vykcniafp" path="res://DemonsOnDemand/scenes/levels/level_environment.tscn" id="1_v3c80"]
+[ext_resource type="PackedScene" uid="uid://b7cp0osmleqok" path="res://DemonsOnDemand/scenes/levels/tiled_floor.tscn" id="2_0v3mq"]
+[ext_resource type="PackedScene" uid="uid://bsxasj52ssci0" path="res://DemonsOnDemand/scenes/levels/level_ui.tscn" id="4_apoww"]
+[ext_resource type="PackedScene" uid="uid://ms0py8kf6b2d" path="res://DemonsOnDemand/scenes/stations/blue_coloring_station.tscn" id="5_1vgox"]
+[ext_resource type="PackedScene" uid="uid://no3frrhnaelv" path="res://DemonsOnDemand/scenes/stations/red_coloring_station.tscn" id="5_5hn7p"]
+[ext_resource type="PackedScene" uid="uid://dw7t5t1nokx2l" path="res://DemonsOnDemand/scenes/stock/bath/bath.tscn" id="5_walxa"]
+[ext_resource type="PackedScene" uid="uid://co8ce0ktvdfs7" path="res://DemonsOnDemand/scenes/walls/wall_shelf_01.tscn" id="6_5rxw6"]
+[ext_resource type="PackedScene" uid="uid://dvcv4somehnah" path="res://DemonsOnDemand/scenes/walls/wall_01.tscn" id="6_eft20"]
+[ext_resource type="PackedScene" uid="uid://cm7dn00noptd8" path="res://DemonsOnDemand/scenes/stations/green_coloring_station.tscn" id="6_gjgjw"]
+[ext_resource type="PackedScene" uid="uid://nh611woxb4fa" path="res://DemonsOnDemand/scenes/stock/bird_cage.tscn" id="6_x6d1f"]
+[ext_resource type="PackedScene" uid="uid://dmnuht6cee63e" path="res://DemonsOnDemand/scenes/stations/yellow_coloring_station.tscn" id="7_7hsl8"]
+[ext_resource type="PackedScene" uid="uid://ooula06nr0nq" path="res://DemonsOnDemand/scenes/stations/octopus_cutting_station.tscn" id="8_0d6vs"]
+[ext_resource type="PackedScene" uid="uid://dylqadng1sc8x" path="res://DemonsOnDemand/scenes/gates/summon_gate.tscn" id="11_nvle2"]
+[ext_resource type="PackedScene" uid="uid://b53sry0yvgqyv" path="res://DemonsOnDemand/scenes/ui/config.tscn" id="14_266rc"]
+
+[node name="LevelTuto" type="Node3D"]
+
+[node name="LevelEnvironment" parent="." instance=ExtResource("1_v3c80")]
+
+[node name="TiledFloor" parent="." instance=ExtResource("2_0v3mq")]
+
+[node name="UI" parent="." instance=ExtResource("4_apoww")]
+
+[node name="Stations" type="Node" parent="."]
+
+[node name="RedColoringStation" parent="Stations" instance=ExtResource("5_5hn7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50838, 0, -2.2)
+
+[node name="BlueColoringStation" parent="Stations" instance=ExtResource("5_1vgox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.150345, -2.38419e-07, -2.28329)
+
+[node name="GreenColoringStation" parent="Stations" instance=ExtResource("6_gjgjw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.23152, 0, -0.422007)
+
+[node name="YellowColoringStation" parent="Stations" instance=ExtResource("7_7hsl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71197, 0, -2.27059)
+
+[node name="OctopusCuttingStation" parent="Stations" instance=ExtResource("8_0d6vs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39277, 0, -0.298808)
+
+[node name="Stocks" type="Node" parent="."]
+
+[node name="bath" parent="Stocks" instance=ExtResource("5_walxa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.16488, -9.53674e-07, 1.7492)
+
+[node name="bird_cage" parent="Stocks" instance=ExtResource("6_x6d1f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.30553, 1.19209e-07, -2.51354)
+
+[node name="Gates" type="Node" parent="."]
+
+[node name="SummonGate" parent="Gates" instance=ExtResource("11_nvle2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.40537, -4.76837e-07, -2.15109)
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Wall01" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, -3)
+
+[node name="Wall08" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 1.2, -3)
+
+[node name="Wall13" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 1.2, -3)
+
+[node name="Wall18" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 0, -3)
+
+[node name="Wall19" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 1.2, -3)
+
+[node name="Wall02" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, -3)
+
+[node name="Wall09" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 1.2, -3)
+
+[node name="Wall03" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 0, -2)
+
+[node name="Wall10" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 1.2, -2)
+
+[node name="Wall04" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 0, 0)
+
+[node name="Wall11" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 1.2, 0)
+
+[node name="Wall16" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 0, 2)
+
+[node name="Wall17" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 1.2, 2)
+
+[node name="Wall22" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 0, 4)
+
+[node name="Wall23" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 1.2, 4)
+
+[node name="Wall05" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2)
+
+[node name="Wall12" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.2, -2)
+
+[node name="Wall06" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="Wall07" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.2, 0)
+
+[node name="Wall14" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+
+[node name="Wall15" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.2, 2)
+
+[node name="Wall20" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
+
+[node name="Wall21" parent="Walls" instance=ExtResource("6_eft20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.2, 4)
+
+[node name="WallShelf01" parent="Walls" instance=ExtResource("6_5rxw6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, -2.93)
+
+[node name="Config" parent="." groups=["Config"] instance=ExtResource("14_266rc")]
+available_ingredients = Array[int]([2, 3])
+min_temps_between_request = 5
+max_temps_between_requests = 6

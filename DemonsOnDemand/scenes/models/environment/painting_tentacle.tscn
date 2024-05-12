@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dylox02ghbhqy"]
+
+[ext_resource type="ArrayMesh" uid="uid://c4hbattnxtiuc" path="res://DemonsOnDemand/models/environment/painting.obj" id="1_elf0m"]
+[ext_resource type="Material" uid="uid://cdm5np3nbmbqu" path="res://DemonsOnDemand/materials/wood.tres" id="2_8h7gg"]
+[ext_resource type="Texture2D" uid="uid://d14pw2t3jv76f" path="res://DemonsOnDemand/textures/carpet/day_of_the_tentacle.png" id="2_ufa2w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_81yp6"]
+albedo_texture = ExtResource("2_ufa2w")
+uv1_scale = Vector3(5.03, 1.65, 1)
+uv1_offset = Vector3(-0.58, -0.49, 2.08165e-12)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Painting" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+mesh = ExtResource("1_elf0m")
+surface_material_override/0 = ExtResource("2_8h7gg")
+surface_material_override/1 = SubResource("StandardMaterial3D_81yp6")

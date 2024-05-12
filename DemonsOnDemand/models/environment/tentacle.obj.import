@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bo3e2e3x4cauo"
+path="res://.godot/imported/tentacle.obj-618d1f25e7545ae21cd123f693791f02.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tentacle.obj-618d1f25e7545ae21cd123f693791f02.mesh"]
+
+source_file="res://DemonsOnDemand/models/environment/tentacle.obj"
+dest_files=["res://.godot/imported/tentacle.obj-618d1f25e7545ae21cd123f693791f02.mesh", "res://.godot/imported/tentacle.obj-618d1f25e7545ae21cd123f693791f02.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

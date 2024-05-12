@@ -1,0 +1,108 @@
+{
+	"characters": [
+		"A WITCH",
+		"A PRIEST",
+		"A MANAGER",
+		"A BARD",
+		"A SCIENTIST",
+		"A PRESIDENT"
+	],
+	"verbs": [
+		"CONJURES",
+		"BECKONS",
+		"SUMMONS",
+		"EVOKES",
+		"INVOKES",
+		"CALLS ON"
+	],
+	"monsters": [
+		{
+			"name": "BANSHEE THE BANTERING",
+			"line": "Has no volume control."
+		},
+		{
+			"name": "SPECTER THE SASSY",
+			"line": "Criticizes cooking in the kitchen."
+		},
+		{
+			"name": "PHANTOM THE PRANKSTER",
+			"line": "Swaps shampoo for slime."
+		},
+		{
+			"name": "WRAITH THE WITTY",
+			"line": "Hides, spinning spooky yarns."
+		},
+		{
+			"name": "SPECTER THE SASSY",
+			"line": "Criticizes cooking in kitchen."
+		},
+		{
+			"name": "CASPER THE PUNDERFUL",
+			"line": "Puns with pantry poltergeists."
+		},
+		{
+			"name": "BANSHEE THE BANTERING",
+			"line": "Swaps shrieks for jokes."
+		},
+		{
+			"name": "SPIRIT THE SNARKY",
+			"line": "Throws shade at decor."
+		},
+		{
+			"name": "APPARITION THE AMUSING",
+			"line": "Rewrites ghost stories."
+		},
+		{
+			"name": "GHOST THE GIGGLING",
+			"line": "Laughs at old photos."
+		},
+		{
+			"name": "SHADE THE SARDONIC",
+			"line": "Composes spectral sarcasm."
+		},
+		{
+			"name": "SPOOK THE SILLY",
+			"line": "Pulls faces at passersby."
+		},
+		{
+			"name": "PHANTOM THE FUNNY",
+			"line": "Cracks skeleton jokes."
+		},
+		{
+			"name": "WRAITH THE WHIMSICAL",
+			"line": "Whispers silly spooky tales."
+		},
+		{
+			"name": "CASPER THE PLAYFUL",
+			"line": "Plays pranks with ectoplasm."
+		},
+		{
+			"name": "BANSHEE THE BEMUSING",
+			"line": "Screams with giggles."
+		},
+		{
+			"name": "SPECTER THE SARCASTIC",
+			"line": "Mocks bad TV choices."
+		},
+		{
+			"name": "SPIRIT THE SPONTANEOUS",
+			"line": "Tells ghostly puns."
+		},
+		{
+			"name": "GHOST THE GRINNING",
+			"line": "Pulls spectral pranks."
+		},
+		{
+			"name": "SHADE THE SNICKERING",
+			"line": "Chuckles at manuscripts."
+		},
+		{
+			"name": "SPOOK THE WITTY",
+			"line": "Leaves riddles for newborn."
+		},
+		{
+			"name": "PHANTOM THE PUNDERFUL",
+			"line": "Puns with spectral joy."
+		}
+	]
+}

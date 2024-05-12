@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuj53pb4kvbyy"]
+
+[ext_resource type="PackedScene" uid="uid://bryhhrsamtfko" path="res://DemonsOnDemand/models/environment/wall_door_01.glb" id="1_qjnhl"]
+[ext_resource type="PackedScene" uid="uid://ytlmw5rddno4" path="res://DemonsOnDemand/scenes/models/environment/torch.tscn" id="2_1bxhg"]
+
+[node name="wall_door_01" instance=ExtResource("1_qjnhl")]
+
+[node name="torch" parent="." index="1" instance=ExtResource("2_1bxhg")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.049993, 0.496542, -0.514648)

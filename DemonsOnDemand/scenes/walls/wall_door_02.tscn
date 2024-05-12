@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://gyoorm058nw8"]
+
+[ext_resource type="PackedScene" uid="uid://cuj53pb4kvbyy" path="res://DemonsOnDemand/scenes/models/environment/wall_door_01.tscn" id="1_8xyyy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w3tbu"]
+size = Vector3(0.292267, 1.19037, 0.548216)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fe0em"]
+size = Vector3(0.281656, 1.19, 0.590895)
+
+[node name="WallDoor02" type="StaticBody3D"]
+collision_layer = 31
+collision_mask = 0
+
+[node name="wall_door_01" parent="." instance=ExtResource("1_8xyyy")]
+
+[node name="table_big_002" parent="wall_door_01/Cube_006" index="0"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0375824, 0.607819, -0.723333)
+shape = SubResource("BoxShape3D_w3tbu")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0431719, 0.608, 0.697473)
+shape = SubResource("BoxShape3D_fe0em")
+
+[editable path="wall_door_01"]

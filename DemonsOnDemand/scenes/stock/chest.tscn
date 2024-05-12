@@ -1,0 +1,78 @@
+[gd_scene load_steps=13 format=3 uid="uid://cwc4hwqftlwdo"]
+
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/stock/stock.gd" id="1_ougbp"]
+[ext_resource type="Material" uid="uid://cdlrncjh5evl6" path="res://DemonsOnDemand/materials/chest.tres" id="1_ti8fp"]
+[ext_resource type="ArrayMesh" uid="uid://o3ops11uu0o" path="res://DemonsOnDemand/models/environment/chest_top.obj" id="2_i6ek3"]
+[ext_resource type="PackedScene" uid="uid://by6tegffmanqk" path="res://DemonsOnDemand/scenes/ingredients/body.tscn" id="2_unrwb"]
+[ext_resource type="ArrayMesh" uid="uid://g35jbyqa7l34" path="res://DemonsOnDemand/models/environment/chest.obj" id="3_qygcm"]
+[ext_resource type="AudioStream" uid="uid://bgae41wepx6v7" path="res://DemonsOnDemand/sfx/stocks/CHest/chest_approx.mp3" id="4_86jto"]
+[ext_resource type="AudioStream" uid="uid://dqfh3nsqukjwe" path="res://DemonsOnDemand/sfx/stocks/CHest/chest_use.mp3" id="5_0g4di"]
+[ext_resource type="Texture2D" uid="uid://btnde7f5akb6e" path="res://DemonsOnDemand/sprites/generic/action_feedback.png" id="6_3ml8r"]
+[ext_resource type="Texture2D" uid="uid://dgbxvmbyb1taf" path="res://DemonsOnDemand/sprites/infos/info_get_potatoe.png" id="9_mjq6i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k748t"]
+size = Vector3(0.942322, 0.455505, 0.565369)
+
+[sub_resource type="Animation" id="Animation_3yqpd"]
+resource_name = "open"
+length = 0.6
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Top")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.1, 1, -0.115743, 0, 0, 0.993279, 0.2, 1, -0.152365, 0, 0, 0.988324, 0.4, 1, 0, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0t460"]
+_data = {
+"open": SubResource("Animation_3yqpd")
+}
+
+[node name="Chest" type="StaticBody3D" node_paths=PackedStringArray("interact_hand", "info")]
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_ougbp")
+ingredient = ExtResource("2_unrwb")
+interact_hand = NodePath("Interact")
+info = NodePath("Info")
+
+[node name="Top" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.303372, -0.249)
+material_override = ExtResource("1_ti8fp")
+mesh = ExtResource("2_i6ek3")
+
+[node name="Bottom" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0152314, 0)
+material_override = ExtResource("1_ti8fp")
+mesh = ExtResource("3_qygcm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0015564, 0.224274, 0.00430298)
+shape = SubResource("BoxShape3D_k748t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0t460")
+}
+
+[node name="Approx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_86jto")
+volume_db = -5.0
+
+[node name="Use" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_0g4di")
+volume_db = -5.0
+
+[node name="Interact" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.7, 0)
+visible = false
+billboard = 1
+texture = ExtResource("6_3ml8r")
+
+[node name="Info" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.7, 0)
+billboard = 1
+texture = ExtResource("9_mjq6i")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

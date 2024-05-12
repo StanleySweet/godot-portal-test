@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbhog2pvxytok"]
+
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/ui/score/score.gd" id="1_gq8xv"]
+[ext_resource type="Texture2D" uid="uid://c51pg50bl75db" path="res://DemonsOnDemand/sprites/UI/IG/Frame 6.png" id="2_ofl1a"]
+[ext_resource type="FontFile" uid="uid://p11t7pomjknx" path="res://DemonsOnDemand/fonts/Source Serif 4/Variants/SourceSerif4-Regular-700.tres" id="3_dvfht"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vh5xx"]
+
+[sub_resource type="FontVariation" id="FontVariation_m2huw"]
+base_font = ExtResource("3_dvfht")
+variation_opentype = {
+1869640570: null,
+2003265652: 700
+}
+
+[sub_resource type="Theme" id="Theme_x1nm5"]
+default_font = SubResource("FontVariation_m2huw")
+default_font_size = 25
+
+[node name="Score" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gq8xv")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_vh5xx")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 53.0
+offset_right = 48.0
+offset_bottom = 83.0
+texture = ExtResource("2_ofl1a")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 2
+offset_left = 53.0
+offset_top = 53.0
+offset_right = 238.0
+offset_bottom = 98.0
+theme = SubResource("Theme_x1nm5")
+text = "0"

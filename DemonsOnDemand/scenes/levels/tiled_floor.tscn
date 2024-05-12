@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7cp0osmleqok"]
+
+[ext_resource type="Material" uid="uid://dfnfrke7euqj7" path="res://DemonsOnDemand/textures/ground/ground.tres" id="1_w4brr"]
+[ext_resource type="PackedScene" uid="uid://cyxfif7he0h5s" path="res://DemonsOnDemand/scenes/components/grass/grass_patch.tscn" id="2_dch23"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_m4t76"]
+material = ExtResource("1_w4brr")
+uv2_padding = 0.0
+size = Vector2(120, 120)
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_ohvqu"]
+
+[node name="TiledFloor" type="MeshInstance3D"]
+mesh = SubResource("PlaneMesh_m4t76")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(120, 0, 0, 0, 120, 0, 0, 0, 120, 0, 0, 0)
+shape = SubResource("HeightMapShape3D_ohvqu")
+
+[node name="GrassContainer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.1712)
+
+[node name="GrassPatch" parent="GrassContainer" instance=ExtResource("2_dch23")]
+
+[node name="GrassPatch2" parent="GrassContainer" instance=ExtResource("2_dch23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93844, 0.03565, -2.44338)
+
+[node name="GrassPatch3" parent="GrassContainer" instance=ExtResource("2_dch23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75118, 0.03565, -0.96019)

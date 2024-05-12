@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbrf3ga5qro3t"]
+
+[ext_resource type="PackedScene" uid="uid://36awfsybyx0m" path="res://DemonsOnDemand/models/environment/tentacles.glb" id="1_giybt"]
+
+[node name="tentacles" instance=ExtResource("1_giybt")]
+
+[node name="Skeleton3D" parent="Armature_001" index="0"]
+bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
+bones/1/position = Vector3(-0.124038, -0.220183, 0.482684)
+bones/1/rotation = Quaternion(-0.104428, 1.18558e-07, -1.24488e-08, 0.994532)
+bones/2/rotation = Quaternion(-0.0800795, 0.00437665, 0.0345899, 0.996179)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(0.504105, 0.293921, -0.163745, 0.795409)
+bones/4/rotation = Quaternion(0.733622, 0.0129595, 0.380912, 0.562616)
+bones/5/position = Vector3(-0.269834, -0.26302, 0.0859992)
+bones/5/rotation = Quaternion(-0.111063, 0.0184977, 0.176163, 0.977901)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/rotation = Quaternion(-0.0879809, 0.0747458, 0.127515, 0.985095)
+bones/7/rotation = Quaternion(0.490941, 0.159627, -0.183249, 0.83661)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(0.900948, -0.110534, 0.0693501, 0.413843)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/position = Vector3(0.186263, -0.140107, 0.1227)
+bones/10/rotation = Quaternion(-0.0669243, -0.0206442, -0.212519, 0.974644)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/rotation = Quaternion(0.209179, 0.252049, 0.556652, 0.763449)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/rotation = Quaternion(0.799294, -0.505252, 0.235386, 0.224596)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/position = Vector3(0.404881, 0.506826, 0.0937786)
+bones/13/rotation = Quaternion(0.0690512, 1.18925e-07, 8.23154e-09, 0.997613)
+bones/14/position = Vector3(-0.198363, 0.481459, -0.282799)
+bones/14/rotation = Quaternion(0.0691555, 1.18924e-07, 8.24397e-09, 0.997606)
+bones/15/position = Vector3(-0.27256, 0.392782, 0.484438)
+bones/15/rotation = Quaternion(-0.102857, 0.0180509, -0.171908, 0.979562)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "idle"

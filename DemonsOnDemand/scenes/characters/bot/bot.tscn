@@ -1,0 +1,254 @@
+[gd_scene load_steps=24 format=3 uid="uid://g476xjlo7we"]
+
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/characters/bot/bot_controller.gd" id="1_2hkxi"]
+[ext_resource type="Texture2D" uid="uid://d0vkdc0yuycb8" path="res://DemonsOnDemand/sprites/ingredients/hold_bag_blue.png" id="1_vwkij"]
+[ext_resource type="Texture2D" uid="uid://cvscjreipnohs" path="res://DemonsOnDemand/sprites/bot/intern_left_head.png" id="2_kl2he"]
+[ext_resource type="Texture2D" uid="uid://b3m01sp1aoxq0" path="res://DemonsOnDemand/sprites/bot/intern_right_head.png" id="3_0twc0"]
+[ext_resource type="Texture2D" uid="uid://drj3ko1n7phwp" path="res://DemonsOnDemand/sprites/bot/intern_left_body.png" id="3_n1bxc"]
+[ext_resource type="Texture2D" uid="uid://b4njc2qjy3a2v" path="res://DemonsOnDemand/sprites/bot/intern_right_body.png" id="5_m06g8"]
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/characters/inventory.gd" id="7_1gavd"]
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/characters/summoner/detection_area.gd" id="18_y785t"]
+[ext_resource type="AudioStream" uid="uid://bbovapog3t6l5" path="res://DemonsOnDemand/sfx/footsteps.mp3" id="19_8uul1"]
+[ext_resource type="AudioStream" uid="uid://dsmq3l4cdkowk" path="res://DemonsOnDemand/sfx/Items/drop.mp3" id="20_xhayx"]
+[ext_resource type="AudioStream" uid="uid://i1sc0m7lgasj" path="res://DemonsOnDemand/sfx/Items/pick_up_1.mp3" id="21_uybfw"]
+[ext_resource type="AudioStream" uid="uid://bpg0snkswhmvb" path="res://DemonsOnDemand/sfx/Items/pick_up_2.mp3" id="22_ab5rt"]
+[ext_resource type="AudioStream" uid="uid://cm0t884jtg8fo" path="res://DemonsOnDemand/sfx/Items/pick_up_3.mp3" id="23_wr1n0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4b5f5"]
+size = Vector3(0.781625, 0.909823, 0.538472)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jqabg"]
+size = Vector3(0.972472, 0.808487, 0.761082)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_husnx"]
+size = Vector3(4, 1, 4)
+
+[sub_resource type="Animation" id="Animation_0lfax"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4l5e2"]
+resource_name = "head_animation"
+length = 1.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.8, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.132, 0), Vector3(0, 0.178, 0), Vector3(0, 0, 0), Vector3(0, -0.132, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gb3i5"]
+_data = {
+"RESET": SubResource("Animation_0lfax"),
+"head_animation": SubResource("Animation_4l5e2")
+}
+
+[sub_resource type="Animation" id="Animation_faro8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Arms:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.86, -0.84, 0.201)]
+}
+
+[sub_resource type="Animation" id="Animation_r42nk"]
+resource_name = "body_animation_left"
+length = 1.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.135, 0, 0), Vector3(0.135, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Arms:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.86, -0.84, 0.201), Vector3(-0.86, -1.15, 0.201), Vector3(-0.86, -0.84, 0.201), Vector3(-0.86, -0.84, 0.201)]
+}
+
+[sub_resource type="Animation" id="Animation_rdtru"]
+resource_name = "body_animation_right"
+length = 1.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.135, 0, 0), Vector3(0.135, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Arms:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.86, -0.84, 0.201), Vector3(0.86, -1.15, 0.201), Vector3(0.86, -0.84, 0.201), Vector3(0.86, -0.84, 0.201)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qbdlm"]
+_data = {
+"RESET": SubResource("Animation_faro8"),
+"body_animation_left": SubResource("Animation_r42nk"),
+"body_animation_right": SubResource("Animation_rdtru")
+}
+
+[node name="Bot" type="CharacterBody3D"]
+collision_layer = 64
+collision_mask = 4
+script = ExtResource("1_2hkxi")
+speed = 1.0
+launch_force = 2
+heads = {
+0: ExtResource("2_kl2he"),
+1: ExtResource("3_0twc0")
+}
+bodies = {
+0: ExtResource("3_n1bxc"),
+1: ExtResource("5_m06g8")
+}
+
+[node name="Graphics" type="Sprite3D" parent="."]
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0, 0.275, 0)
+alpha_cut = 2
+texture_filter = 0
+
+[node name="Arms" type="Sprite3D" parent="Graphics"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.86, -0.84, 0.201)
+sorting_offset = 1.0
+render_priority = 2
+texture = ExtResource("1_vwkij")
+
+[node name="Head" type="Sprite3D" parent="Graphics"]
+pixel_size = 0.0155
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_kl2he")
+
+[node name="Body" type="Sprite3D" parent="Graphics"]
+pixel_size = 0.0155
+texture_filter = 0
+texture = ExtResource("3_n1bxc")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.61, 0, 0, 0, 0.61, 0, 0, 0, 0.61, -0.000715099, 0.272155, 0.000415469)
+shape = SubResource("BoxShape3D_4b5f5")
+
+[node name="Inventory" type="Node3D" parent="."]
+script = ExtResource("7_1gavd")
+allArmsSprites = Array[CompressedTexture2D]([ExtResource("1_vwkij"), ExtResource("1_vwkij"), ExtResource("1_vwkij"), ExtResource("1_vwkij"), ExtResource("1_vwkij"), ExtResource("1_vwkij"), ExtResource("1_vwkij"), ExtResource("1_vwkij"), ExtResource("1_vwkij"), ExtResource("1_vwkij"), ExtResource("1_vwkij")])
+
+[node name="CloseDetectionArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 44
+script = ExtResource("18_y785t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CloseDetectionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00921488, 0.266334, -0.000280191)
+shape = SubResource("BoxShape3D_jqabg")
+
+[node name="FarDetectionArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 44
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FarDetectionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_husnx")
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_8uul1")
+volume_db = -10.0
+
+[node name="Drop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_xhayx")
+volume_db = -10.0
+
+[node name="Pick-Ups" type="Node" parent="."]
+
+[node name="Pi1" type="AudioStreamPlayer" parent="Pick-Ups"]
+stream = ExtResource("21_uybfw")
+volume_db = -10.0
+
+[node name="PI2" type="AudioStreamPlayer" parent="Pick-Ups"]
+stream = ExtResource("22_ab5rt")
+volume_db = -10.0
+
+[node name="Pi3" type="AudioStreamPlayer" parent="Pick-Ups"]
+stream = ExtResource("23_wr1n0")
+volume_db = -10.0
+
+[node name="HeadAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gb3i5")
+}
+autoplay = "head_animation"
+
+[node name="BodyAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qbdlm")
+}
+speed_scale = 0.0
+
+[connection signal="body_entered" from="CloseDetectionArea" to="." method="_on_close_detection_area_body_entered"]
+[connection signal="body_entered" from="FarDetectionArea" to="." method="_on_far_detection_area_body_entered"]
+[connection signal="body_exited" from="FarDetectionArea" to="." method="_on_far_detection_area_body_exited"]

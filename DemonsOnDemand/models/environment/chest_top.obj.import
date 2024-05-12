@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://o3ops11uu0o"
+path="res://.godot/imported/chest_top.obj-8ea1293ff9eb785857c40d756d7a67e1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/chest_top.obj-8ea1293ff9eb785857c40d756d7a67e1.mesh"]
+
+source_file="res://DemonsOnDemand/models/environment/chest_top.obj"
+dest_files=["res://.godot/imported/chest_top.obj-8ea1293ff9eb785857c40d756d7a67e1.mesh", "res://.godot/imported/chest_top.obj-8ea1293ff9eb785857c40d756d7a67e1.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

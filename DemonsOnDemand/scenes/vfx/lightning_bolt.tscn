@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0lm3qwmsvynv"]
+
+[ext_resource type="ArrayMesh" uid="uid://cfq4kgybhncgu" path="res://DemonsOnDemand/models/vfx/thunder_bolt.tres" id="1_fqung"]
+
+[sub_resource type="Gradient" id="Gradient_m2qkb"]
+offsets = PackedFloat32Array(0, 0.581818)
+
+[node name="Bolt" type="CPUParticles3D"]
+amount = 1
+lifetime = 0.7
+lifetime_randomness = 0.1
+fixed_fps = 30
+mesh = ExtResource("1_fqung")
+emission_shape = 2
+emission_sphere_radius = 0.4
+particle_flag_rotate_y = true
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.2
+scale_amount_max = 0.3
+color_ramp = SubResource("Gradient_m2qkb")

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="RequestTemplate" load_steps=6 format=3 uid="uid://cxt5p7ig7cqjg"]
+
+[ext_resource type="Texture2D" uid="uid://bafb8pnnki1hp" path="res://DemonsOnDemand/scenes/ui/summonings/requests/summon_green_horn.png" id="1_a53pw"]
+[ext_resource type="Texture2D" uid="uid://ch575uqsc7t3b" path="res://DemonsOnDemand/scenes/ui/summonings/requests/summon_green_horns.png" id="2_ocft3"]
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/ui/summonings/request_template.gd" id="3_1y8rj"]
+[ext_resource type="Texture2D" uid="uid://c7ythmqe24rj8" path="res://DemonsOnDemand/scenes/ui/summonings/requests/summon_green_tentacle.png" id="4_agoyg"]
+[ext_resource type="Texture2D" uid="uid://bluimwipe77cn" path="res://DemonsOnDemand/scenes/ui/summonings/requests/summon_green_wing.png" id="5_jvmii"]
+
+[resource]
+script = ExtResource("3_1y8rj")
+portal_type = 2
+inner_color = Color(0.67451, 0.831373, 0.431373, 1)
+outer_color = Color(0.505882, 0.643137, 0.309804, 1)
+horn = ExtResource("1_a53pw")
+horns = ExtResource("2_ocft3")
+tentacle = ExtResource("4_agoyg")
+wing = ExtResource("5_jvmii")

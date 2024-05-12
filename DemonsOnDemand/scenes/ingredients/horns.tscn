@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtf25lfdl3qmb"]
+
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/ingredients/Ingredient.gd" id="2_34jab"]
+[ext_resource type="Texture2D" uid="uid://b70nsbbn7vpsm" path="res://DemonsOnDemand/sprites/items/horns/item_horn_01.png" id="2_oj24i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jgpd4"]
+size = Vector3(0.386, 0.338, 0.15)
+
+[node name="horns" type="RigidBody3D"]
+collision_layer = 40
+collision_mask = 6
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+freeze_mode = 1
+script = ExtResource("2_34jab")
+ingredient_type = 1
+refinement_duration = 4.0
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.021, 0)
+shape = SubResource("BoxShape3D_jgpd4")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+billboard = 1
+texture_filter = 0
+texture = ExtResource("2_oj24i")

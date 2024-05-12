@@ -1,0 +1,255 @@
+[gd_scene load_steps=34 format=3 uid="uid://cu5lmkvr6q1fi"]
+
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/characters/summoner/summoner_controller.gd" id="1_0royt"]
+[ext_resource type="Texture2D" uid="uid://d0vkdc0yuycb8" path="res://DemonsOnDemand/sprites/ingredients/hold_bag_blue.png" id="2_w0lvg"]
+[ext_resource type="AudioStream" uid="uid://bbovapog3t6l5" path="res://DemonsOnDemand/sfx/footsteps.mp3" id="3_e6qa7"]
+[ext_resource type="Texture2D" uid="uid://c8mhen30cywef" path="res://DemonsOnDemand/sprites/Summoner/player_right_head.png" id="3_e07ya"]
+[ext_resource type="Texture2D" uid="uid://bumxqibkvuoj" path="res://DemonsOnDemand/sprites/ingredients/horns/hold_horn_02.png" id="3_m5fth"]
+[ext_resource type="Texture2D" uid="uid://3y7whi4xmpgp" path="res://DemonsOnDemand/sprites/ingredients/horns/hold_horn_01.png" id="3_n2sct"]
+[ext_resource type="Texture2D" uid="uid://cu6ptlts40xiu" path="res://DemonsOnDemand/sprites/Summoner/player_left_head.png" id="4_0k08t"]
+[ext_resource type="Texture2D" uid="uid://bi1521asm16ym" path="res://DemonsOnDemand/sprites/Summoner/player_left_body.png" id="5_g2w43"]
+[ext_resource type="Texture2D" uid="uid://dgtth6uos3t0s" path="res://DemonsOnDemand/sprites/Summoner/player_right_body.png" id="5_oebie"]
+[ext_resource type="Texture2D" uid="uid://di24dp5p5mdk4" path="res://DemonsOnDemand/sprites/ingredients/tentacles/hold_squid.png" id="6_l48hy"]
+[ext_resource type="Texture2D" uid="uid://b0hv0i8hchsgv" path="res://DemonsOnDemand/sprites/ingredients/tentacles/hold_tentacle.png" id="7_1bw0j"]
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/characters/inventory.gd" id="7_b7ntu"]
+[ext_resource type="Texture2D" uid="uid://b8uofe8i4r0rf" path="res://DemonsOnDemand/sprites/ingredients/wings/hold_wing_01.png" id="8_22kuo"]
+[ext_resource type="Texture2D" uid="uid://vungdh3balrg" path="res://DemonsOnDemand/sprites/ingredients/wings/hold_wing_02.png" id="9_5m8qw"]
+[ext_resource type="Texture2D" uid="uid://cndyhd6nih0pc" path="res://DemonsOnDemand/sprites/ingredients/wings/hold_wing_03.png" id="10_hnwjd"]
+[ext_resource type="Texture2D" uid="uid://ynggy4iwdbdw" path="res://DemonsOnDemand/sprites/ingredients/wings/hold_wing_04.png" id="11_8e6cg"]
+[ext_resource type="Texture2D" uid="uid://1uoq1xl6nvm4" path="res://DemonsOnDemand/sprites/ingredients/horns/hold_horn_03.png" id="15_u027u"]
+[ext_resource type="Texture2D" uid="uid://bjqf1whs34qao" path="res://DemonsOnDemand/sprites/ingredients/hold_bag.png" id="16_42cvk"]
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/characters/summoner/detection_area.gd" id="18_cpbyw"]
+[ext_resource type="Texture2D" uid="uid://biamho53u7mrw" path="res://DemonsOnDemand/sprites/ingredients/wings/hold_wing_05.png" id="18_kylgy"]
+[ext_resource type="AudioStream" uid="uid://dsmq3l4cdkowk" path="res://DemonsOnDemand/sfx/Items/drop.mp3" id="20_pkjk3"]
+[ext_resource type="AudioStream" uid="uid://i1sc0m7lgasj" path="res://DemonsOnDemand/sfx/Items/pick_up_1.mp3" id="21_m3b04"]
+[ext_resource type="AudioStream" uid="uid://bpg0snkswhmvb" path="res://DemonsOnDemand/sfx/Items/pick_up_2.mp3" id="22_t68iv"]
+[ext_resource type="AudioStream" uid="uid://cm0t884jtg8fo" path="res://DemonsOnDemand/sfx/Items/pick_up_3.mp3" id="23_lpume"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h0ux7"]
+size = Vector3(0.781625, 0.909823, 0.538472)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hyhum"]
+size = Vector3(0.899084, 0.9, 0.771545)
+
+[sub_resource type="Animation" id="Animation_0lfax"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4l5e2"]
+resource_name = "head_animation"
+length = 1.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.8, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.132, 0), Vector3(0, 0.178, 0), Vector3(0, 0, 0), Vector3(0, -0.132, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gb3i5"]
+_data = {
+"RESET": SubResource("Animation_0lfax"),
+"head_animation": SubResource("Animation_4l5e2")
+}
+
+[sub_resource type="Animation" id="Animation_faro8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Arms:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.86, -0.84, 0.201)]
+}
+
+[sub_resource type="Animation" id="Animation_r42nk"]
+resource_name = "body_animation_left"
+length = 1.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.135, 0, 0), Vector3(0.135, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Arms:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.86, -0.84, 0.201), Vector3(-0.86, -1.15, 0.201), Vector3(-0.86, -0.84, 0.201), Vector3(-0.86, -0.84, 0.201)]
+}
+
+[sub_resource type="Animation" id="Animation_rdtru"]
+resource_name = "body_animation_right"
+length = 1.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.135, 0, 0), Vector3(0.135, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Arms:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.86, -0.84, 0.201), Vector3(0.86, -1.15, 0.201), Vector3(0.86, -0.84, 0.201), Vector3(0.86, -0.84, 0.201)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qbdlm"]
+_data = {
+"RESET": SubResource("Animation_faro8"),
+"body_animation_left": SubResource("Animation_r42nk"),
+"body_animation_right": SubResource("Animation_rdtru")
+}
+
+[node name="Summoner" type="CharacterBody3D" groups=["Player"]]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+motion_mode = 1
+script = ExtResource("1_0royt")
+bot_bag_sprite = ExtResource("2_w0lvg")
+heads = {
+0: ExtResource("4_0k08t"),
+1: ExtResource("3_e07ya")
+}
+bodies = {
+0: ExtResource("5_g2w43"),
+1: ExtResource("5_oebie")
+}
+
+[node name="Graphics" type="Sprite3D" parent="."]
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0, 0.275, 0)
+alpha_cut = 2
+texture_filter = 0
+
+[node name="Arms" type="Sprite3D" parent="Graphics"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.86, -0.84, 0.201)
+sorting_offset = 1.0
+render_priority = 2
+texture = ExtResource("3_m5fth")
+
+[node name="Head" type="Sprite3D" parent="Graphics"]
+pixel_size = 0.0155
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("4_0k08t")
+
+[node name="Body" type="Sprite3D" parent="Graphics"]
+pixel_size = 0.0155
+texture_filter = 0
+texture = ExtResource("5_g2w43")
+
+[node name="Collision" type="CollisionShape3D" parent="." groups=["Player"]]
+transform = Transform3D(0.61, 0, 0, 0, 0.61, 0, 0, 0, 0.61, -0.000715099, 0.272155, 0.000415469)
+shape = SubResource("BoxShape3D_h0ux7")
+
+[node name="Inventory" type="Node3D" parent="."]
+script = ExtResource("7_b7ntu")
+allArmsSprites = Array[CompressedTexture2D]([ExtResource("3_n2sct"), ExtResource("3_m5fth"), ExtResource("15_u027u"), ExtResource("6_l48hy"), ExtResource("7_1bw0j"), ExtResource("8_22kuo"), ExtResource("9_5m8qw"), ExtResource("10_hnwjd"), ExtResource("11_8e6cg"), ExtResource("18_kylgy"), ExtResource("16_42cvk")])
+
+[node name="DetectionArea" type="Area3D" parent="." node_paths=PackedStringArray("inventory_node") groups=["Player"]]
+collision_layer = 0
+collision_mask = 76
+script = ExtResource("18_cpbyw")
+inventory_node = NodePath("../Inventory")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0251662, 0.266334, -0.0206964)
+shape = SubResource("BoxShape3D_hyhum")
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_e6qa7")
+volume_db = -5.0
+
+[node name="Drop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_pkjk3")
+volume_db = -5.0
+
+[node name="Pick-Ups" type="Node" parent="."]
+
+[node name="Pi1" type="AudioStreamPlayer" parent="Pick-Ups"]
+stream = ExtResource("21_m3b04")
+volume_db = -5.0
+
+[node name="PI2" type="AudioStreamPlayer" parent="Pick-Ups"]
+stream = ExtResource("22_t68iv")
+volume_db = -5.0
+
+[node name="Pi3" type="AudioStreamPlayer" parent="Pick-Ups"]
+stream = ExtResource("23_lpume")
+volume_db = -5.0
+
+[node name="HeadAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gb3i5")
+}
+autoplay = "head_animation"
+
+[node name="BodyAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qbdlm")
+}
+speed_scale = 0.0
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="DetectionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_exited" from="DetectionArea" to="DetectionArea" method="_on_body_exited"]

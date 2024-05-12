@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b8qaicmiislkh"]
+
+[ext_resource type="Texture2D" uid="uid://prvxclp88pcc" path="res://DemonsOnDemand/textures/ground_detail/ground_detail01.png" id="1_yig0i"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_yig0i")
+texture_filter = 0
+texture_repeat = false
+billboard_mode = 1

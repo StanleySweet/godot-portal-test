@@ -1,0 +1,45 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bryhhrsamtfko"
+path="res://.godot/imported/wall_door_01.glb-80b89e154e0703e7a508d45ba6cf1496.scn"
+
+[deps]
+
+source_file="res://DemonsOnDemand/models/environment/wall_door_01.glb"
+dest_files=["res://.godot/imported/wall_door_01.glb-80b89e154e0703e7a508d45ba6cf1496.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"materials": {
+"tilemap.001": {
+"use_external/enabled": true,
+"use_external/path": "res://DemonsOnDemand/materials/wall_door.tres"
+},
+"wood": {
+"use_external/enabled": true,
+"use_external/path": "res://DemonsOnDemand/materials/wood.tres"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

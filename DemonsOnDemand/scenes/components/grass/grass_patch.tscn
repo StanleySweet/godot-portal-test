@@ -1,0 +1,120 @@
+[gd_scene load_steps=9 format=3 uid="uid://cyxfif7he0h5s"]
+
+[ext_resource type="Material" uid="uid://b8qaicmiislkh" path="res://DemonsOnDemand/textures/ground_detail/ground_detail01.tres" id="1_kl2p3"]
+[ext_resource type="Material" uid="uid://dxxqf55tmlgae" path="res://DemonsOnDemand/textures/ground_detail/ground_detail02.tres" id="2_urr0x"]
+[ext_resource type="Material" uid="uid://3nuhqeyelr4u" path="res://DemonsOnDemand/textures/ground_detail/ground_detail03.tres" id="3_80ecr"]
+
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xh1ue"]
+material = ExtResource("1_kl2p3")
+size = Vector2(0.15, 0.15)
+orientation = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cb80l"]
+material = ExtResource("1_kl2p3")
+size = Vector2(0.17, 0.19)
+orientation = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1d2xp"]
+material = ExtResource("2_urr0x")
+size = Vector2(0.15, 0.15)
+orientation = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vw2j5"]
+material = ExtResource("3_80ecr")
+size = Vector2(0.15, 0.15)
+orientation = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mc1kh"]
+material = ExtResource("3_80ecr")
+size = Vector2(0.25, 0.23)
+orientation = 2
+
+[node name="GrassPatch" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Grass01" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00274473, 0.075, 0)
+mesh = SubResource("PlaneMesh_xh1ue")
+
+[node name="Grass05" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.296368, 0.0972736, 0)
+mesh = SubResource("PlaneMesh_cb80l")
+
+[node name="Grass04" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.149931, 0.075, -0.132069)
+mesh = SubResource("PlaneMesh_xh1ue")
+
+[node name="Grass02" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0503199, 0.075, -0.107464)
+mesh = SubResource("PlaneMesh_1d2xp")
+
+[node name="Grass18" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.540859, 0.075, 0.720323)
+mesh = SubResource("PlaneMesh_xh1ue")
+
+[node name="Grass19" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.731588, 0.0972736, 0.169848)
+mesh = SubResource("PlaneMesh_cb80l")
+
+[node name="Grass20" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.393673, 0.075, 0.588254)
+mesh = SubResource("PlaneMesh_xh1ue")
+
+[node name="Grass21" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.593924, 0.075, 0.612859)
+mesh = SubResource("PlaneMesh_1d2xp")
+
+[node name="Grass14" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07146, 0.0972736, 0.610896)
+mesh = SubResource("PlaneMesh_cb80l")
+
+[node name="Grass17" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.295489, 0.0972736, 0.647827)
+mesh = SubResource("PlaneMesh_cb80l")
+
+[node name="Grass15" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.784818, 0.075, 0.478827)
+mesh = SubResource("PlaneMesh_xh1ue")
+
+[node name="Grass16" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.724775, 0.075, 0.503432)
+mesh = SubResource("PlaneMesh_1d2xp")
+
+[node name="Grass07" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.413751, 0.075, 0.324711)
+mesh = SubResource("PlaneMesh_xh1ue")
+
+[node name="Grass08" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.614002, 0.075, 0.349316)
+mesh = SubResource("PlaneMesh_1d2xp")
+
+[node name="Grass06" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.238334, 0.075, 0.0520778)
+mesh = SubResource("PlaneMesh_1d2xp")
+
+[node name="Grass03" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112076, 0.075, -0.0491034)
+mesh = SubResource("PlaneMesh_vw2j5")
+
+[node name="Grass11" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.322396, 0.075, 0.697363)
+mesh = SubResource("PlaneMesh_1d2xp")
+
+[node name="Grass12" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.465895, 0.075, 0.338495)
+mesh = SubResource("PlaneMesh_1d2xp")
+
+[node name="Grass13" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.403682, 0.075, 0.298944)
+mesh = SubResource("PlaneMesh_vw2j5")
+
+[node name="Grass09" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.568749, 0.117771, 0.176947)
+mesh = SubResource("PlaneMesh_mc1kh")
+
+[node name="Grass10" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.636759, 0.075, 0.234774)
+mesh = SubResource("PlaneMesh_vw2j5")

@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://6qi2k08jnfrx"]
+
+[ext_resource type="Shader" uid="uid://bjs0jqfgbf6n1" path="res://DemonsOnDemand/shaders/bolt/mark_shader.tres" id="1_uxjgn"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_uxjgn")
+shader_parameter/MarkColor = Color(0.5, 1, 4, 1)

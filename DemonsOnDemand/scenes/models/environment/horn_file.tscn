@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxm4i4xy5u7de"]
+
+[ext_resource type="PackedScene" uid="uid://bf5igw2t2x2xf" path="res://DemonsOnDemand/models/environment/horn_file.glb" id="1_eg7ml"]
+
+[node name="horn_file" instance=ExtResource("1_eg7ml")]

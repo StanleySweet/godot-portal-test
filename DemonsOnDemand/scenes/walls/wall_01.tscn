@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvcv4somehnah"]
+
+[ext_resource type="PackedScene" uid="uid://4l3y0wbi6110" path="res://DemonsOnDemand/scenes/models/environment/wall_01.tscn" id="1_30y4s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t0j5f"]
+size = Vector3(0.267853, 1.20044, 1.99158)
+
+[node name="Wall01" type="StaticBody3D"]
+collision_layer = 31
+collision_mask = 0
+
+[node name="wall_01" parent="." instance=ExtResource("1_30y4s")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0371246, 0.597534, 0)
+shape = SubResource("BoxShape3D_t0j5f")

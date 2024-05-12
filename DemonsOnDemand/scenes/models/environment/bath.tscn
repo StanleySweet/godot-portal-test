@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://3nlibnd4o6g2"]
+
+[ext_resource type="PackedScene" uid="uid://cqvut4eu3aora" path="res://DemonsOnDemand/models/environment/bath.glb" id="1_kq77r"]
+[ext_resource type="Texture2D" uid="uid://c2ftlxi6c8t6h" path="res://DemonsOnDemand/sprites/environment/bath.png" id="2_qfe17"]
+[ext_resource type="Shader" path="res://DemonsOnDemand/shaders/green_water.gdshader" id="3_5vi30"]
+[ext_resource type="Texture2D" uid="uid://cpq8tte3o8coh" path="res://DemonsOnDemand/sprites/noises/WaterDistortion.png" id="4_6x0au"]
+[ext_resource type="Texture2D" uid="uid://0efofyy5sw0o" path="res://DemonsOnDemand/sprites/noises/PerlinNoise.png" id="5_lf27n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_we1x7"]
+albedo_texture = ExtResource("2_qfe17")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ginv"]
+render_priority = 0
+shader = ExtResource("3_5vi30")
+shader_parameter/beer_factor = 0.8
+shader_parameter/foam_distance = 0.01
+shader_parameter/foam_max_distance = 0.4
+shader_parameter/foam_min_distance = 0.04
+shader_parameter/foam_color = Color(1, 1, 1, 1)
+shader_parameter/surface_noise_tiling = Vector2(1, 4)
+shader_parameter/surface_noise_scroll = Vector3(0.03, 0.03, 0)
+shader_parameter/surface_noise_cutoff = 0.777
+shader_parameter/surface_distortion_amount = 0.27
+shader_parameter/_DepthGradientShallow = Color(0, 0.784314, 0.262745, 1)
+shader_parameter/_DepthGradientDeep = Color(0, 0.560784, 0.294118, 1)
+shader_parameter/_DepthMaxDistance = 1.0
+shader_parameter/_DepthFactor = 1.0
+shader_parameter/surfaceNoise = ExtResource("5_lf27n")
+shader_parameter/distortNoise = ExtResource("4_6x0au")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_un4hu"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0.447059)
+
+[sub_resource type="SphereMesh" id="SphereMesh_gd5oj"]
+material = SubResource("StandardMaterial3D_un4hu")
+radius = 0.01
+height = 0.02
+radial_segments = 10
+
+[sub_resource type="Gradient" id="Gradient_cc24m"]
+colors = PackedColorArray(0.905882, 0.133333, 0.133333, 1, 0.964706, 0.560784, 0.133333, 1)
+
+[node name="bath" instance=ExtResource("1_kq77r")]
+
+[node name="Cube_007" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00786138, 0.00176439, 0.0144265)
+material_override = SubResource("StandardMaterial3D_we1x7")
+
+[node name="Cube_003" parent="Cube_007" index="0"]
+material_override = SubResource("ShaderMaterial_1ginv")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.365327, 0.223181, 0.397172)
+amount = 3
+lifetime = 0.35
+mesh = SubResource("SphereMesh_gd5oj")
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.1
+scale_amount_min = 0.0
+scale_amount_max = 1.2
+color_ramp = SubResource("Gradient_cc24m")

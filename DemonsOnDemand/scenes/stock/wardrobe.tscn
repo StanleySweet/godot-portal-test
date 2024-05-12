@@ -1,0 +1,93 @@
+[gd_scene load_steps=15 format=3 uid="uid://dgiqd3s16eyni"]
+
+[ext_resource type="Material" uid="uid://bss8uqnleamk4" path="res://DemonsOnDemand/materials/wardrobe.tres" id="1_ahaop"]
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/stock/stock.gd" id="1_hhp06"]
+[ext_resource type="ArrayMesh" uid="uid://dmw222ahoshg2" path="res://DemonsOnDemand/models/environment/door_left.obj" id="2_guapw"]
+[ext_resource type="PackedScene" uid="uid://dtf25lfdl3qmb" path="res://DemonsOnDemand/scenes/ingredients/horns.tscn" id="2_mig1m"]
+[ext_resource type="ArrayMesh" uid="uid://dkgy32f5mytfn" path="res://DemonsOnDemand/models/environment/door_right.obj" id="3_8vurj"]
+[ext_resource type="ArrayMesh" uid="uid://baqreug7qrudj" path="res://DemonsOnDemand/models/environment/wardrobe.obj" id="4_ncyxg"]
+[ext_resource type="Material" uid="uid://dd6gguo4ukxtc" path="res://DemonsOnDemand/materials/books.tres" id="5_pcr37"]
+[ext_resource type="Texture2D" uid="uid://btnde7f5akb6e" path="res://DemonsOnDemand/sprites/generic/action_feedback.png" id="6_7pics"]
+[ext_resource type="AudioStream" uid="uid://ud1030g0fh6o" path="res://DemonsOnDemand/sfx/stocks/Placard/closet_approx.mp3" id="7_qay1m"]
+[ext_resource type="AudioStream" uid="uid://dsv8kruwpkdby" path="res://DemonsOnDemand/sfx/stocks/Placard/closet_use.mp3" id="8_23cqe"]
+[ext_resource type="Texture2D" uid="uid://dkiq8e8416gce" path="res://DemonsOnDemand/sprites/infos/info_get_horn01.png" id="11_7ms1x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_46g6l"]
+size = Vector3(0.777889, 1.10654, 0.501938)
+
+[sub_resource type="Animation" id="Animation_grhvm"]
+resource_name = "open"
+length = 0.6
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.1, 1, 0, 0.311025, 0, 0.950402, 0.6, 1, 0, 0, 0, 1)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../DoorLeft")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.1, 1, 0, -0.292897, 0, 0.956144, 0.6, 1, 0, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wrh6v"]
+_data = {
+"open": SubResource("Animation_grhvm")
+}
+
+[node name="Node3D" type="StaticBody3D" node_paths=PackedStringArray("interact_hand", "info")]
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_hhp06")
+ingredient = ExtResource("2_mig1m")
+interact_hand = NodePath("Interact")
+info = NodePath("Info")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.000421572, 0.549789, 0.0822766)
+shape = SubResource("BoxShape3D_46g6l")
+
+[node name="DoorLeft" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32351, 0.57, 0.193755)
+material_override = ExtResource("1_ahaop")
+mesh = ExtResource("2_guapw")
+
+[node name="DoorRight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.326115, 0.57, 0.193592)
+material_override = ExtResource("1_ahaop")
+mesh = ExtResource("3_8vurj")
+
+[node name="Wardrobe" type="MeshInstance3D" parent="."]
+mesh = ExtResource("4_ncyxg")
+surface_material_override/0 = ExtResource("1_ahaop")
+surface_material_override/1 = ExtResource("5_pcr37")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../DoorRight")
+libraries = {
+"": SubResource("AnimationLibrary_wrh6v")
+}
+
+[node name="Approx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_qay1m")
+volume_db = -5.0
+
+[node name="Use" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_23cqe")
+volume_db = -5.0
+
+[node name="Interact" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1.3, 0)
+visible = false
+billboard = 1
+texture = ExtResource("6_7pics")
+
+[node name="Info" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1.3, 0)
+billboard = 1
+texture = ExtResource("11_7ms1x")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

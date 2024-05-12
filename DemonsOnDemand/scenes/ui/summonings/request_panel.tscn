@@ -1,0 +1,177 @@
+[gd_scene load_steps=17 format=3 uid="uid://dayv2qslseivy"]
+
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/ui/summonings/request_panel.gd" id="1_f7rd1"]
+[ext_resource type="Texture2D" uid="uid://bg0qmlr7t61nv" path="res://DemonsOnDemand/scenes/ui/summonings/background_request_panel.png" id="2_10krj"]
+[ext_resource type="PackedScene" uid="uid://bapomslg5v1sm" path="res://DemonsOnDemand/scenes/ui/timer/timer.tscn" id="3_56lft"]
+[ext_resource type="FontFile" uid="uid://chyuy38yfsvcq" path="res://DemonsOnDemand/fonts/Source Serif 4/Variants/SourceSerif4-Italics-200.tres" id="3_oaqug"]
+[ext_resource type="FontFile" uid="uid://p11t7pomjknx" path="res://DemonsOnDemand/fonts/Source Serif 4/Variants/SourceSerif4-Regular-700.tres" id="4_2viqt"]
+[ext_resource type="PackedScene" uid="uid://cs4hiwnhtaeml" path="res://DemonsOnDemand/scenes/ui/summonings/ingredients_row.tscn" id="6_f4q0o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_88cb3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fxqv1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_maenp"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.945098, 0.85098, 0.529412, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+anti_aliasing = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_anjx7"]
+
+[sub_resource type="Theme" id="Theme_xfoqe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e04x0"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ejlk5"]
+bg_color = Color(0.313726, 0.313726, 0.313726, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.215686, 0.215686, 0.215686, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+anti_aliasing = false
+
+[sub_resource type="FontVariation" id="FontVariation_4tdt3"]
+base_font = ExtResource("3_oaqug")
+variation_opentype = {
+1869640570: null
+}
+spacing_bottom = -8
+
+[sub_resource type="FontVariation" id="FontVariation_yjsp6"]
+base_font = ExtResource("4_2viqt")
+variation_opentype = {
+1869640570: null,
+2003265652: 700
+}
+spacing_bottom = -4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_18ny6"]
+
+[node name="RequestPanel" type="Panel"]
+custom_minimum_size = Vector2(220, 140)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_88cb3")
+script = ExtResource("1_f7rd1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -12
+
+[node name="Top" type="Panel" parent="VBoxContainer"]
+z_index = 1
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(220, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fxqv1")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Top"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_10krj")
+expand_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Top"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainerBackgroundProgressBar" type="VBoxContainer" parent="VBoxContainer/Top/MarginContainer"]
+layout_mode = 2
+
+[node name="BackgroundProgressBar" type="ProgressBar" parent="VBoxContainer/Top/MarginContainer/VBoxContainerBackgroundProgressBar"]
+custom_minimum_size = Vector2(70, 15)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_maenp")
+theme_override_styles/fill = SubResource("StyleBoxTexture_anjx7")
+show_percentage = false
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Top/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Top/MarginContainer/MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_xfoqe")
+theme_override_constants/separation = 7
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/Top/MarginContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 9)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_e04x0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ejlk5")
+value = 100.0
+show_percentage = false
+
+[node name="Text" type="RichTextLabel" parent="VBoxContainer/Top/MarginContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.407843, 0.34902, 0.172549, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_4tdt3")
+theme_override_fonts/bold_font = SubResource("FontVariation_yjsp6")
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 13
+bbcode_enabled = true
+text = "[center][b]A SCIENTIST CALLS ON SPIRIT THE SPONTANEOUS![/b]
+Criticizes cooking in kitchen.[center]"
+scroll_active = false
+
+[node name="Control" type="Control" parent="VBoxContainer/Top/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Bottom" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(220, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_18ny6")
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/Bottom"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IngredientsRow" parent="VBoxContainer/Bottom/CenterContainer" instance=ExtResource("6_f4q0o")]
+layout_mode = 2
+
+[node name="Timer" parent="." instance=ExtResource("3_56lft")]
+layout_mode = 1
+show_ui = false

@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://nh611woxb4fa"]
+
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/stock/stock.gd" id="1_0sa1n"]
+[ext_resource type="PackedScene" uid="uid://dddjjkbptktyu" path="res://DemonsOnDemand/scenes/ingredients/wings.tscn" id="2_m278h"]
+[ext_resource type="PackedScene" uid="uid://cwprrtb8acijd" path="res://DemonsOnDemand/models/environment/bird_cage.glb" id="3_fbev1"]
+[ext_resource type="AudioStream" uid="uid://hqh1txb3mal1" path="res://DemonsOnDemand/sfx/stocks/Cages/cage_approx.mp3" id="4_c66ke"]
+[ext_resource type="AudioStream" uid="uid://boxfjhtyf8obr" path="res://DemonsOnDemand/sfx/stocks/Cages/cage_use.mp3" id="5_5ov77"]
+[ext_resource type="Texture2D" uid="uid://btnde7f5akb6e" path="res://DemonsOnDemand/sprites/generic/action_feedback.png" id="6_fm504"]
+[ext_resource type="Texture2D" uid="uid://dij7f6isw1h12" path="res://DemonsOnDemand/sprites/infos/info_get_wing.png" id="7_vu152"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rjv4r"]
+size = Vector3(0.713379, 0.502808, 0.728729)
+
+[node name="bird_cage" type="StaticBody3D" node_paths=PackedStringArray("interact_hand", "info")]
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_0sa1n")
+ingredient = ExtResource("2_m278h")
+interact_hand = NodePath("Interact")
+info = NodePath("Info")
+
+[node name="bird_cage" parent="." instance=ExtResource("3_fbev1")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035647, 0.247895, -0.0680388)
+shape = SubResource("BoxShape3D_rjv4r")
+
+[node name="Approx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_c66ke")
+
+[node name="Use" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_5ov77")
+
+[node name="Interact" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.7, 0)
+visible = false
+billboard = 1
+texture = ExtResource("6_fm504")
+
+[node name="Info" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.7, 0)
+billboard = 1
+texture = ExtResource("7_vu152")

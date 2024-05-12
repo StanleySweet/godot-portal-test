@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dibmuqedoiq26"]
+
+[ext_resource type="Shader" uid="uid://bs8k3kouom4rj" path="res://DemonsOnDemand/shaders/bolt/wave_shader.tres" id="1_rql3d"]
+
+[sub_resource type="Gradient" id="Gradient_625x7"]
+offsets = PackedFloat32Array(0, 0.397059, 0.691176, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bjp3l"]
+gradient = SubResource("Gradient_625x7")
+fill_from = Vector2(1, 1)
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_rql3d")
+shader_parameter/WaveColor = Color(0.5, 1, 4, 1)
+shader_parameter/GradientParameter = SubResource("GradientTexture2D_bjp3l")

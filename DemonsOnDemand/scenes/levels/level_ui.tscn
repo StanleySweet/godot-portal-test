@@ -1,0 +1,37 @@
+[gd_scene load_steps=9 format=3 uid="uid://bsxasj52ssci0"]
+
+[ext_resource type="PackedScene" uid="uid://qhoannkkg8cv" path="res://DemonsOnDemand/scenes/ui/summonings/summonings.tscn" id="1_nx8y8"]
+[ext_resource type="PackedScene" uid="uid://bapomslg5v1sm" path="res://DemonsOnDemand/scenes/ui/timer/timer.tscn" id="3_pjypb"]
+[ext_resource type="PackedScene" uid="uid://jwjo6pl5ww5q" path="res://DemonsOnDemand/scenes/ui/end_game.tscn" id="4_d1j5j"]
+[ext_resource type="PackedScene" uid="uid://dbhog2pvxytok" path="res://DemonsOnDemand/scenes/ui/score/score.tscn" id="4_do6ha"]
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/ui/score/score_manager.gd" id="5_idlx5"]
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/ui/TutoPanel.gd" id="7_yx21e"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fmh2o"]
+load_path = "res://.godot/imported/popin_level1.png-86e1016366b1b2f38efc1d084877cbac.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t2akq"]
+texture = SubResource("CompressedTexture2D_fmh2o")
+
+[node name="UI" type="Node"]
+
+[node name="Summonings" parent="." instance=ExtResource("1_nx8y8")]
+
+[node name="Timer" parent="." groups=["GlobalTimer"] instance=ExtResource("3_pjypb")]
+is_global = true
+
+[node name="Score" parent="." instance=ExtResource("4_do6ha")]
+
+[node name="EndGame" parent="." groups=["EndGame"] instance=ExtResource("4_d1j5j")]
+
+[node name="ScoreManager" type="Node" parent="." groups=["ScoreManager"]]
+script = ExtResource("5_idlx5")
+
+[node name="Tuto" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_t2akq")
+script = ExtResource("7_yx21e")

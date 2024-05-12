@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dfnfrke7euqj7"]
+
+[ext_resource type="Texture2D" uid="uid://cpfccb8fqwgww" path="res://DemonsOnDemand/textures/ground/ground.png" id="1_nxo21"]
+[ext_resource type="Texture2D" uid="uid://beetsr6w8216o" path="res://DemonsOnDemand/textures/ground/ground_normal.png" id="2_om3wd"]
+
+[resource]
+albedo_texture = ExtResource("1_nxo21")
+normal_enabled = true
+normal_scale = 1.5
+normal_texture = ExtResource("2_om3wd")
+uv1_scale = Vector3(0.6, 0.6, 0.6)
+uv1_triplanar = true
+texture_filter = 1

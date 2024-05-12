@@ -1,0 +1,135 @@
+[gd_scene load_steps=19 format=3 uid="uid://bsw6pqludn2j6"]
+
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/stations/station.gd" id="1_5o4t2"]
+[ext_resource type="Texture2D" uid="uid://75a6b3dbv7ow" path="res://DemonsOnDemand/sprites/items/horns/item_horn_03.png" id="2_ftodh"]
+[ext_resource type="AudioStream" uid="uid://c7bvdudx5412x" path="res://DemonsOnDemand/sfx/sawing/sawing_1.mp3" id="3_eg6lw"]
+[ext_resource type="AudioStream" uid="uid://bds8hphodwpp2" path="res://DemonsOnDemand/sfx/sawing/sawing_2.mp3" id="4_vr504"]
+[ext_resource type="AudioStream" uid="uid://din6pgu6dh2ke" path="res://DemonsOnDemand/sfx/hammer.mp3" id="5_0fs1y"]
+[ext_resource type="PackedScene" uid="uid://c63c5iftb6pt0" path="res://DemonsOnDemand/scenes/components/timer_bar/timer_bar.tscn" id="6_niy03"]
+[ext_resource type="AudioStream" uid="uid://whnno8tii3gg" path="res://DemonsOnDemand/sfx/Stations/Ding.mp3" id="6_ujawf"]
+[ext_resource type="AudioStream" uid="uid://b3oh6fhsrmwt4" path="res://DemonsOnDemand/sfx/Stations/Hammer/approx_hammer.mp3" id="7_fei53"]
+[ext_resource type="PackedScene" uid="uid://bub50tpq2nd45" path="res://DemonsOnDemand/scenes/models/environment/table.tscn" id="7_fhgpt"]
+[ext_resource type="PackedScene" uid="uid://bf5igw2t2x2xf" path="res://DemonsOnDemand/models/environment/horn_file.glb" id="8_ibdyo"]
+[ext_resource type="Texture2D" uid="uid://btnde7f5akb6e" path="res://DemonsOnDemand/sprites/generic/action_feedback.png" id="11_fo87q"]
+[ext_resource type="Texture2D" uid="uid://cqc7y4iajjlgp" path="res://DemonsOnDemand/sprites/environment/image 50.png" id="11_yrt5n"]
+[ext_resource type="Texture2D" uid="uid://ctjbe5pxh00fe" path="res://DemonsOnDemand/sprites/infos/info_make_horn03.png" id="13_h8mm8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5rs7a"]
+size = Vector3(0.949219, 0.350342, 0.463409)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_a3y2f"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_auna6"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("11_yrt5n")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_qmseq"]
+material = SubResource("StandardMaterial3D_auna6")
+size = Vector2(0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8jrf2"]
+size = Vector3(1.195, 0.7, 0.705)
+
+[node name="Pointy_Horn_Station" type="StaticBody3D" node_paths=PackedStringArray("timer", "interact_hand", "info") groups=["Interactable"]]
+collision_layer = 5
+collision_mask = 11
+script = ExtResource("1_5o4t2")
+type = 1
+allowed_ingredient_type = 1
+timer = NodePath("SubViewport/TimerBar")
+refined_texture = ExtResource("2_ftodh")
+ingr_type = 3
+interact_hand = NodePath("Interact")
+info = NodePath("Info")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00292969, 0.0789235, -0.0675812)
+shape = SubResource("BoxShape3D_5rs7a")
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Sound1" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("3_eg6lw")
+volume_db = -5.0
+
+[node name="Sound2" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("4_vr504")
+volume_db = -5.0
+
+[node name="Sound3" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("5_0fs1y")
+volume_db = -5.0
+
+[node name="Ding" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("6_ujawf")
+volume_db = -5.0
+
+[node name="Approx" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("7_fei53")
+volume_db = -5.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.7, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_a3y2f")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(460, 128)
+
+[node name="TimerBar" parent="SubViewport" instance=ExtResource("6_niy03")]
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="table" parent="." instance=ExtResource("7_fhgpt")]
+transform = Transform3D(0.995352, 0, 0, 0, 0.995352, 0, 0, 0, 0.995352, 0, -0.114, 0)
+
+[node name="horn_file" parent="table" instance=ExtResource("8_ibdyo")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -0.0542029, 0.343355, 0)
+
+[node name="horn_file2" parent="table" instance=ExtResource("8_ibdyo")]
+transform = Transform3D(0.408768, 0, -0.32554, 0, 1.00696, 0, 0.236003, 0, 0.563851, 0.178806, 0.343355, 0)
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0272536, 0.342109, 0)
+emitting = false
+amount = 22
+lifetime = 0.2
+mesh = SubResource("QuadMesh_qmseq")
+emission_shape = 3
+emission_box_extents = Vector3(0.2, 0.1, 0.1)
+direction = Vector3(0, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+
+[node name="Interact" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.7, 0)
+visible = false
+billboard = 1
+texture = ExtResource("11_fo87q")
+
+[node name="Info" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.7, 0)
+billboard = 1
+texture = ExtResource("13_h8mm8")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 7
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007, 0.2, -0.071)
+shape = SubResource("BoxShape3D_8jrf2")
+
+[connection signal="timer_elapsed" from="SubViewport/TimerBar" to="." method="_on_refinement_ended"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

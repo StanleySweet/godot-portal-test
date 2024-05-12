@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://i6ky17tv5jvx"]
+
+[ext_resource type="Texture2D" uid="uid://s4fpt18i6p53" path="res://DemonsOnDemand/sprites/environment/wall_01_diffuse.png" id="1_qpnjw"]
+
+[resource]
+albedo_texture = ExtResource("1_qpnjw")

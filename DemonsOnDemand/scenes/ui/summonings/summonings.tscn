@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://qhoannkkg8cv"]
+
+[ext_resource type="PackedScene" uid="uid://dayv2qslseivy" path="res://DemonsOnDemand/scenes/ui/summonings/request_panel.tscn" id="1_ddbur"]
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/ui/summonings/summonings.gd" id="1_nnxpl"]
+[ext_resource type="Resource" uid="uid://dw67ucvo2edip" path="res://DemonsOnDemand/scenes/ui/summonings/requests/templates/blue.tres" id="2_81wte"]
+[ext_resource type="Resource" uid="uid://cxt5p7ig7cqjg" path="res://DemonsOnDemand/scenes/ui/summonings/requests/templates/green.tres" id="3_dmbiw"]
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/ui/summonings/texts/texts.gd" id="3_ym2pn"]
+[ext_resource type="Resource" uid="uid://dm5bvo0y8rnuv" path="res://DemonsOnDemand/scenes/ui/summonings/requests/templates/red.tres" id="4_4bbhh"]
+[ext_resource type="Resource" uid="uid://045kw02vn611" path="res://DemonsOnDemand/scenes/ui/summonings/requests/templates/yellow.tres" id="5_4n8rw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ya18o"]
+
+[node name="Summonings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nnxpl")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ya18o")
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="RequestsContainer" type="HBoxContainer" parent="Panel/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="GreenPortal" parent="Panel/CenterContainer/RequestsContainer" instance=ExtResource("1_ddbur")]
+visible = false
+layout_mode = 2
+request = ExtResource("3_dmbiw")
+request_duration = 15
+first_line = "A SCIENTIST CALLS ON POLTERGEIST THE PUNDERFUL"
+second_line = "He needs some advice..."
+
+[node name="YellowPanel" parent="Panel/CenterContainer/RequestsContainer" instance=ExtResource("1_ddbur")]
+visible = false
+layout_mode = 2
+request = ExtResource("5_4n8rw")
+request_duration = 15
+first_line = "A SCIENTIST CALLS ON POLTERGEIST THE PUNDERFUL"
+second_line = "He needs some advice..."
+
+[node name="BluePortal" parent="Panel/CenterContainer/RequestsContainer" instance=ExtResource("1_ddbur")]
+visible = false
+layout_mode = 2
+request = ExtResource("2_81wte")
+request_duration = 15
+first_line = "A SCIENTIST CALLS ON POLTERGEIST THE PUNDERFUL"
+second_line = "He needs some advice..."
+
+[node name="RedPortal" parent="Panel/CenterContainer/RequestsContainer" instance=ExtResource("1_ddbur")]
+visible = false
+layout_mode = 2
+request = ExtResource("4_4bbhh")
+request_duration = 15
+first_line = "A SCIENTIST CALLS ON POLTERGEIST THE PUNDERFUL"
+second_line = "He needs some advice..."
+
+[node name="Texts" type="Node" parent="."]
+script = ExtResource("3_ym2pn")

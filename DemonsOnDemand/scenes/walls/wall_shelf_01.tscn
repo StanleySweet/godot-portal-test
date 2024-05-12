@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://co8ce0ktvdfs7"]
+
+[ext_resource type="PackedScene" uid="uid://cvjdrcot40qne" path="res://DemonsOnDemand/scenes/models/environment/wall_shelf_01.tscn" id="1_kbiby"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gox7j"]
+size = Vector3(0.745667, 1.20026, 2.0072)
+
+[node name="WallShelf01" type="StaticBody3D"]
+collision_layer = 31
+collision_mask = 0
+
+[node name="wall_shelf_01" parent="." instance=ExtResource("1_kbiby")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.255219, 0.592377, 0.00262451)
+shape = SubResource("BoxShape3D_gox7j")

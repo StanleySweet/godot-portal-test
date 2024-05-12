@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs4hiwnhtaeml"]
+
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/ui/summonings/ingredients_row.gd" id="1_jmhxu"]
+[ext_resource type="PackedScene" uid="uid://hrceli55r425" path="res://DemonsOnDemand/scenes/ui/summonings/ingredient_panel.tscn" id="1_pl5ps"]
+
+[node name="IngredientsRow" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+theme_override_constants/separation = 10
+script = ExtResource("1_jmhxu")
+
+[node name="Tentacle" parent="." instance=ExtResource("1_pl5ps")]
+layout_mode = 2
+
+[node name="Wing" parent="." instance=ExtResource("1_pl5ps")]
+layout_mode = 2
+
+[node name="Horn" parent="." instance=ExtResource("1_pl5ps")]
+layout_mode = 2
+
+[node name="Horns" parent="." instance=ExtResource("1_pl5ps")]
+layout_mode = 2

@@ -1,0 +1,239 @@
+[gd_scene load_steps=25 format=3 uid="uid://jwjo6pl5ww5q"]
+
+[ext_resource type="Script" path="res://DemonsOnDemand/scenes/ui/end_game.gd" id="1_fog2x"]
+[ext_resource type="Texture2D" uid="uid://cr26gyutwyy57" path="res://DemonsOnDemand/scenes/ui/start_screen/textures/background.jpg" id="1_nkamc"]
+[ext_resource type="Texture2D" uid="uid://cjo6tq8t331by" path="res://DemonsOnDemand/sprites/UI/penta.png" id="2_8foi1"]
+[ext_resource type="Texture2D" uid="uid://cfd6sp5xm6wvt" path="res://DemonsOnDemand/scenes/ui/start_screen/textures/line.png" id="2_goiry"]
+[ext_resource type="FontFile" uid="uid://cwul4g7dv6ukw" path="res://DemonsOnDemand/fonts/Source Serif 4/SourceSerif4-VariableFont_opsz,wght.ttf" id="3_na7ru"]
+[ext_resource type="FontFile" uid="uid://p11t7pomjknx" path="res://DemonsOnDemand/fonts/Source Serif 4/Variants/SourceSerif4-Regular-700.tres" id="4_rm3q3"]
+[ext_resource type="Texture2D" uid="uid://c6cvmsh3nmvj7" path="res://DemonsOnDemand/sprites/slogan.png" id="5_622ff"]
+[ext_resource type="Texture2D" uid="uid://h2nqpb3fooa0" path="res://DemonsOnDemand/sprites/UI/Ellipse 1.png" id="6_2xrkk"]
+[ext_resource type="Texture2D" uid="uid://cu11dkeiuuikp" path="res://DemonsOnDemand/scenes/ui/start_screen/textures/button_back.png" id="7_5vkjh"]
+[ext_resource type="Texture2D" uid="uid://c3lcm2o8onc6i" path="res://DemonsOnDemand/scenes/ui/start_screen/textures/button_back_hover.png" id="8_816b7"]
+[ext_resource type="AudioStream" uid="uid://cwai7pm5rcxv1" path="res://DemonsOnDemand/sfx/end/tampon_1.mp3" id="11_cf5md"]
+[ext_resource type="AudioStream" uid="uid://cjxh0j5t71d4m" path="res://DemonsOnDemand/sfx/end/demonicLaugh.mp3" id="12_hwm3l"]
+[ext_resource type="AudioStream" uid="uid://b07qrubwalcyp" path="res://DemonsOnDemand/sfx/end/Crickest.mp3" id="13_r61wy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uf85j"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6f8ek"]
+texture = ExtResource("1_nkamc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dgt85"]
+texture = ExtResource("2_goiry")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_io3fs"]
+
+[sub_resource type="FontVariation" id="FontVariation_7k4x6"]
+base_font = ExtResource("3_na7ru")
+variation_opentype = {
+1869640570: null,
+2003265652: 900
+}
+
+[sub_resource type="Theme" id="Theme_rtwdj"]
+default_font = SubResource("FontVariation_7k4x6")
+default_font_size = 22
+
+[sub_resource type="FontVariation" id="FontVariation_8bett"]
+base_font = ExtResource("4_rm3q3")
+variation_opentype = {
+1869640570: null,
+2003265652: 700
+}
+
+[sub_resource type="FontVariation" id="FontVariation_jw7h5"]
+base_font = SubResource("FontVariation_8bett")
+
+[sub_resource type="Theme" id="Theme_jht6o"]
+default_font = SubResource("FontVariation_jw7h5")
+default_font_size = 20
+
+[sub_resource type="Theme" id="Theme_s1eq3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvbje"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="EndGame" type="Panel"]
+texture_filter = 1
+texture_repeat = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_uf85j")
+script = ExtResource("1_fog2x")
+star_texture = ExtResource("2_8foi1")
+
+[node name="BackgroundPanel" type="Panel" parent="."]
+visible = false
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6f8ek")
+
+[node name="Line" type="Panel" parent="."]
+visible = false
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dgt85")
+
+[node name="EndGamePanel" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="EndGamePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_io3fs")
+
+[node name="WorkOver" type="RichTextLabel" parent="EndGamePanel/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -9.0
+offset_right = 203.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_rtwdj")
+bbcode_enabled = true
+text = "[center][b]YOUR WORK IS OVER FOR TODAY![/b][center]"
+
+[node name="EnjoyDemons" type="RichTextLabel" parent="EndGamePanel/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = 21.0
+offset_right = 171.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jht6o")
+bbcode_enabled = true
+text = "[center]Your customers enjoyed their demons.
+You scored 1350 summonings points.[/center]"
+fit_content = true
+
+[node name="Slogan" type="TextureRect" parent="EndGamePanel/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -213.0
+offset_top = 137.0
+offset_right = 210.0
+offset_bottom = 225.0
+grow_horizontal = 2
+texture = ExtResource("5_622ff")
+
+[node name="LeftCircle" type="TextureRect" parent="EndGamePanel/Panel"]
+layout_mode = 2
+offset_left = 555.0
+offset_top = 285.0
+offset_right = 605.0
+offset_bottom = 335.0
+scale = Vector2(100, 100)
+texture = ExtResource("6_2xrkk")
+
+[node name="MidCircle" type="TextureRect" parent="EndGamePanel/Panel"]
+layout_mode = 2
+offset_left = 615.0
+offset_top = 285.0
+offset_right = 665.0
+offset_bottom = 335.0
+scale = Vector2(100, 100)
+texture = ExtResource("6_2xrkk")
+
+[node name="LateCircle" type="TextureRect" parent="EndGamePanel/Panel"]
+layout_mode = 2
+offset_left = 675.0
+offset_top = 285.0
+offset_right = 725.0
+offset_bottom = 335.0
+scale = Vector2(100, 100)
+texture = ExtResource("6_2xrkk")
+
+[node name="MarginContainer" type="MarginContainer" parent="EndGamePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 32
+
+[node name="CenterContainer" type="CenterContainer" parent="EndGamePanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="EndGamePanel/MarginContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="BackButton" type="TextureButton" parent="EndGamePanel/MarginContainer/CenterContainer/HBoxContainer2"]
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(113, 38)
+layout_mode = 2
+texture_normal = ExtResource("7_5vkjh")
+texture_pressed = ExtResource("8_816b7")
+texture_hover = ExtResource("8_816b7")
+texture_focused = ExtResource("8_816b7")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Dark" type="Panel" parent="."]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_s1eq3")
+theme_override_styles/panel = SubResource("StyleBoxFlat_lvbje")
+
+[node name="Stamp" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("11_cf5md")
+
+[node name="DemLau" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("12_hwm3l")
+
+[node name="Crickets" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("13_r61wy")
+
+[connection signal="pressed" from="EndGamePanel/MarginContainer/CenterContainer/HBoxContainer2/BackButton" to="." method="_on_back_button_pressed"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh1135gqnkgjc"]
+
+[ext_resource type="PackedScene" uid="uid://d08bhjti2hjgs" path="res://DemonsOnDemand/models/environment/column.glb" id="1_sw4oq"]
+[ext_resource type="Material" uid="uid://da1wcnb32xoik" path="res://DemonsOnDemand/materials/column.tres" id="2_v8q7n"]
+
+[node name="column" instance=ExtResource("1_sw4oq")]
+
+[node name="Cube_014" parent="." index="0"]
+material_override = ExtResource("2_v8q7n")

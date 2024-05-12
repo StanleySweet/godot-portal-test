@@ -1,0 +1,9 @@
+class_name StationType
+
+enum STATION_TYPE
+{
+	HORN_MODELING,
+	PAINTING,
+	CREATURE_ASSEMBLY,
+	CUTTING_TABLE
+}

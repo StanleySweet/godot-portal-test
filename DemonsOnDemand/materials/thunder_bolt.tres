@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://qaecrena0fe0"]
+
+[ext_resource type="Shader" uid="uid://b4sin3fko4m5t" path="res://DemonsOnDemand/shaders/bolt/thunder_shader.tres" id="1_030os"]
+
+[sub_resource type="Gradient" id="Gradient_5evqq"]
+offsets = PackedFloat32Array(0.357843, 1)
+colors = PackedColorArray(0, 0, 1, 1, 1, 4, 10, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2yq6i"]
+gradient = SubResource("Gradient_5evqq")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_030os")
+shader_parameter/GradientParameter = SubResource("GradientTexture1D_2yq6i")

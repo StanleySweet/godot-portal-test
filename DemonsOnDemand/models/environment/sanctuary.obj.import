@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bgg37insijafs"
+path="res://.godot/imported/sanctuary.obj-29f3226f08ac278389255555137e604e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/sanctuary.obj-29f3226f08ac278389255555137e604e.mesh"]
+
+source_file="res://DemonsOnDemand/models/environment/sanctuary.obj"
+dest_files=["res://.godot/imported/sanctuary.obj-29f3226f08ac278389255555137e604e.mesh", "res://.godot/imported/sanctuary.obj-29f3226f08ac278389255555137e604e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
