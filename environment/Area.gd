@@ -9,4 +9,3 @@ func _on_area_body_entered(body):
 	if angle < self.MaxAngle and body.is_in_group("player"):
 		var camera_pos: Vector3 = camera.position - Vector3(0, camera.position.y - body.position.y, 0)
 		body.position = camera_pos
-
