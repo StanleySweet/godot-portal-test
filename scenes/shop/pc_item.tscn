@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dljwf3nd376k5"]
+
+[ext_resource type="Script" path="res://scripts/ShopModule/ShopItem.gd" id="1_0dvx6"]
+[ext_resource type="Texture2D" uid="uid://qaowlpckmswx" path="res://UI/Computer/NuclearBay.png" id="1_ppbjh"]
+[ext_resource type="FontFile" uid="uid://e8qyj68na5ta" path="res://fonts/BAHNSCHRIFT.TTF" id="3_vdh8v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y0xh5"]
+font = ExtResource("3_vdh8v")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[node name="ShopItem" type="HBoxContainer"]
+offset_right = 566.0
+offset_bottom = 90.0
+theme_override_constants/separation = 20
+script = ExtResource("1_0dvx6")
+
+[node name="Image" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+texture = ExtResource("1_ppbjh")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Super Item for sale 350$ only"
+label_settings = SubResource("LabelSettings_y0xh5")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+text = "Buy"

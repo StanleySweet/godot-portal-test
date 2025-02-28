@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dx5kysanpyhcc"
+path="res://.godot/imported/gatcha.obj-420999f7be7600d566ac37f3db9e909f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/gatcha.obj-420999f7be7600d566ac37f3db9e909f.mesh"]
+
+source_file="res://meshes/gatcha.obj"
+dest_files=["res://.godot/imported/gatcha.obj-420999f7be7600d566ac37f3db9e909f.mesh", "res://.godot/imported/gatcha.obj-420999f7be7600d566ac37f3db9e909f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

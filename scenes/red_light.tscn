@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://hcld65udk1d4"]
+
+[ext_resource type="ArrayMesh" uid="uid://dwl38ysfwgm8c" path="res://meshes/red_light.obj" id="1_iw1hh"]
+[ext_resource type="Script" path="res://scripts/RedLight.gd" id="1_l4k4y"]
+[ext_resource type="Texture2D" uid="uid://x5g0wbev4efi" path="res://textures/tilemap.png" id="3_fc8t6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mb3gm"]
+albedo_texture = ExtResource("3_fc8t6")
+metallic_specular = 0.0
+emission_enabled = true
+emission = Color(0.38, 0.0304, 0.0304, 1)
+emission_energy_multiplier = 0.0
+
+[node name="RedLight" type="Node3D"]
+script = ExtResource("1_l4k4y")
+current_material = SubResource("StandardMaterial3D_mb3gm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -2.54, 3.89, 1.94)
+mesh = ExtResource("1_iw1hh")
+surface_material_override/0 = SubResource("StandardMaterial3D_mb3gm")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.455, 0)
+light_color = Color(0.38, 0.0304, 0.0304, 1)
+light_energy = 0.0
+shadow_enabled = true

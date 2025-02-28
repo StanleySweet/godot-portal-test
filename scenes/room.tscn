@@ -1,0 +1,498 @@
+[gd_scene load_steps=49 format=3 uid="uid://tm4qpm5xgmxm"]
+
+[ext_resource type="PackedScene" uid="uid://premvfst6x57" path="res://scenes/player.tscn" id="1_633u0"]
+[ext_resource type="AudioStream" uid="uid://bb6d5xegcns1p" path="res://sounds/songs/Will Osborne & His Orchestra - Let's Call It All A Dream (1934).mp3" id="1_to0i7"]
+[ext_resource type="PackedScene" uid="uid://dsw0ntdpc7n2l" path="res://scenes/modules/cuve_module.tscn" id="2_ktr83"]
+[ext_resource type="PackedScene" uid="uid://dacjjekdwrsi4" path="res://scenes/global_timer.tscn" id="3_5byie"]
+[ext_resource type="Material" uid="uid://bogn2sxxc3ajc" path="res://Materials/tilemap.tres" id="4_4vpsh"]
+[ext_resource type="PackedScene" uid="uid://bdcgdsfhmepwm" path="res://scenes/objects/doom_button.tscn" id="6_8jq38"]
+[ext_resource type="PackedScene" uid="uid://cha3o7xwk3rp2" path="res://scenes/shop/shop_module.tscn" id="8_yonqv"]
+[ext_resource type="PackedScene" uid="uid://c1qrfctxhif1g" path="res://scenes/modules/cash_module.tscn" id="12_2fgo4"]
+[ext_resource type="PackedScene" uid="uid://ddsp613qbs4kn" path="res://scenes/modules/numpad_module.tscn" id="14_p8xgc"]
+[ext_resource type="Script" path="res://scripts/ModuleInteractable.gd" id="14_yj12d"]
+[ext_resource type="ArrayMesh" uid="uid://cmoqbtw21jycs" path="res://meshes/pinpad.obj" id="15_rwc53"]
+[ext_resource type="Material" uid="uid://d1a6g86fd7fo5" path="res://Materials/outline.tres" id="16_oy0ua"]
+[ext_resource type="Material" uid="uid://5ahqcopvfwwd" path="res://Materials/green_light.tres" id="17_1vaqn"]
+[ext_resource type="Material" uid="uid://c3ivjn6143tgm" path="res://Materials/red_light.tres" id="18_wl1r5"]
+[ext_resource type="PackedScene" uid="uid://cb3m5nohhb2k7" path="res://scenes/modules/led_module.tscn" id="19_gtgvh"]
+[ext_resource type="PackedScene" uid="uid://dqkxieaeyyhjb" path="res://scenes/parcel.tscn" id="21_oxhbp"]
+[ext_resource type="PackedScene" uid="uid://bholec1avl5kt" path="res://scenes/modules/compteur_module.tscn" id="22_myd48"]
+[ext_resource type="Script" path="res://scenes/HandleVoices.gd" id="24_npi8r"]
+[ext_resource type="AudioStream" uid="uid://cfvrswr3uakla" path="res://sounds/Voices/DuctTape.mp3" id="25_fyjso"]
+[ext_resource type="AudioStream" uid="uid://bfoc3poh5qy6q" path="res://sounds/Voices/GoodDayOfWork.mp3" id="26_qd6n8"]
+[ext_resource type="AudioStream" uid="uid://xl8q8xhc66r" path="res://sounds/Voices/IfYouSeeSomeGoo.mp3" id="27_xhb4m"]
+[ext_resource type="AudioStream" uid="uid://cebu82gc2a5bl" path="res://sounds/Voices/NuclearAintThatDifficult.mp3" id="28_6pluu"]
+[ext_resource type="AudioStream" uid="uid://b2dd4frv6c8qr" path="res://sounds/Voices/SafetyEquipment.mp3" id="29_abuoy"]
+[ext_resource type="PackedScene" uid="uid://caxr0in0ipkib" path="res://scenes/office_desk.tscn" id="29_j8ric"]
+[ext_resource type="Material" uid="uid://cp7pnxmqq6igu" path="res://Materials/button_mat.tres" id="29_x5o4a"]
+[ext_resource type="Script" path="res://scripts/handle_compteur_3d.gd" id="30_4hiqr"]
+[ext_resource type="AudioStream" uid="uid://dy62kvbr3vbie" path="res://sounds/654321__gronkjaer__correctch_new.mp3" id="30_g84hw"]
+[ext_resource type="AudioStream" uid="uid://0dqcta2qwtex" path="res://sounds/Voices/SciencePioneers.mp3" id="30_knukr"]
+[ext_resource type="AudioStream" uid="uid://ifd8mplvlo3r" path="res://sounds/Voices/ShouldntMakeThatNoise.mp3" id="31_haldx"]
+[ext_resource type="Texture2D" uid="uid://bd4xkqxstkbgt" path="res://UI/Menu/CounterAlone.png" id="31_s5e8u"]
+[ext_resource type="AudioStream" uid="uid://11kcypix2j1l" path="res://sounds/Voices/Weekend.mp3" id="32_miml1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_j6ki2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_u8atr"]
+material = ExtResource("17_1vaqn")
+
+[sub_resource type="BoxMesh" id="BoxMesh_dfqjv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0vxs3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_t4lgx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kipdy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_stv22"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mbjui"]
+material = ExtResource("16_oy0ua")
+flip_faces = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cso8p"]
+size = Vector3(1.605, 1.99019, 1.585)
+
+[sub_resource type="BoxMesh" id="BoxMesh_byclq"]
+material = ExtResource("16_oy0ua")
+flip_faces = true
+size = Vector3(1.79, 1.48, 1.585)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7am1v"]
+transparency = 1
+albedo_texture = ExtResource("31_s5e8u")
+
+[sub_resource type="QuadMesh" id="QuadMesh_qilsy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpcrd"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_3mp4q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bcnv6"]
+size = Vector3(1.723, 1.851, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d3v2l"]
+material = ExtResource("16_oy0ua")
+flip_faces = true
+size = Vector3(1.723, 1.851, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vhhtj"]
+size = Vector3(5, 0.1, 5)
+
+[node name="Room" type="Node3D"]
+
+[node name="WillOsborne&HisOrchestra-Let\'sCallItAllADream(1934)" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_to0i7")
+volume_db = -21.317
+autoplay = true
+
+[node name="GlobalTimer" parent="." instance=ExtResource("3_5byie")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.00901, 2.37663, 0.0165104)
+
+[node name="Player" parent="." instance=ExtResource("1_633u0")]
+
+[node name="Prompt" parent="Player/CanvasLayer" index="1"]
+text = ""
+
+[node name="Parcel" parent="." instance=ExtResource("21_oxhbp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.25, 0)
+
+[node name="VoicesHolder" type="Node3D" parent="." node_paths=PackedStringArray("voiceConfig")]
+script = ExtResource("24_npi8r")
+voiceConfig = [NodePath("GoodDayOfWork"), NodePath("ShouldntMakeThatNoise"), NodePath("DuctTape"), NodePath("IfYouSeeSomeGoo"), NodePath("NuclearAintThatDifficult"), NodePath("SciencePioneers"), NodePath("SafetyEquipment")]
+
+[node name="DuctTape" type="AudioStreamPlayer" parent="VoicesHolder"]
+stream = ExtResource("25_fyjso")
+
+[node name="GoodDayOfWork" type="AudioStreamPlayer" parent="VoicesHolder"]
+stream = ExtResource("26_qd6n8")
+
+[node name="IfYouSeeSomeGoo" type="AudioStreamPlayer" parent="VoicesHolder"]
+stream = ExtResource("27_xhb4m")
+
+[node name="NuclearAintThatDifficult" type="AudioStreamPlayer" parent="VoicesHolder"]
+stream = ExtResource("28_6pluu")
+
+[node name="SafetyEquipment" type="AudioStreamPlayer" parent="VoicesHolder"]
+stream = ExtResource("29_abuoy")
+
+[node name="SciencePioneers" type="AudioStreamPlayer" parent="VoicesHolder"]
+stream = ExtResource("30_knukr")
+
+[node name="ShouldntMakeThatNoise" type="AudioStreamPlayer" parent="VoicesHolder"]
+stream = ExtResource("31_haldx")
+
+[node name="Weekend" type="AudioStreamPlayer" parent="VoicesHolder"]
+stream = ExtResource("32_miml1")
+
+[node name="OfficeDesk" parent="." instance=ExtResource("29_j8ric")]
+
+[node name="Modules" type="Node3D" parent="."]
+
+[node name="CuveModule" parent="Modules" instance=ExtResource("2_ktr83")]
+
+[node name="ShopModule" parent="Modules" instance=ExtResource("8_yonqv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75136, 1.02037, 0)
+
+[node name="CashModule" parent="Modules" instance=ExtResource("12_2fgo4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28944, 1.3493, -3.02793)
+animation_duration = 0.5
+
+[node name="NumpadModuleInteractable" type="StaticBody3D" parent="Modules" node_paths=PackedStringArray("outlineMesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.32916, 0.243996, -0.0709856)
+collision_layer = 5
+script = ExtResource("14_yj12d")
+target_camera_position = Vector3(-0.6, 1.5, 2)
+target_camera_rotation_degrees = Vector3(-25, 179, 0)
+outlineMesh = NodePath("MeshInstance3D")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Modules/NumpadModuleInteractable"]
+transform = Transform3D(0.977202, -0.00316805, -0.21229, 0.00629851, 0.999881, 0.0140715, 0.21222, -0.0150878, 0.977106, -3.85686, 0.817793, 2.54764)
+mesh = ExtResource("15_rwc53")
+skeleton = NodePath("../NumpadModule/Numpad")
+surface_material_override/0 = ExtResource("4_4vpsh")
+
+[node name="NumpadModule" parent="Modules/NumpadModuleInteractable" node_paths=PackedStringArray("list_of_buttons") instance=ExtResource("14_p8xgc")]
+transform = Transform3D(-0.0977202, -0.0106157, 0.0183869, -4.90265e-09, 0.0866025, 0.05, -0.0212314, 0.0488601, -0.0846281, -3.85394, 0.841233, 2.58188)
+list_of_buttons = [null, null, null, null, null, null, null, null, null, null]
+
+[node name="Numpad" parent="Modules/NumpadModuleInteractable/NumpadModule" index="0"]
+transform = Transform3D(0.9, 0, 0, 0, 0.772621, -0.46158, 0, 0.46158, 0.772621, 0, -0.484694, 0.239277)
+
+[node name="DisplaySequence" parent="Modules/NumpadModuleInteractable/NumpadModule/Numpad" index="0"]
+transform = Transform3D(0.999976, -0.000316828, 0.00673524, -0.00673586, -0.0908399, 0.995843, 0.000296623, -0.995866, -0.0908401, -0.156234, 0.283051, -1.25517)
+
+[node name="NumpadKey1" parent="Modules/NumpadModuleInteractable/NumpadModule/Numpad" index="1"]
+transform = Transform3D(0.5, 0, 0, 1.16415e-10, 0.5, 9.31323e-10, 0, -4.65661e-10, 0.5, -0.64954, -0.00428963, -0.287453)
+
+[node name="NumpadKey2" parent="Modules/NumpadModuleInteractable/NumpadModule/Numpad" index="2"]
+transform = Transform3D(0.5, 0, 0, 1.16415e-10, 0.5, 9.31323e-10, 0, -4.65661e-10, 0.5, 0.0504599, -0.00428867, -0.287455)
+
+[node name="NumpadKey3" parent="Modules/NumpadModuleInteractable/NumpadModule/Numpad" index="3"]
+transform = Transform3D(0.5, 0, 0, 1.16415e-10, 0.5, 9.31323e-10, 0, -4.65661e-10, 0.5, 0.750459, -0.00428963, -0.287453)
+
+[node name="NumpadKey4" parent="Modules/NumpadModuleInteractable/NumpadModule/Numpad" index="4"]
+transform = Transform3D(0.5, 0, 0, 1.16415e-10, 0.5, 9.31323e-10, 0, -4.65661e-10, 0.5, -0.64954, -0.00428772, 0.412546)
+
+[node name="NumpadKey5" parent="Modules/NumpadModuleInteractable/NumpadModule/Numpad" index="5"]
+transform = Transform3D(0.5, 0, 0, 1.16415e-10, 0.5, 9.31323e-10, 0, -4.65661e-10, 0.5, 0.0504599, -0.00428772, 0.412546)
+
+[node name="NumpadKey6" parent="Modules/NumpadModuleInteractable/NumpadModule/Numpad" index="6"]
+transform = Transform3D(0.5, 0, 0, 1.16415e-10, 0.5, 9.31323e-10, 0, -4.65661e-10, 0.5, 0.75046, -0.00428772, 0.412548)
+
+[node name="NumpadKey7" parent="Modules/NumpadModuleInteractable/NumpadModule/Numpad" index="7"]
+transform = Transform3D(0.5, 0, 0, 1.16415e-10, 0.5, 9.31323e-10, 0, -4.65661e-10, 0.5, -0.64954, -0.00428867, 1.11255)
+
+[node name="NumpadKey8" parent="Modules/NumpadModuleInteractable/NumpadModule/Numpad" index="8"]
+transform = Transform3D(0.5, 0, 0, 1.16415e-10, 0.5, 9.31323e-10, 0, -4.65661e-10, 0.5, 0.0504594, -0.00428867, 1.11255)
+
+[node name="NumpadKey9" parent="Modules/NumpadModuleInteractable/NumpadModule/Numpad" index="9"]
+transform = Transform3D(0.5, 0, 0, 1.16415e-10, 0.5, 9.31323e-10, 0, -4.65661e-10, 0.5, 0.750459, -0.00428772, 1.11255)
+
+[node name="NumpadKey0" parent="Modules/NumpadModuleInteractable/NumpadModule/Numpad" index="10"]
+transform = Transform3D(0.5, 0, 0, 1.16415e-10, 0.5, 9.31323e-10, 0, -4.65661e-10, 0.5, 0.0504603, -0.00428677, 1.81255)
+
+[node name="Lights" parent="Modules/NumpadModuleInteractable/NumpadModule" index="1"]
+transform = Transform3D(1, 9.37638e-09, 5.04265e-10, -9.37637e-09, 0.994232, 0.107253, 5.04279e-10, -0.107253, 0.994232, 0, 1.85431, -1.13016)
+
+[node name="RedLight" parent="Modules/NumpadModuleInteractable/NumpadModule/Lights/EnigmaLight1" index="0"]
+material_override = ExtResource("18_wl1r5")
+mesh = SubResource("BoxMesh_j6ki2")
+
+[node name="GreenLight" parent="Modules/NumpadModuleInteractable/NumpadModule/Lights/EnigmaLight1" index="1"]
+mesh = SubResource("BoxMesh_u8atr")
+
+[node name="RedLight" parent="Modules/NumpadModuleInteractable/NumpadModule/Lights/EnigmaLight2" index="0"]
+material_override = ExtResource("18_wl1r5")
+mesh = SubResource("BoxMesh_dfqjv")
+
+[node name="GreenLight" parent="Modules/NumpadModuleInteractable/NumpadModule/Lights/EnigmaLight2" index="1"]
+surface_material_override/0 = ExtResource("17_1vaqn")
+
+[node name="RedLight" parent="Modules/NumpadModuleInteractable/NumpadModule/Lights/EnigmaLight3" index="0"]
+material_override = ExtResource("18_wl1r5")
+mesh = SubResource("BoxMesh_0vxs3")
+
+[node name="GreenLight" parent="Modules/NumpadModuleInteractable/NumpadModule/Lights/EnigmaLight3" index="1"]
+surface_material_override/0 = ExtResource("17_1vaqn")
+
+[node name="RedLight" parent="Modules/NumpadModuleInteractable/NumpadModule/Lights/EnigmaLight4" index="0"]
+material_override = ExtResource("18_wl1r5")
+mesh = SubResource("BoxMesh_t4lgx")
+
+[node name="GreenLight" parent="Modules/NumpadModuleInteractable/NumpadModule/Lights/EnigmaLight4" index="1"]
+surface_material_override/0 = ExtResource("17_1vaqn")
+
+[node name="RedLight" parent="Modules/NumpadModuleInteractable/NumpadModule/Lights/EnigmaLight5" index="0"]
+material_override = ExtResource("18_wl1r5")
+mesh = SubResource("BoxMesh_kipdy")
+
+[node name="GreenLight" parent="Modules/NumpadModuleInteractable/NumpadModule/Lights/EnigmaLight5" index="1"]
+surface_material_override/0 = ExtResource("17_1vaqn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Modules/NumpadModuleInteractable"]
+transform = Transform3D(0.960585, 0, -0.277985, 0, 1, 0, 0.277985, 0, 0.960585, -3.85985, 1.30237, 2.56881)
+shape = SubResource("BoxShape3D_stv22")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Modules/NumpadModuleInteractable"]
+transform = Transform3D(0.96589, 0, -0.258954, 0, 1, 0, 0.258954, 0, 0.96589, -3.86684, 1.26036, 2.54212)
+visible = false
+mesh = SubResource("BoxMesh_mbjui")
+
+[node name="LedModuleInteractable" type="StaticBody3D" parent="Modules" node_paths=PackedStringArray("outlineMesh")]
+transform = Transform3D(0.987033, 0.0224317, 0.158943, -0.0247333, 0.999616, 0.0125168, -0.158601, -0.0162857, 0.987209, -2.29885, 1.40184, 1.64069)
+collision_layer = 4
+script = ExtResource("14_yj12d")
+target_camera_position = Vector3(-1.4, 2.2, 1)
+target_camera_rotation_degrees = Vector3(-20, 124, 0)
+animation_duration = 0.5
+outlineMesh = NodePath("Outline")
+
+[node name="LedModule" parent="Modules/LedModuleInteractable" instance=ExtResource("19_gtgvh")]
+transform = Transform3D(-0.417295, -0.557228, 0.717887, -0.00441387, 0.791187, 0.611558, -0.90876, 0.252032, -0.332618, 0, 0, 0)
+
+[node name="Buttons" parent="Modules/LedModuleInteractable/LedModule" index="0"]
+transform = Transform3D(1, -1.49012e-08, 0, -5.96046e-08, 1, 7.45058e-09, -5.96046e-08, 2.38419e-07, 1, 0.0617405, -0.168501, -0.0395051)
+
+[node name="Button_plus_5" parent="Modules/LedModuleInteractable/LedModule/Buttons" index="1"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, -3.72529e-09, 0, -1.11759e-08, 0.5, -0.305125, 0.0305874, -0.0363979)
+
+[node name="Button_plus_7" parent="Modules/LedModuleInteractable/LedModule/Buttons" index="2"]
+transform = Transform3D(0.5, 7.45058e-09, -1.49012e-08, 1.49012e-08, 0.5, -1.49012e-08, -1.49012e-08, 1.86265e-08, 0.5, 0.000416756, 0.0202208, -0.0435846)
+
+[node name="Button_plus_13" parent="Modules/LedModuleInteractable/LedModule/Buttons" index="3"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, -3.72529e-09, 0, -1.11759e-08, 0.5, 0.294875, 0.0305872, -0.0363978)
+
+[node name="Lights" parent="Modules/LedModuleInteractable/LedModule" index="1"]
+transform = Transform3D(1, -1.49012e-08, 0, 0, 1, -1.49012e-08, 2.98023e-08, 2.23517e-08, 1, 0.0145792, 0.812818, -0.0250808)
+
+[node name="LedModuleLight10" parent="Modules/LedModuleInteractable/LedModule/Lights" index="9"]
+transform = Transform3D(1, -1.49012e-08, 0, -7.45058e-08, 1, 1.49012e-08, 5.96046e-08, 1.41561e-07, 1, -0.0960727, -0.112828, -0.0267336)
+
+[node name="LedModuleLight11" parent="Modules/LedModuleInteractable/LedModule/Lights" index="10"]
+transform = Transform3D(1, -1.49012e-08, 0, -7.45058e-08, 1, 1.49012e-08, 5.96046e-08, 1.41561e-07, 1, 0.203928, -0.112828, -0.026733)
+
+[node name="LedModuleLight14" parent="Modules/LedModuleInteractable/LedModule/Lights" index="13"]
+transform = Transform3D(1, -1.49012e-08, 0, -5.96046e-08, 1, 1.49012e-08, 2.98023e-08, 1.78814e-07, 1, -0.124783, -0.420225, -0.0223919)
+
+[node name="LedModuleLight15" parent="Modules/LedModuleInteractable/LedModule/Lights" index="14"]
+transform = Transform3D(1, -1.49012e-08, 0, -5.96046e-08, 1, 1.49012e-08, 2.98023e-08, 1.78814e-07, 1, 0.175217, -0.420225, -0.0223919)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Modules/LedModuleInteractable"]
+transform = Transform3D(0.914927, 0.00129119, 0.403616, 1.75042e-05, 0.999992, -0.00323856, -0.403618, 0.00297024, 0.914923, -0.450706, 0.249505, 0.154798)
+shape = SubResource("BoxShape3D_cso8p")
+
+[node name="Outline" type="MeshInstance3D" parent="Modules/LedModuleInteractable"]
+transform = Transform3D(0.914927, 0.00129119, 0.403616, 1.75042e-05, 0.999992, -0.00323855, -0.403618, 0.00297024, 0.914923, -0.455708, 0.45167, 0.157329)
+visible = false
+mesh = SubResource("BoxMesh_byclq")
+
+[node name="CompteurModuleInteractable" type="StaticBody3D" parent="Modules" node_paths=PackedStringArray("outlineMesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.82615, 1.6013, -2.29545)
+collision_layer = 4
+script = ExtResource("14_yj12d")
+target_camera_position = Vector3(-0.9, 2.5, -1.2)
+target_camera_rotation_degrees = Vector3(-30, 40, 0)
+animation_duration = 0.5
+outlineMesh = NodePath("Outline")
+
+[node name="CompteurModule" parent="Modules/CompteurModuleInteractable" instance=ExtResource("22_myd48")]
+transform = Transform3D(0.707107, -0.183013, 0.683013, 0, 0.965926, 0.258819, -0.707107, -0.183013, 0.683013, 0, 0, 0)
+
+[node name="PowerButtons" parent="Modules/CompteurModuleInteractable/CompteurModule" index="0"]
+transform = Transform3D(0.996741, -0.0669271, -0.0450513, -0.0178872, 0.361187, -0.932322, 0.0786691, 0.930088, 0.358812, -0.270667, 0.307534, -0.220501)
+
+[node name="Button1" parent="Modules/CompteurModuleInteractable/CompteurModule/PowerButtons" index="0"]
+active_color = Color(0.662184, 1, 0.633765, 1)
+inactive_color = Color(1, 1, 1, 1)
+
+[node name="MeshInstance3D" parent="Modules/CompteurModuleInteractable/CompteurModule/PowerButtons/Button1" index="0"]
+material_override = ExtResource("29_x5o4a")
+
+[node name="Button2" parent="Modules/CompteurModuleInteractable/CompteurModule/PowerButtons" index="1"]
+active_color = Color(0.662184, 1, 0.633765, 1)
+inactive_color = Color(1, 1, 1, 1)
+
+[node name="MeshInstance3D" parent="Modules/CompteurModuleInteractable/CompteurModule/PowerButtons/Button2" index="0"]
+material_override = ExtResource("29_x5o4a")
+
+[node name="Button3" parent="Modules/CompteurModuleInteractable/CompteurModule/PowerButtons" index="2"]
+active_color = Color(0.662184, 1, 0.633765, 1)
+inactive_color = Color(1, 1, 1, 1)
+
+[node name="MeshInstance3D" parent="Modules/CompteurModuleInteractable/CompteurModule/PowerButtons/Button3" index="0"]
+material_override = ExtResource("29_x5o4a")
+
+[node name="Button4" parent="Modules/CompteurModuleInteractable/CompteurModule/PowerButtons" index="3"]
+active_color = Color(0.662184, 1, 0.633765, 1)
+inactive_color = Color(1, 1, 1, 1)
+
+[node name="MeshInstance3D" parent="Modules/CompteurModuleInteractable/CompteurModule/PowerButtons/Button4" index="0"]
+material_override = ExtResource("29_x5o4a")
+
+[node name="Button5" parent="Modules/CompteurModuleInteractable/CompteurModule/PowerButtons" index="4"]
+active_color = Color(0.662184, 1, 0.633765, 1)
+inactive_color = Color(1, 1, 1, 1)
+
+[node name="MeshInstance3D" parent="Modules/CompteurModuleInteractable/CompteurModule/PowerButtons/Button5" index="0"]
+material_override = ExtResource("29_x5o4a")
+
+[node name="Compteurs" parent="Modules/CompteurModuleInteractable/CompteurModule" index="1"]
+transform = Transform3D(0.995309, 0.0593277, -0.0764254, -0.0169248, 0.884511, 0.466215, 0.0952581, -0.462734, 0.881366, 0.119263, -0.0611939, -0.00460339)
+
+[node name="MeshInstance3D" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs" index="0"]
+mesh = null
+
+[node name="Compteur1" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D" index="0"]
+transform = Transform3D(0.563494, -2.2668e-08, 5.96047e-08, 0, -2.2668e-08, 1, 0, -0.380307, -2.08616e-07, -0.138207, 0.102274, 0.0228182)
+text = "1000 mW"
+
+[node name="Compteur3D" type="Node3D" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D/Compteur1" index="0"]
+transform = Transform3D(1.76558, 1.19209e-07, -1.19209e-07, 5.96046e-08, 1.44156, -1.78814e-07, 2.98023e-07, 3.27826e-07, 0.582773, 0.0862641, 0.622264, 0.0172269)
+script = ExtResource("30_4hiqr")
+
+[node name="Background" type="MeshInstance3D" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D/Compteur1/Compteur3D"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_7am1v")
+mesh = SubResource("QuadMesh_qilsy")
+skeleton = NodePath("../../..")
+
+[node name="PivotJauge" type="Node3D" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D/Compteur1/Compteur3D"]
+transform = Transform3D(0.927184, 0.374607, 0, -0.374607, 0.927184, 0, 0, 0, 1, 0, -0.395698, -1.49012e-08)
+
+[node name="Jauge" type="MeshInstance3D" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D/Compteur1/Compteur3D/PivotJauge"]
+transform = Transform3D(0.0250855, -5.21541e-08, 3.33786e-06, -2.79397e-09, 0.436516, 6.67572e-06, 4.65661e-09, 5.21541e-08, 30.0582, 0.0167904, 0.427497, 0.0315087)
+material_override = SubResource("StandardMaterial3D_dpcrd")
+mesh = SubResource("QuadMesh_3mp4q")
+skeleton = NodePath("../../Background")
+
+[node name="Compteur2" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D" index="1"]
+transform = Transform3D(0.551489, 2.22045e-16, 0.113265, -0.113265, -1.72984e-08, 0.551489, 4.95095e-09, -0.395741, -2.41064e-08, -0.872767, 0.111906, 0.610403)
+text = "1000 mW"
+
+[node name="Compteur3D" type="Node3D" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D/Compteur2" index="0"]
+transform = Transform3D(1.76558, 1.19209e-07, -1.19209e-07, 5.96046e-08, 1.44156, -1.78814e-07, 2.98023e-07, 3.27826e-07, 0.582773, 0.0862641, 0.622264, 0.0172269)
+script = ExtResource("30_4hiqr")
+
+[node name="Background" type="MeshInstance3D" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D/Compteur2/Compteur3D"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_7am1v")
+mesh = SubResource("QuadMesh_qilsy")
+skeleton = NodePath("../../..")
+
+[node name="PivotJauge" type="Node3D" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D/Compteur2/Compteur3D"]
+transform = Transform3D(0.927184, 0.374607, 0, -0.374607, 0.927184, 0, 0, 0, 1, 0, -0.395698, -1.49012e-08)
+
+[node name="Jauge" type="MeshInstance3D" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D/Compteur2/Compteur3D/PivotJauge"]
+transform = Transform3D(0.0250855, -5.21541e-08, 3.33786e-06, -2.79397e-09, 0.436516, 6.67572e-06, 4.65661e-09, 5.21541e-08, 30.0582, 0.0167904, 0.427497, 0.0315087)
+material_override = SubResource("StandardMaterial3D_dpcrd")
+mesh = SubResource("QuadMesh_3mp4q")
+skeleton = NodePath("../../Background")
+
+[node name="Compteur3" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D" index="2"]
+transform = Transform3D(0.553407, 0.0361853, -0.0871552, 0.0873571, 0.00150685, 0.556177, 0.0554855, -0.363281, -0.0063743, 0.590111, 0.124781, 0.165971)
+text = "1000 mW"
+
+[node name="Compteur3D" type="Node3D" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D/Compteur3" index="0"]
+transform = Transform3D(1.76558, 1.19209e-07, -1.19209e-07, 5.96046e-08, 1.44156, -1.78814e-07, 2.98023e-07, 3.27826e-07, 0.582773, 0.0862641, 0.622264, 0.0172269)
+script = ExtResource("30_4hiqr")
+
+[node name="Background" type="MeshInstance3D" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D/Compteur3/Compteur3D"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_7am1v")
+mesh = SubResource("QuadMesh_qilsy")
+skeleton = NodePath("../../..")
+
+[node name="PivotJauge" type="Node3D" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D/Compteur3/Compteur3D"]
+transform = Transform3D(0.927184, 0.374607, 0, -0.374607, 0.927184, 0, 0, 0, 1, 0, -0.395698, -1.49012e-08)
+
+[node name="Jauge" type="MeshInstance3D" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D/Compteur3/Compteur3D/PivotJauge"]
+transform = Transform3D(0.0250855, -5.21541e-08, 3.33786e-06, -2.79397e-09, 0.436516, 6.67572e-06, 4.65661e-09, 5.21541e-08, 30.0582, 0.0167904, 0.427497, 0.0315087)
+material_override = SubResource("StandardMaterial3D_dpcrd")
+mesh = SubResource("QuadMesh_3mp4q")
+skeleton = NodePath("../../Background")
+
+[node name="Compteur4" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D" index="3"]
+transform = Transform3D(0.556342, -0.0132498, 0.0840092, -0.0840397, 0.000415761, 0.556692, -0.0197363, -0.375266, -0.00234941, -1.01308, 0.188193, 0.0794273)
+text = "1000 mW"
+
+[node name="Compteur3D" type="Node3D" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D/Compteur4" index="0"]
+transform = Transform3D(1.76558, 1.19209e-07, -1.19209e-07, 5.96046e-08, 1.44156, -1.78814e-07, 2.98023e-07, 3.27826e-07, 0.582773, 0.0862641, 0.622264, 0.0172269)
+script = ExtResource("30_4hiqr")
+
+[node name="Background" type="MeshInstance3D" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D/Compteur4/Compteur3D"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_7am1v")
+mesh = SubResource("QuadMesh_qilsy")
+skeleton = NodePath("../../..")
+
+[node name="PivotJauge" type="Node3D" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D/Compteur4/Compteur3D"]
+transform = Transform3D(0.927184, 0.374607, 0, -0.374607, 0.927184, 0, 0, 0, 1, 0, -0.395698, -1.49012e-08)
+
+[node name="Jauge" type="MeshInstance3D" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D/Compteur4/Compteur3D/PivotJauge"]
+transform = Transform3D(0.0250855, -5.21541e-08, 3.33786e-06, -2.79397e-09, 0.436516, 6.67572e-06, 4.65661e-09, 5.21541e-08, 30.0582, 0.0167904, 0.427497, 0.0315087)
+material_override = SubResource("StandardMaterial3D_dpcrd")
+mesh = SubResource("QuadMesh_3mp4q")
+skeleton = NodePath("../../Background")
+
+[node name="Compteur5" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D" index="4"]
+transform = Transform3D(0.562191, 0.0145025, -0.0221596, 0.0221687, 0.000108141, 0.562563, 0.0204648, -0.398517, -0.000653759, 0.0687302, 0.0570052, 0.671645)
+text = "1000 mW"
+
+[node name="Compteur3D" type="Node3D" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D/Compteur5" index="0"]
+transform = Transform3D(1.76558, 1.19209e-07, -1.19209e-07, 5.96046e-08, 1.44156, -1.78814e-07, 2.98023e-07, 3.27826e-07, 0.582773, 0.0862641, 0.622264, 0.0172269)
+script = ExtResource("30_4hiqr")
+
+[node name="Background" type="MeshInstance3D" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D/Compteur5/Compteur3D"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_7am1v")
+mesh = SubResource("QuadMesh_qilsy")
+skeleton = NodePath("../../..")
+
+[node name="PivotJauge" type="Node3D" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D/Compteur5/Compteur3D"]
+transform = Transform3D(0.927184, 0.374607, 0, -0.374607, 0.927184, 0, 0, 0, 1, 0, -0.395698, -1.49012e-08)
+
+[node name="Jauge" type="MeshInstance3D" parent="Modules/CompteurModuleInteractable/CompteurModule/Compteurs/MeshInstance3D/Compteur5/Compteur3D/PivotJauge"]
+transform = Transform3D(0.0250855, -5.21541e-08, 3.33786e-06, -2.79397e-09, 0.436516, 6.67572e-06, 4.65661e-09, 5.21541e-08, 30.0582, 0.0167904, 0.427497, 0.0315087)
+material_override = SubResource("StandardMaterial3D_dpcrd")
+mesh = SubResource("QuadMesh_3mp4q")
+skeleton = NodePath("../../Background")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Modules/CompteurModuleInteractable"]
+transform = Transform3D(0.636886, 0, -0.770958, 0, 1, 0, 0.770958, 0, 0.636886, -0.195968, 0.233887, -0.24101)
+shape = SubResource("BoxShape3D_bcnv6")
+
+[node name="Outline" type="MeshInstance3D" parent="Modules/CompteurModuleInteractable"]
+transform = Transform3D(0.636886, 0, -0.770958, 0, 1, 0, 0.770958, 0, 0.636886, -0.195968, 0.233887, -0.24101)
+visible = false
+mesh = SubResource("BoxMesh_d3v2l")
+
+[node name="DoomButtonModule" parent="Modules" instance=ExtResource("6_8jq38")]
+animation_duration = 0.5
+
+[node name="SuccessSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_g84hw")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(2, -6.97574e-16, 4.40536e-13, 6.97574e-16, 2, -6.97574e-16, -4.40536e-13, 6.97574e-16, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_vhhtj")
+
+[connection signal="game_ended" from="GlobalTimer" to="." method="end_game"]
+[connection signal="module_score" from="Modules/CuveModule" to="." method="set_cuve_module_score"]
+[connection signal="module_success" from="Modules/CuveModule" to="." method="set_cuve_module_success"]
+[connection signal="order_item" from="Modules/ShopModule" to="Parcel" method="_on_item_ordered"]
+[connection signal="break_cuve" from="Modules/CashModule" to="Modules/CuveModule" method="_on_cuve_broken"]
+[connection signal="break_digicode" from="Modules/CashModule" to="Modules/NumpadModuleInteractable/NumpadModule" method="broke_random_button"]
+[connection signal="break_leds" from="Modules/CashModule" to="Modules/LedModuleInteractable/LedModule" method="broke_random_led"]
+[connection signal="module_success" from="Modules/NumpadModuleInteractable/NumpadModule" to="." method="set_numpad_module_success"]
+[connection signal="module_success" from="Modules/LedModuleInteractable/LedModule" to="." method="set_led_module_success"]
+[connection signal="module_success" from="Modules/CompteurModuleInteractable/CompteurModule" to="." method="set_compteur_module_success"]
+
+[editable path="Player"]
+[editable path="Modules/NumpadModuleInteractable/NumpadModule"]
+[editable path="Modules/LedModuleInteractable/LedModule"]
+[editable path="Modules/CompteurModuleInteractable/CompteurModule"]

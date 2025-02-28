@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dt7pj5etmvg30"
+path="res://.godot/imported/Will Osborne & His Orchestra - Sweetheart Of Theta Delta Chi (1930).mp3-e535d20b2210f738e04605071ad41da4.mp3str"
+
+[deps]
+
+source_file="res://sounds/songs/Will Osborne & His Orchestra - Sweetheart Of Theta Delta Chi (1930).mp3"
+dest_files=["res://.godot/imported/Will Osborne & His Orchestra - Sweetheart Of Theta Delta Chi (1930).mp3-e535d20b2210f738e04605071ad41da4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

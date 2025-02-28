@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bogn2sxxc3ajc"]
+
+[ext_resource type="Texture2D" uid="uid://x5g0wbev4efi" path="res://textures/tilemap.png" id="1_co4mk"]
+
+[resource]
+albedo_texture = ExtResource("1_co4mk")
+metallic_specular = 0.0

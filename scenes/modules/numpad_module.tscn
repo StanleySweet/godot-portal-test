@@ -1,0 +1,433 @@
+[gd_scene load_steps=17 format=3 uid="uid://ddsp613qbs4kn"]
+
+[ext_resource type="Script" path="res://scripts/NumpadModule/NumpadModule.gd" id="1_lsaeh"]
+[ext_resource type="Script" path="res://scripts/NumpadModule/NumpadModuleButtonInteractable.gd" id="2_kxi0y"]
+[ext_resource type="Script" path="res://scripts/NumpadModule/NumpadModuleLight.gd" id="3_botui"]
+[ext_resource type="Material" uid="uid://5ahqcopvfwwd" path="res://materials/green_light.tres" id="5_ffluy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kcpw7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vljhj"]
+albedo_color = Color(0.966667, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5jre5"]
+material = SubResource("StandardMaterial3D_vljhj")
+flip_faces = true
+size = Vector3(1.1, 1.1, 1.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bq2b6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kf1cg"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_xprql"]
+material = SubResource("StandardMaterial3D_kf1cg")
+
+[sub_resource type="SphereMesh" id="SphereMesh_oy1f8"]
+material = ExtResource("5_ffluy")
+
+[sub_resource type="BoxMesh" id="BoxMesh_2bb7v"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_di3ps"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_osdvd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ukwqs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_n4ads"]
+
+[node name="NumpadModule" type="Node3D" node_paths=PackedStringArray("displaySequnce", "list_of_leds")]
+script = ExtResource("1_lsaeh")
+displaySequnce = NodePath("Numpad/DisplaySequence")
+list_of_leds = [NodePath("Lights/EnigmaLight1"), NodePath("Lights/EnigmaLight2"), NodePath("Lights/EnigmaLight3"), NodePath("Lights/EnigmaLight4"), NodePath("Lights/EnigmaLight5")]
+
+[node name="Numpad" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.858468, -0.512867, 0, 0.512867, 0.858468, 0, -0.484694, 0.239277)
+
+[node name="DisplaySequence" type="Label3D" parent="Numpad"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.575948, 0.287805, -0.805091)
+text = "1234"
+font_size = 100
+outline_size = 20
+horizontal_alignment = 0
+
+[node name="NumpadKey1" type="StaticBody3D" parent="Numpad" node_paths=PackedStringArray("mesh", "outlineMesh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.7, 0, 0)
+collision_layer = 8
+script = ExtResource("2_kxi0y")
+mesh = NodePath("MeshInstance3D")
+prompt_message = ""
+outlineMesh = NodePath("Outline")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Numpad/NumpadKey1"]
+mesh = SubResource("BoxMesh_kcpw7")
+
+[node name="Outline" type="MeshInstance3D" parent="Numpad/NumpadKey1"]
+visible = false
+mesh = SubResource("BoxMesh_5jre5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Numpad/NumpadKey1"]
+shape = SubResource("BoxShape3D_bq2b6")
+
+[node name="Label3D" type="Label3D" parent="Numpad/NumpadKey1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.575611, 0)
+text = "1"
+font_size = 100
+outline_size = 20
+
+[node name="NumpadKey2" type="StaticBody3D" parent="Numpad" node_paths=PackedStringArray("mesh", "outlineMesh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+collision_layer = 8
+script = ExtResource("2_kxi0y")
+pad_value = 2
+mesh = NodePath("MeshInstance3D")
+prompt_message = ""
+outlineMesh = NodePath("Outline")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Numpad/NumpadKey2"]
+mesh = SubResource("BoxMesh_kcpw7")
+
+[node name="Outline" type="MeshInstance3D" parent="Numpad/NumpadKey2"]
+visible = false
+mesh = SubResource("BoxMesh_5jre5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Numpad/NumpadKey2"]
+shape = SubResource("BoxShape3D_bq2b6")
+
+[node name="Label3D" type="Label3D" parent="Numpad/NumpadKey2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.575611, 0)
+text = "1"
+font_size = 100
+outline_size = 20
+
+[node name="NumpadKey3" type="StaticBody3D" parent="Numpad" node_paths=PackedStringArray("mesh", "outlineMesh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.7, 0, 0)
+collision_layer = 8
+script = ExtResource("2_kxi0y")
+pad_value = 3
+mesh = NodePath("MeshInstance3D")
+prompt_message = ""
+outlineMesh = NodePath("Outline")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Numpad/NumpadKey3"]
+mesh = SubResource("BoxMesh_kcpw7")
+
+[node name="Outline" type="MeshInstance3D" parent="Numpad/NumpadKey3"]
+visible = false
+mesh = SubResource("BoxMesh_5jre5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Numpad/NumpadKey3"]
+shape = SubResource("BoxShape3D_bq2b6")
+
+[node name="Label3D" type="Label3D" parent="Numpad/NumpadKey3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.575611, 0)
+text = "1"
+font_size = 100
+outline_size = 20
+
+[node name="NumpadKey4" type="StaticBody3D" parent="Numpad" node_paths=PackedStringArray("mesh", "outlineMesh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.7, 0, 0.7)
+collision_layer = 8
+script = ExtResource("2_kxi0y")
+pad_value = 4
+mesh = NodePath("MeshInstance3D")
+prompt_message = ""
+outlineMesh = NodePath("Outline")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Numpad/NumpadKey4"]
+mesh = SubResource("BoxMesh_kcpw7")
+
+[node name="Outline" type="MeshInstance3D" parent="Numpad/NumpadKey4"]
+visible = false
+mesh = SubResource("BoxMesh_5jre5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Numpad/NumpadKey4"]
+shape = SubResource("BoxShape3D_bq2b6")
+
+[node name="Label3D" type="Label3D" parent="Numpad/NumpadKey4"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.575611, 0)
+text = "1"
+font_size = 100
+outline_size = 20
+
+[node name="NumpadKey5" type="StaticBody3D" parent="Numpad" node_paths=PackedStringArray("mesh", "outlineMesh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0.7)
+collision_layer = 8
+script = ExtResource("2_kxi0y")
+pad_value = 5
+mesh = NodePath("MeshInstance3D")
+prompt_message = ""
+outlineMesh = NodePath("Outline")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Numpad/NumpadKey5"]
+mesh = SubResource("BoxMesh_kcpw7")
+
+[node name="Outline" type="MeshInstance3D" parent="Numpad/NumpadKey5"]
+visible = false
+mesh = SubResource("BoxMesh_5jre5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Numpad/NumpadKey5"]
+shape = SubResource("BoxShape3D_bq2b6")
+
+[node name="Label3D" type="Label3D" parent="Numpad/NumpadKey5"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.575611, 0)
+text = "1"
+font_size = 100
+outline_size = 20
+
+[node name="NumpadKey6" type="StaticBody3D" parent="Numpad" node_paths=PackedStringArray("mesh", "outlineMesh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.7, 0, 0.7)
+collision_layer = 8
+script = ExtResource("2_kxi0y")
+pad_value = 6
+mesh = NodePath("MeshInstance3D")
+prompt_message = ""
+outlineMesh = NodePath("Outline")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Numpad/NumpadKey6"]
+mesh = SubResource("BoxMesh_kcpw7")
+
+[node name="Outline" type="MeshInstance3D" parent="Numpad/NumpadKey6"]
+visible = false
+mesh = SubResource("BoxMesh_5jre5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Numpad/NumpadKey6"]
+shape = SubResource("BoxShape3D_bq2b6")
+
+[node name="Label3D" type="Label3D" parent="Numpad/NumpadKey6"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.575611, 0)
+text = "1"
+font_size = 100
+outline_size = 20
+
+[node name="NumpadKey7" type="StaticBody3D" parent="Numpad" node_paths=PackedStringArray("mesh", "outlineMesh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.7, 0, 1.4)
+collision_layer = 8
+script = ExtResource("2_kxi0y")
+pad_value = 7
+mesh = NodePath("MeshInstance3D")
+prompt_message = ""
+outlineMesh = NodePath("Outline")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Numpad/NumpadKey7"]
+mesh = SubResource("BoxMesh_kcpw7")
+
+[node name="Outline" type="MeshInstance3D" parent="Numpad/NumpadKey7"]
+visible = false
+mesh = SubResource("BoxMesh_5jre5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Numpad/NumpadKey7"]
+shape = SubResource("BoxShape3D_bq2b6")
+
+[node name="Label3D" type="Label3D" parent="Numpad/NumpadKey7"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.575611, 0)
+text = "1"
+font_size = 100
+outline_size = 20
+
+[node name="NumpadKey8" type="StaticBody3D" parent="Numpad" node_paths=PackedStringArray("mesh", "outlineMesh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 1.4)
+collision_layer = 8
+script = ExtResource("2_kxi0y")
+pad_value = 8
+mesh = NodePath("MeshInstance3D")
+prompt_message = ""
+outlineMesh = NodePath("Outline")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Numpad/NumpadKey8"]
+mesh = SubResource("BoxMesh_kcpw7")
+
+[node name="Outline" type="MeshInstance3D" parent="Numpad/NumpadKey8"]
+visible = false
+mesh = SubResource("BoxMesh_5jre5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Numpad/NumpadKey8"]
+shape = SubResource("BoxShape3D_bq2b6")
+
+[node name="Label3D" type="Label3D" parent="Numpad/NumpadKey8"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.575611, 0)
+text = "1"
+font_size = 100
+outline_size = 20
+
+[node name="NumpadKey9" type="StaticBody3D" parent="Numpad" node_paths=PackedStringArray("mesh", "outlineMesh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.7, 0, 1.4)
+collision_layer = 8
+script = ExtResource("2_kxi0y")
+pad_value = 9
+mesh = NodePath("MeshInstance3D")
+prompt_message = ""
+outlineMesh = NodePath("Outline")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Numpad/NumpadKey9"]
+mesh = SubResource("BoxMesh_kcpw7")
+
+[node name="Outline" type="MeshInstance3D" parent="Numpad/NumpadKey9"]
+visible = false
+mesh = SubResource("BoxMesh_5jre5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Numpad/NumpadKey9"]
+shape = SubResource("BoxShape3D_bq2b6")
+
+[node name="Label3D" type="Label3D" parent="Numpad/NumpadKey9"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.575611, 0)
+text = "1"
+font_size = 100
+outline_size = 20
+
+[node name="NumpadKey0" type="StaticBody3D" parent="Numpad" node_paths=PackedStringArray("mesh", "outlineMesh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 2.1)
+collision_layer = 8
+script = ExtResource("2_kxi0y")
+pad_value = 0
+mesh = NodePath("MeshInstance3D")
+prompt_message = ""
+outlineMesh = NodePath("Outline")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Numpad/NumpadKey0"]
+mesh = SubResource("BoxMesh_kcpw7")
+
+[node name="Outline" type="MeshInstance3D" parent="Numpad/NumpadKey0"]
+visible = false
+mesh = SubResource("BoxMesh_5jre5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Numpad/NumpadKey0"]
+shape = SubResource("BoxShape3D_bq2b6")
+
+[node name="Label3D" type="Label3D" parent="Numpad/NumpadKey0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.575611, 0)
+text = "1"
+font_size = 100
+outline_size = 20
+
+[node name="Lights" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77916, -1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, -1, 0, 1, 2.98023e-08, 0, 1, 0)
+
+[node name="Enigma1" type="Label3D" parent="Lights/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.1, -2)
+text = "I IV IX V"
+font_size = 80
+outline_size = 20
+
+[node name="Enigma2" type="Label3D" parent="Lights/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.379082, 0.1, -1)
+text = "CMLXXIII + MMMXVII"
+font_size = 80
+outline_size = 20
+
+[node name="Enigma3" type="Label3D" parent="Lights/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0999999, 0)
+text = "HEDA"
+font_size = 80
+outline_size = 20
+
+[node name="Enigma4" type="Label3D" parent="Lights/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.1, 0.932811)
+text = "π"
+font_size = 120
+outline_size = 20
+
+[node name="Enigma5" type="Label3D" parent="Lights/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0999999, 2)
+text = "дзеркало 8252"
+font_size = 80
+outline_size = 20
+
+[node name="EnigmaLight1" type="Node3D" parent="Lights" node_paths=PackedStringArray("redLight", "greenLight")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, 0)
+script = ExtResource("3_botui")
+redLight = NodePath("RedLight")
+greenLight = NodePath("GreenLight")
+
+[node name="RedLight" type="MeshInstance3D" parent="Lights/EnigmaLight1"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_xprql")
+skeleton = NodePath("../..")
+
+[node name="GreenLight" type="MeshInstance3D" parent="Lights/EnigmaLight1"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_oy1f8")
+skeleton = NodePath("../..")
+
+[node name="EnigmaLight2" type="Node3D" parent="Lights" node_paths=PackedStringArray("redLight", "greenLight")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 0)
+script = ExtResource("3_botui")
+redLight = NodePath("RedLight")
+greenLight = NodePath("GreenLight")
+
+[node name="RedLight" type="MeshInstance3D" parent="Lights/EnigmaLight2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("BoxMesh_2bb7v")
+skeleton = NodePath("../..")
+
+[node name="GreenLight" type="MeshInstance3D" parent="Lights/EnigmaLight2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_di3ps")
+skeleton = NodePath("../..")
+
+[node name="EnigmaLight3" type="Node3D" parent="Lights" node_paths=PackedStringArray("redLight", "greenLight")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
+script = ExtResource("3_botui")
+redLight = NodePath("RedLight")
+greenLight = NodePath("GreenLight")
+
+[node name="RedLight" type="MeshInstance3D" parent="Lights/EnigmaLight3"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_xprql")
+skeleton = NodePath("../..")
+
+[node name="GreenLight" type="MeshInstance3D" parent="Lights/EnigmaLight3"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_osdvd")
+skeleton = NodePath("../..")
+
+[node name="EnigmaLight4" type="Node3D" parent="Lights" node_paths=PackedStringArray("redLight", "greenLight")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+script = ExtResource("3_botui")
+redLight = NodePath("RedLight")
+greenLight = NodePath("GreenLight")
+
+[node name="RedLight" type="MeshInstance3D" parent="Lights/EnigmaLight4"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_xprql")
+skeleton = NodePath("../..")
+
+[node name="GreenLight" type="MeshInstance3D" parent="Lights/EnigmaLight4"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_ukwqs")
+skeleton = NodePath("../..")
+
+[node name="EnigmaLight5" type="Node3D" parent="Lights" node_paths=PackedStringArray("redLight", "greenLight")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 0)
+script = ExtResource("3_botui")
+redLight = NodePath("RedLight")
+greenLight = NodePath("GreenLight")
+
+[node name="RedLight" type="MeshInstance3D" parent="Lights/EnigmaLight5"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_xprql")
+skeleton = NodePath("../..")
+
+[node name="GreenLight" type="MeshInstance3D" parent="Lights/EnigmaLight5"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_n4ads")
+skeleton = NodePath("../..")
+
+[connection signal="button_pressed" from="Numpad/NumpadKey1" to="." method="on_button_pressed"]
+[connection signal="button_pressed" from="Numpad/NumpadKey2" to="." method="on_button_pressed"]
+[connection signal="button_pressed" from="Numpad/NumpadKey3" to="." method="on_button_pressed"]
+[connection signal="button_pressed" from="Numpad/NumpadKey4" to="." method="on_button_pressed"]
+[connection signal="button_pressed" from="Numpad/NumpadKey5" to="." method="on_button_pressed"]
+[connection signal="button_pressed" from="Numpad/NumpadKey6" to="." method="on_button_pressed"]
+[connection signal="button_pressed" from="Numpad/NumpadKey7" to="." method="on_button_pressed"]
+[connection signal="button_pressed" from="Numpad/NumpadKey8" to="." method="on_button_pressed"]
+[connection signal="button_pressed" from="Numpad/NumpadKey9" to="." method="on_button_pressed"]
+[connection signal="button_pressed" from="Numpad/NumpadKey0" to="." method="on_button_pressed"]

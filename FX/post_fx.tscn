@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://erqdhsfwy40k"]
+
+[ext_resource type="Shader" path="res://shaders/PostFX.gdshader" id="1_7gdnu"]
+[ext_resource type="Texture2D" uid="uid://bfhvckm30313o" path="res://textures/LightEffectScreen.png" id="2_e5878"]
+[ext_resource type="Texture2D" uid="uid://du420gjm7m1ta" path="res://textures/Noise.png" id="3_xnqxj"]
+[ext_resource type="VideoStream" path="res://videos/splats.ogv" id="4_drtwg"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7a5xb"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h41cs"]
+resource_local_to_scene = true
+shader = ExtResource("1_7gdnu")
+shader_parameter/lightTexture = ExtResource("2_e5878")
+shader_parameter/noiseTexture = ExtResource("3_xnqxj")
+shader_parameter/splatsTexture = SubResource("ViewportTexture_7a5xb")
+
+[node name="PostFX" type="Camera2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_h41cs")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+canvas_item_default_texture_repeat = 1
+size = Vector2i(1280, 720)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stream = ExtResource("4_drtwg")
+volume_db = -80.0
+autoplay = true
+loop = true

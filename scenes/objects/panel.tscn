@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpwvadl7lwe5t"]
+
+[ext_resource type="ArrayMesh" uid="uid://ddlbnkvknshqt" path="res://meshes/panel.obj" id="1_1y6kw"]
+[ext_resource type="Material" uid="uid://bogn2sxxc3ajc" path="res://materials/tilemap.tres" id="2_4tmtq"]
+[ext_resource type="ArrayMesh" uid="uid://c28bxdl2g82y1" path="res://meshes/panel_detail.obj" id="3_cjp67"]
+
+[node name="Panel" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_1y6kw")
+surface_material_override/0 = ExtResource("2_4tmtq")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = ExtResource("3_cjp67")
+surface_material_override/0 = ExtResource("2_4tmtq")

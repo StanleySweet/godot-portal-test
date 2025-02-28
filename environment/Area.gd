@@ -7,5 +7,5 @@ extends Area3D
 func _on_area_body_entered(body):	
 	var angle: float = Vector3.LEFT.angle_to(player.position)
 	if angle < self.MaxAngle and body.is_in_group("player"):
-		var camera_pos: Vector3 = camera.position - Vector3(0, camera.position.y - body.position.y, 0)
-		body.position = camera_pos
+		var camera_pos: Vector3 = camera.global_position 
+		body.global_position = camera_pos

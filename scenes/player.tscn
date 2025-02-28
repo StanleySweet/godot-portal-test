@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://premvfst6x57"]
+
+[ext_resource type="FontFile" uid="uid://cuuu3hglclxd" path="res://fonts/KGHAPPYSOLID.TTF" id="20_63tn6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_evytk"]
+font_color = Color(0.180392, 1, 0.54902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1x4ch"]
+font = ExtResource("20_63tn6")
+font_size = 20
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.898039)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g8jv7"]
+font = ExtResource("20_63tn6")
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[node name="Player" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -13.0
+offset_right = 20.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "O"
+label_settings = SubResource("LabelSettings_evytk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Prompt" type="Label" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -98.0
+offset_right = 80.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+text = "Prompt"
+label_settings = SubResource("LabelSettings_1x4ch")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="VoiceOver" type="Label" parent="CanvasLayer"]
+custom_minimum_size = Vector2(511.715, 76.715)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -215.522
+offset_top = -244.355
+offset_right = 215.523
+offset_bottom = -102.355
+grow_horizontal = 2
+grow_vertical = 0
+text = "Anyone needing any safety equipment is expected to fill in the SRR-12F3 form and send it to HR 2 weeks prior to usage. Any request out of these bounds will be rejected."
+label_settings = SubResource("LabelSettings_g8jv7")
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2

@@ -1,7 +1,8 @@
-[gd_scene load_steps=116 format=4 uid="uid://g2eqktvb8a17"]
+[gd_scene load_steps=143 format=4 uid="uid://g2eqktvb8a17"]
 
-[ext_resource type="Script" path="res://environment/FPSCounter.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/env_toggler.gd" id="2_su7xy"]
 [ext_resource type="PackedScene" uid="uid://b0iaoicmaa3ao" path="res://FPSf.tscn" id="3"]
+[ext_resource type="Material" uid="uid://drl1eokpsxerb" path="res://DemonsOnDemand/materials/portal.tres" id="3_r4k6t"]
 [ext_resource type="Material" uid="uid://dfacedccun82o" path="res://Materials/Orange_grid.tres" id="4"]
 [ext_resource type="Material" uid="uid://lmdfhqsvwefi" path="res://Materials/Purple_grid.tres" id="5"]
 [ext_resource type="Shader" path="res://environment/Parallax.gdshader" id="5_nrra2"]
@@ -13,7 +14,6 @@
 [ext_resource type="Material" uid="uid://vfisubf4c3qw" path="res://DemonsOnDemand/materials/ground.tres" id="9_4w1gh"]
 [ext_resource type="PackedScene" uid="uid://dvcv4somehnah" path="res://DemonsOnDemand/scenes/walls/wall_01.tscn" id="9_6db7y"]
 [ext_resource type="PackedScene" uid="uid://bh1135gqnkgjc" path="res://DemonsOnDemand/scenes/models/environment/column.tscn" id="11_e26u2"]
-[ext_resource type="AudioStream" uid="uid://c766e2u53exiw" path="res://DemonsOnDemand/sfx/bgm/main_theme.mp3" id="12_lb7d1"]
 [ext_resource type="Material" uid="uid://d4g1tspux15e8" path="res://DemonsOnDemand/materials/wall_door.tres" id="12_lbjl1"]
 [ext_resource type="Script" path="res://DemonsOnDemand/scenes/ui/summonings/Config.gd" id="13_2mc4y"]
 [ext_resource type="Material" uid="uid://cdm5np3nbmbqu" path="res://DemonsOnDemand/materials/wood.tres" id="13_dgdo4"]
@@ -54,6 +54,18 @@
 [ext_resource type="PackedScene" uid="uid://f1xj7lqyhxts" path="res://DemonsOnDemand/scenes/models/environment/bookcase_01.tscn" id="53_boa1x"]
 [ext_resource type="PackedScene" uid="uid://brnaus8gbilxw" path="res://DemonsOnDemand/scenes/models/environment/painting_special.tscn" id="54_7b1bl"]
 [ext_resource type="PackedScene" uid="uid://dicxvaslcvkpo" path="res://DemonsOnDemand/models/environment/shelf_01.glb" id="54_013y0"]
+[ext_resource type="PackedScene" uid="uid://tm4qpm5xgmxm" path="res://scenes/room.tscn" id="55_gb2gl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hwnqb"]
+size = Vector3(5, 3, 5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fd57f"]
+resource_local_to_scene = true
+material = ExtResource("3_r4k6t")
+size = Vector2(1.2, 2.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ttf5n"]
+size = Vector3(2.2, 1, 1.2)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ioj6n"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -321,7 +333,7 @@ shader_parameter/PortalTexture = SubResource("CompressedTexture2D_3blfq")
 [sub_resource type="ViewportTexture" id="ViewportTexture_u7s53"]
 viewport_path = NodePath("World1/Gate2/SubViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0fua6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_thx37"]
 resource_local_to_scene = true
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_yici7")
@@ -335,7 +347,254 @@ shader_parameter/room_texture = SubResource("ViewportTexture_u7s53")
 [sub_resource type="PlaneMesh" id="PlaneMesh_nuoit"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(12, 17)
-material = SubResource("ShaderMaterial_0fua6")
+material = SubResource("ShaderMaterial_thx37")
+add_uv2 = true
+size = Vector2(2, 3)
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_2x8wt"]
+parameter_name = "ColorIntensity"
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_xp4d7"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_bi730"]
+parameter_name = "SpeedXY"
+default_value_enabled = true
+default_value = Vector2(-0.3, 0.3)
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_71dsf"]
+parameter_name = "PortalTexture"
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_h3q1e"]
+source = 5
+texture = SubResource("CompressedTexture2D_oywbd")
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_824vo"]
+parameter_name = "TextureRepetition"
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_ty82a"]
+default_input_values = [0, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_ldqdh"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_cdv74"]
+function = 25
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_txkpv"]
+default_input_values = [0, 1.0, 1, 0.0]
+operator = 1
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_so31b"]
+function = 0
+
+[sub_resource type="VisualShaderNodeMultiplyAdd" id="VisualShaderNodeMultiplyAdd_dmr1l"]
+output_port_for_preview = 0
+default_input_values = [0, 0.0, 1, 0.5, 2, 1.0]
+
+[sub_resource type="VisualShaderNodeUVPolarCoord" id="VisualShaderNodeUVPolarCoord_er3hf"]
+default_input_values = [1, Vector2(0.5, 0.5), 2, 1.0, 3, 6.0]
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_ymdda"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_lkx7y"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_po0te"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(-0.3, 0.3)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_qmju6"]
+expanded_output_ports = [0]
+texture = ExtResource("6_06tf8")
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_vwstk"]
+parameter_name = "PortalColor"
+default_value_enabled = true
+default_value = Color(0.799126, 0.000499405, 0.799121, 1)
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_xtqqp"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
+
+[sub_resource type="VisualShader" id="VisualShader_llm1h"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx, unshaded, shadows_disabled;
+
+uniform float ColorIntensity = 1;
+uniform vec4 PortalColor : source_color = vec4(0.799126, 0.000499, 0.799121, 1.000000);
+uniform float TextureRepetition = 1;
+uniform vec2 SpeedXY = vec2(-0.300000, 0.300000);
+uniform sampler2D PortalTexture : source_color;
+
+
+
+void fragment() {
+// FloatParameter:10
+	float n_out10p0 = ColorIntensity;
+
+
+// ColorParameter:8
+	vec4 n_out8p0 = PortalColor;
+
+
+// VectorOp:11
+	vec4 n_out11p0 = vec4(n_out10p0) * n_out8p0;
+
+
+// FloatParameter:15
+	float n_out15p0 = TextureRepetition;
+
+
+	vec2 n_out3p0;
+// UVPolarCoord:3
+	vec2 n_in3p1 = vec2(0.50000, 0.50000);
+	float n_in3p2 = 1.00000;
+	{
+		vec2 __dir = UV - n_in3p1;
+		float __radius = length(__dir) * 2.0;
+		float __angle = atan(__dir.y, __dir.x) * 1.0 / (PI * 2.0);
+		n_out3p0 = vec2(__radius * n_in3p2, __angle * n_out15p0);
+	}
+
+
+// Input:5
+	float n_out5p0 = TIME;
+
+
+// Vector2Parameter:12
+	vec2 n_out12p0 = SpeedXY;
+
+
+// VectorOp:6
+	vec2 n_out6p0 = vec2(n_out5p0) * n_out12p0;
+
+
+// UVFunc:4
+	vec2 n_in4p1 = vec2(1.00000, 1.00000);
+	vec2 n_out4p0 = n_out6p0 * n_in4p1 + n_out3p0;
+
+
+	vec4 n_out14p0;
+// Texture2D:14
+	n_out14p0 = texture(PortalTexture, n_out4p0);
+
+
+// VectorOp:9
+	vec4 n_out9p0 = n_out11p0 * n_out14p0;
+
+
+// VectorDecompose:16
+	float n_out16p0 = n_out8p0.x;
+	float n_out16p1 = n_out8p0.y;
+	float n_out16p2 = n_out8p0.z;
+	float n_out16p3 = n_out8p0.w;
+
+
+// FloatFunc:21
+	float n_out21p0 = sin(n_out5p0);
+
+
+// MultiplyAdd:22
+	float n_in22p1 = 0.50000;
+	float n_in22p2 = 1.00000;
+	float n_out22p0 = fma(n_out21p0, n_in22p1, n_in22p2);
+
+
+// FloatOp:17
+	float n_out17p0 = n_out16p3 * n_out22p0;
+
+
+// Output:0
+	ALBEDO = vec3(n_out9p0.xyz);
+	ALPHA = n_out17p0;
+
+
+}
+"
+flags/unshaded = true
+flags/shadows_disabled = true
+nodes/fragment/0/position = Vector2(1060, 140)
+nodes/fragment/3/node = SubResource("VisualShaderNodeUVPolarCoord_er3hf")
+nodes/fragment/3/position = Vector2(-1500, 300)
+nodes/fragment/4/node = SubResource("VisualShaderNodeUVFunc_ymdda")
+nodes/fragment/4/position = Vector2(-460, 820)
+nodes/fragment/5/node = SubResource("VisualShaderNodeInput_lkx7y")
+nodes/fragment/5/position = Vector2(-2180, 740)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_po0te")
+nodes/fragment/6/position = Vector2(-1180, 840)
+nodes/fragment/7/node = SubResource("VisualShaderNodeTexture_qmju6")
+nodes/fragment/7/position = Vector2(-980, 1800)
+nodes/fragment/8/node = SubResource("VisualShaderNodeColorParameter_vwstk")
+nodes/fragment/8/position = Vector2(-820, 300)
+nodes/fragment/9/node = SubResource("VisualShaderNodeVectorOp_xtqqp")
+nodes/fragment/9/position = Vector2(520, 0)
+nodes/fragment/10/node = SubResource("VisualShaderNodeFloatParameter_2x8wt")
+nodes/fragment/10/position = Vector2(-580, -660)
+nodes/fragment/11/node = SubResource("VisualShaderNodeVectorOp_xp4d7")
+nodes/fragment/11/position = Vector2(240, -200)
+nodes/fragment/12/node = SubResource("VisualShaderNodeVec2Parameter_bi730")
+nodes/fragment/12/position = Vector2(-1820, 1120)
+nodes/fragment/13/node = SubResource("VisualShaderNodeTexture2DParameter_71dsf")
+nodes/fragment/13/position = Vector2(-1540, -600)
+nodes/fragment/14/node = SubResource("VisualShaderNodeTexture_h3q1e")
+nodes/fragment/14/position = Vector2(0, 280)
+nodes/fragment/15/node = SubResource("VisualShaderNodeFloatParameter_824vo")
+nodes/fragment/15/position = Vector2(-2200, 260)
+nodes/fragment/16/node = SubResource("VisualShaderNodeVectorDecompose_ty82a")
+nodes/fragment/16/position = Vector2(-540, 1260)
+nodes/fragment/17/node = SubResource("VisualShaderNodeFloatOp_ldqdh")
+nodes/fragment/17/position = Vector2(680, 720)
+nodes/fragment/18/node = SubResource("VisualShaderNodeFloatFunc_cdv74")
+nodes/fragment/18/position = Vector2(-280, 1180)
+nodes/fragment/19/node = SubResource("VisualShaderNodeFloatOp_txkpv")
+nodes/fragment/19/position = Vector2(500, 460)
+nodes/fragment/21/node = SubResource("VisualShaderNodeFloatFunc_so31b")
+nodes/fragment/21/position = Vector2(240, 1280)
+nodes/fragment/22/node = SubResource("VisualShaderNodeMultiplyAdd_dmr1l")
+nodes/fragment/22/position = Vector2(700, 1260)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 6, 0, 4, 2, 9, 0, 0, 0, 10, 0, 11, 0, 8, 0, 11, 1, 11, 0, 9, 0, 12, 0, 6, 1, 13, 0, 14, 2, 4, 0, 14, 0, 14, 0, 9, 1, 15, 0, 3, 3, 5, 0, 6, 0, 8, 0, 16, 0, 16, 3, 19, 1, 16, 3, 17, 0, 17, 0, 0, 1, 5, 0, 21, 0, 21, 0, 22, 0, 22, 0, 17, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lxmuf"]
+load_path = "res://.godot/imported/portal_texture.png-8b4e59b80e49f2facc7b75652b40a21b.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k63gx"]
+render_priority = 0
+shader = SubResource("VisualShader_llm1h")
+shader_parameter/ColorIntensity = 3.0
+shader_parameter/PortalColor = Color(0.552941, 0.690196, 0.839216, 0.0431373)
+shader_parameter/TextureRepetition = 1.0
+shader_parameter/SpeedXY = Vector2(-0.3, 0.3)
+shader_parameter/PortalTexture = SubResource("CompressedTexture2D_lxmuf")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3m1w5"]
+viewport_path = NodePath("World1/Gate3/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8h3eu"]
+resource_local_to_scene = true
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_k63gx")
+shader = ExtResource("5_nrra2")
+shader_parameter/rooms = Vector2(1, 1)
+shader_parameter/room_seed = 0.0
+shader_parameter/atlas_rooms = Vector2(1, 1)
+shader_parameter/depth = 0.5
+shader_parameter/room_texture = SubResource("ViewportTexture_3m1w5")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wbr2v"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(12, 17)
+material = SubResource("ShaderMaterial_8h3eu")
 add_uv2 = true
 size = Vector2(2, 3)
 
@@ -525,13 +784,48 @@ shader_parameter/NOISE_TEXTURE = SubResource("NoiseTexture2D_p3dm0")
 material = SubResource("ShaderMaterial_j34u8")
 size = Vector3(30, 0.1, 50)
 
-[sub_resource type="Environment" id="Environment_uocs1"]
-ambient_light_source = 1
-ambient_light_color = Color(1, 1, 1, 1)
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_kfvkv"]
-
 [node name="Node3D" type="Node3D"]
+
+[node name="Room" parent="." instance=ExtResource("55_gb2gl")]
+transform = Transform3D(-0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, 92.014, -2, -9.543)
+
+[node name="Area3D" type="Area3D" parent="Room" node_paths=PackedStringArray("env", "sun")]
+script = ExtResource("2_su7xy")
+env = NodePath("../../WorldEnvironment")
+sun = NodePath("../../DirectionalLight3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Area3D"]
+shape = SubResource("BoxShape3D_hwnqb")
+
+[node name="Node3D" type="Node3D" parent="Room"]
+
+[node name="SubViewport" type="SubViewport" parent="Room/Node3D"]
+size = Vector2i(1024, 1024)
+
+[node name="Cameras" type="Node3D" parent="Room/Node3D/SubViewport"]
+
+[node name="TCAM" type="Camera3D" parent="Room/Node3D/SubViewport/Cameras"]
+transform = Transform3D(-4.37114e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787e-16, 1, -3.48787e-16, -4.37114e-08, 2.08165e-12, 2.08165e-12, -4.78846)
+cull_mask = 1048573
+projection = 2
+current = true
+size = 0.1
+far = 135.1
+
+[node name="CamPlane" type="MeshInstance3D" parent="Room/Node3D"]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 1.75813e-31, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 3.83566, 1.08348, -0.00197124)
+layers = 2
+mesh = SubResource("PlaneMesh_fd57f")
+skeleton = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="Room/Node3D/CamPlane"]
+transform = Transform3D(-4.37114e-08, 0, 1, -1.64203e-15, 1, 0, -1, -8.35187e-23, -4.37114e-08, 0, 0, 0)
+script = ExtResource("9")
+MaxAngle = 3.3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Node3D/CamPlane/Area3D"]
+transform = Transform3D(1, -1.13684e-15, 7.10543e-15, -1.13684e-15, 1, -1.42109e-14, -1.42109e-14, 1.42109e-14, 1, -1.19209e-07, -1.81768, -9.53674e-07)
+shape = SubResource("BoxShape3D_ttf5n")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -539,15 +833,6 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_th4cy")
-
-[node name="FPSCounter" type="Label" parent="."]
-offset_top = 4.0
-offset_right = 84.0
-offset_bottom = 35.0
-text = "FPS
-Cords
-Cam cords"
-script = ExtResource("1")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.08165e-12, 0.5)
@@ -560,6 +845,9 @@ size = 0.1
 
 [node name="FlashLight" parent="Player/Head/Camera3D" index="0"]
 visible = false
+
+[node name="RayCast3D" parent="Player/Head/Camera3D/FlashLight" index="2"]
+collide_with_areas = false
 
 [node name="World1" type="CSGCombiner3D" parent="."]
 use_collision = true
@@ -658,6 +946,44 @@ size = Vector2i(1432, 768)
 
 [node name="TCAM" type="Camera3D" parent="World1/Gate2/SubViewport/Cameras"]
 transform = Transform3D(-4.37114e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787e-16, 1, -3.48787e-16, -4.37114e-08, 51.27, 2.08165e-12, 0.289)
+current = true
+fov = 87.1
+size = 0.001
+far = 16.0
+
+[node name="Gate3" type="CSGBox3D" parent="World1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -10)
+size = Vector3(1, 4, 4)
+material = ExtResource("5")
+
+[node name="Substraction" type="CSGBox3D" parent="World1/Gate3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -0.5, 2.08165e-12)
+operation = 2
+size = Vector3(1, 3, 2)
+material = ExtResource("5")
+
+[node name="CamPlane" type="MeshInstance3D" parent="World1/Gate3"]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0, -0.5, 0)
+layers = 2
+mesh = SubResource("PlaneMesh_wbr2v")
+
+[node name="Area3D" type="Area3D" parent="World1/Gate3/CamPlane"]
+transform = Transform3D(-4.37114e-08, 0, 1, -1.64203e-15, 1, 0, -1, -8.35187e-23, -4.37114e-08, 0, 0, 0)
+script = ExtResource("9")
+MaxAngle = 1.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World1/Gate3/CamPlane/Area3D"]
+transform = Transform3D(1, -1.64203e-15, 0, -1.64203e-15, 1, 0, 0, 0, 1, 0, 4.9738e-14, 1.19209e-07)
+shape = SubResource("30")
+
+[node name="SubViewport" type="SubViewport" parent="World1/Gate3"]
+size = Vector2i(1432, 768)
+
+[node name="Cameras" type="Node3D" parent="World1/Gate3/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="TCAM" type="Camera3D" parent="World1/Gate3/SubViewport/Cameras"]
+transform = Transform3D(-4.37114e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787e-16, 1, -3.48787e-16, -4.37114e-08, 89.5784, -1, 0.479)
 current = true
 fov = 87.1
 size = 0.001
@@ -806,11 +1132,6 @@ shape = SubResource("BoxShape3D_cxfst")
 
 [node name="Node3D" type="Node3D" parent="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.933, 0.15, 1.993)
-
-[node name="Ambiant" type="AudioStreamPlayer" parent="Node3D/Node3D" groups=["Ambiant"]]
-stream = ExtResource("12_lb7d1")
-volume_db = -20.0
-autoplay = true
 
 [node name="Config" type="Node" parent="Node3D/Node3D" groups=["Config"]]
 script = ExtResource("13_2mc4y")
@@ -1420,15 +1741,15 @@ transform = Transform3D(-0.5, 1.74393e-16, -4.37114e-08, 1.74393e-16, 0.5, -1.74
 mesh = SubResource("BoxMesh_rfhkc")
 skeleton = NodePath("../../World1/Gate2/SubViewport/Cameras")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Node3D"]
-environment = SubResource("Environment_uocs1")
-camera_attributes = SubResource("CameraAttributesPractical_kfvkv")
-
 [node name="Node3D2" parent="." instance=ExtResource("54_7b1bl")]
 transform = Transform3D(1.24718e-09, 0.999593, -0.0285323, 4.36936e-08, -0.0285323, -0.999593, -1, 0, -4.37114e-08, 49.6546, -0.282025, 7.19765)
 
+[connection signal="body_entered" from="Room/Area3D" to="Room/Area3D" method="_on_area_body_entered"]
+[connection signal="body_exited" from="Room/Area3D" to="Room/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="Room/Node3D/CamPlane/Area3D" to="Room/Node3D/CamPlane/Area3D" method="_on_area_body_entered"]
 [connection signal="body_entered" from="World1/Gate/CamPlane/Area3D" to="World1/Gate/CamPlane/Area3D" method="_on_area_body_entered"]
 [connection signal="body_entered" from="World1/Gate2/CamPlane/Area3D" to="World1/Gate2/CamPlane/Area3D" method="_on_area_body_entered"]
+[connection signal="body_entered" from="World1/Gate3/CamPlane/Area3D" to="World1/Gate3/CamPlane/Area3D" method="_on_area_body_entered"]
 [connection signal="body_entered" from="World2/Gate/CamPlane2/Area2" to="World2/Gate/CamPlane2/Area2" method="_on_area_body_entered"]
 [connection signal="body_entered" from="Node3D/WallDoor02/CamPlane/Area3D" to="Node3D/WallDoor02/CamPlane/Area3D" method="_on_area_body_entered"]
 

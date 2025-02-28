@@ -1,0 +1,175 @@
+[gd_scene load_steps=9 format=3 uid="uid://bholec1avl5kt"]
+
+[ext_resource type="Script" path="res://scripts/CompteurModule/CompteurModule.gd" id="1_v4x5l"]
+[ext_resource type="Script" path="res://scripts/CompteurModule/CompteurModuleButtonInteractable.gd" id="2_yctch"]
+[ext_resource type="Script" path="res://scripts/CompteurModule/CompteurModuleDisplay.gd" id="3_me64m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kcpw7"]
+size = Vector3(0.5, 0.2, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vljhj"]
+albedo_color = Color(0.966667, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5jre5"]
+material = SubResource("StandardMaterial3D_vljhj")
+flip_faces = true
+size = Vector3(0.6, 0.3, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bq2b6"]
+size = Vector3(0.5, 0.2, 0.5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_enrv7"]
+
+[node name="CompteurModule" type="Node3D" node_paths=PackedStringArray("list_of_displays")]
+script = ExtResource("1_v4x5l")
+list_of_displays = [NodePath("Compteurs/MeshInstance3D/Compteur1"), NodePath("Compteurs/MeshInstance3D/Compteur2"), NodePath("Compteurs/MeshInstance3D/Compteur3"), NodePath("Compteurs/MeshInstance3D/Compteur4"), NodePath("Compteurs/MeshInstance3D/Compteur5")]
+
+[node name="PowerButtons" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.772855, -0.634582, 0, 0.634582, 0.772855, -0.190926, 0.035815, 0.135041)
+
+[node name="Button1" type="StaticBody3D" parent="PowerButtons" node_paths=PackedStringArray("mesh", "outlineMesh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.217598, 0, 0.850905)
+collision_layer = 8
+script = ExtResource("2_yctch")
+base_energy = 15.0
+mesh = NodePath("MeshInstance3D")
+outlineMesh = NodePath("Outline")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PowerButtons/Button1"]
+mesh = SubResource("BoxMesh_kcpw7")
+
+[node name="Outline" type="MeshInstance3D" parent="PowerButtons/Button1"]
+visible = false
+mesh = SubResource("BoxMesh_5jre5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PowerButtons/Button1"]
+shape = SubResource("BoxShape3D_bq2b6")
+
+[node name="Button2" type="StaticBody3D" parent="PowerButtons" node_paths=PackedStringArray("mesh", "outlineMesh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.253038, 0, 0.275042)
+collision_layer = 8
+script = ExtResource("2_yctch")
+compteur_number = 2
+base_energy = 5.0
+mesh = NodePath("MeshInstance3D")
+outlineMesh = NodePath("Outline")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PowerButtons/Button2"]
+mesh = SubResource("BoxMesh_kcpw7")
+
+[node name="Outline" type="MeshInstance3D" parent="PowerButtons/Button2"]
+visible = false
+mesh = SubResource("BoxMesh_5jre5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PowerButtons/Button2"]
+shape = SubResource("BoxShape3D_bq2b6")
+
+[node name="Button3" type="StaticBody3D" parent="PowerButtons" node_paths=PackedStringArray("mesh", "outlineMesh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.372067, 0, 0.317617)
+collision_layer = 8
+script = ExtResource("2_yctch")
+compteur_number = 3
+base_energy = 7.0
+mesh = NodePath("MeshInstance3D")
+outlineMesh = NodePath("Outline")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PowerButtons/Button3"]
+mesh = SubResource("BoxMesh_kcpw7")
+
+[node name="Outline" type="MeshInstance3D" parent="PowerButtons/Button3"]
+visible = false
+mesh = SubResource("BoxMesh_5jre5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PowerButtons/Button3"]
+shape = SubResource("BoxShape3D_bq2b6")
+
+[node name="Button4" type="StaticBody3D" parent="PowerButtons" node_paths=PackedStringArray("mesh", "outlineMesh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.801284, 0, 0.528638)
+collision_layer = 8
+script = ExtResource("2_yctch")
+compteur_number = 4
+base_energy = 10.0
+mesh = NodePath("MeshInstance3D")
+outlineMesh = NodePath("Outline")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PowerButtons/Button4"]
+mesh = SubResource("BoxMesh_kcpw7")
+
+[node name="Outline" type="MeshInstance3D" parent="PowerButtons/Button4"]
+visible = false
+mesh = SubResource("BoxMesh_5jre5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PowerButtons/Button4"]
+shape = SubResource("BoxShape3D_bq2b6")
+
+[node name="Button5" type="StaticBody3D" parent="PowerButtons" node_paths=PackedStringArray("mesh", "outlineMesh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.293292, 0, 0.790509)
+collision_layer = 8
+script = ExtResource("2_yctch")
+compteur_number = 5
+base_energy = 20.0
+mesh = NodePath("MeshInstance3D")
+outlineMesh = NodePath("Outline")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PowerButtons/Button5"]
+mesh = SubResource("BoxMesh_kcpw7")
+
+[node name="Outline" type="MeshInstance3D" parent="PowerButtons/Button5"]
+visible = false
+mesh = SubResource("BoxMesh_5jre5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PowerButtons/Button5"]
+shape = SubResource("BoxShape3D_bq2b6")
+
+[node name="Compteurs" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.190657, -0.262917)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Compteurs"]
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, -1, 0, 1, 2.98023e-08, 0, 1, 0)
+mesh = SubResource("PlaneMesh_enrv7")
+
+[node name="Compteur1" type="Label3D" parent="Compteurs/MeshInstance3D" node_paths=PackedStringArray("label")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.00831997, 0.1, -0.666458)
+text = "100%"
+font_size = 40
+outline_size = 10
+script = ExtResource("3_me64m")
+label = NodePath(".")
+
+[node name="Compteur2" type="Label3D" parent="Compteurs/MeshInstance3D" node_paths=PackedStringArray("label")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.624753, 0.1, 0.507271)
+text = "100%"
+font_size = 40
+outline_size = 10
+script = ExtResource("3_me64m")
+label = NodePath(".")
+
+[node name="Compteur3" type="Label3D" parent="Compteurs/MeshInstance3D" node_paths=PackedStringArray("label")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.509336, 0.1, -0.235606)
+text = "100%"
+font_size = 40
+outline_size = 10
+script = ExtResource("3_me64m")
+label = NodePath(".")
+
+[node name="Compteur4" type="Label3D" parent="Compteurs/MeshInstance3D" node_paths=PackedStringArray("label")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.540556, 0.1, -0.112068)
+text = "100%"
+font_size = 40
+outline_size = 10
+script = ExtResource("3_me64m")
+label = NodePath(".")
+
+[node name="Compteur5" type="Label3D" parent="Compteurs/MeshInstance3D" node_paths=PackedStringArray("label")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.419378, 0.1, 0.234924)
+text = "100%"
+font_size = 40
+outline_size = 10
+script = ExtResource("3_me64m")
+label = NodePath(".")
+
+[connection signal="button_pressed" from="PowerButtons/Button1" to="." method="on_button_pressed"]
+[connection signal="button_pressed" from="PowerButtons/Button2" to="." method="on_button_pressed"]
+[connection signal="button_pressed" from="PowerButtons/Button3" to="." method="on_button_pressed"]
+[connection signal="button_pressed" from="PowerButtons/Button4" to="." method="on_button_pressed"]
+[connection signal="button_pressed" from="PowerButtons/Button5" to="." method="on_button_pressed"]

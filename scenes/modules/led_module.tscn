@@ -1,0 +1,731 @@
+[gd_scene load_steps=17 format=3 uid="uid://cb3m5nohhb2k7"]
+
+[ext_resource type="Script" path="res://scripts/LedModule/LedModuleLight.gd" id="1_6fgsd"]
+[ext_resource type="Script" path="res://scripts/LedModule/LedModuleButtonInteractable.gd" id="1_602qu"]
+[ext_resource type="Script" path="res://scripts/LedModule/LedModule.gd" id="1_veq52"]
+[ext_resource type="Material" uid="uid://5ahqcopvfwwd" path="res://materials/green_light.tres" id="4_lsfmg"]
+[ext_resource type="Material" uid="uid://dv87uhfbjgc7x" path="res://Materials/broken_light.tres" id="5_5ywrx"]
+[ext_resource type="Material" uid="uid://d1a6g86fd7fo5" path="res://Materials/outline.tres" id="6_gulgi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kcpw7"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vljhj"]
+albedo_color = Color(0.966667, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5jre5"]
+material = SubResource("StandardMaterial3D_vljhj")
+flip_faces = true
+size = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bq2b6"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kf1cg"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_xprql"]
+material = SubResource("StandardMaterial3D_kf1cg")
+radius = 0.15
+height = 0.3
+
+[sub_resource type="SphereMesh" id="SphereMesh_oy1f8"]
+material = ExtResource("4_lsfmg")
+radius = 0.15
+height = 0.3
+
+[sub_resource type="SphereMesh" id="SphereMesh_cbnn5"]
+material = ExtResource("5_5ywrx")
+radius = 0.15
+height = 0.3
+
+[sub_resource type="SphereMesh" id="SphereMesh_xavp3"]
+material = ExtResource("6_gulgi")
+flip_faces = true
+radius = 0.2
+height = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nwuwl"]
+radius = 0.2
+
+[node name="LedModule" type="Node3D" node_paths=PackedStringArray("list_of_buttons", "list_of_leds")]
+script = ExtResource("1_veq52")
+list_of_buttons = [NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath("")]
+list_of_leds = [NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath("")]
+
+[node name="Buttons" type="Node3D" parent="."]
+
+[node name="Button_plus_3" type="StaticBody3D" parent="Buttons" node_paths=PackedStringArray("mesh", "outlineMesh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.6, 0, 0)
+collision_layer = 8
+script = ExtResource("1_602qu")
+leds_to_turn_on = 3
+mesh = NodePath("MeshInstance3D")
+outlineMesh = NodePath("Outline")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Buttons/Button_plus_3"]
+mesh = SubResource("BoxMesh_kcpw7")
+
+[node name="Outline" type="MeshInstance3D" parent="Buttons/Button_plus_3"]
+visible = false
+mesh = SubResource("BoxMesh_5jre5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Button_plus_3"]
+shape = SubResource("BoxShape3D_bq2b6")
+
+[node name="Button_plus_5" type="StaticBody3D" parent="Buttons" node_paths=PackedStringArray("mesh", "outlineMesh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.3, 0, 0)
+collision_layer = 8
+script = ExtResource("1_602qu")
+leds_to_turn_on = 5
+mesh = NodePath("MeshInstance3D")
+outlineMesh = NodePath("Outline")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Buttons/Button_plus_5"]
+mesh = SubResource("BoxMesh_kcpw7")
+
+[node name="Outline" type="MeshInstance3D" parent="Buttons/Button_plus_5"]
+visible = false
+mesh = SubResource("BoxMesh_5jre5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Button_plus_5"]
+shape = SubResource("BoxShape3D_bq2b6")
+
+[node name="Button_plus_7" type="StaticBody3D" parent="Buttons" node_paths=PackedStringArray("mesh", "outlineMesh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+collision_layer = 8
+script = ExtResource("1_602qu")
+leds_to_turn_on = 7
+mesh = NodePath("MeshInstance3D")
+outlineMesh = NodePath("Outline")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Buttons/Button_plus_7"]
+mesh = SubResource("BoxMesh_kcpw7")
+
+[node name="Outline" type="MeshInstance3D" parent="Buttons/Button_plus_7"]
+visible = false
+mesh = SubResource("BoxMesh_5jre5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Button_plus_7"]
+shape = SubResource("BoxShape3D_bq2b6")
+
+[node name="Button_plus_13" type="StaticBody3D" parent="Buttons" node_paths=PackedStringArray("mesh", "outlineMesh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.3, 0, 0)
+collision_layer = 8
+script = ExtResource("1_602qu")
+leds_to_turn_on = 13
+mesh = NodePath("MeshInstance3D")
+outlineMesh = NodePath("Outline")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Buttons/Button_plus_13"]
+mesh = SubResource("BoxMesh_kcpw7")
+
+[node name="Outline" type="MeshInstance3D" parent="Buttons/Button_plus_13"]
+visible = false
+mesh = SubResource("BoxMesh_5jre5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Button_plus_13"]
+shape = SubResource("BoxShape3D_bq2b6")
+
+[node name="Button_plus_2" type="StaticBody3D" parent="Buttons" node_paths=PackedStringArray("mesh", "outlineMesh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.6, 0, 0)
+collision_layer = 8
+script = ExtResource("1_602qu")
+leds_to_turn_on = 2
+mesh = NodePath("MeshInstance3D")
+outlineMesh = NodePath("Outline")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Buttons/Button_plus_2"]
+mesh = SubResource("BoxMesh_kcpw7")
+
+[node name="Outline" type="MeshInstance3D" parent="Buttons/Button_plus_2"]
+visible = false
+mesh = SubResource("BoxMesh_5jre5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Button_plus_2"]
+shape = SubResource("BoxShape3D_bq2b6")
+
+[node name="Lights" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79335, 0)
+
+[node name="LedModuleLight" type="StaticBody3D" parent="Lights" node_paths=PackedStringArray("redLight", "greenLight", "brokenLight", "outlineMesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.417313, 0.462508, 0)
+collision_layer = 8
+script = ExtResource("1_6fgsd")
+redLight = NodePath("RedLight")
+greenLight = NodePath("GreenLight")
+brokenLight = NodePath("BrokenLight")
+outlineMesh = NodePath("Outline")
+
+[node name="RedLight" type="MeshInstance3D" parent="Lights/LedModuleLight"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_xprql")
+skeleton = NodePath("../..")
+
+[node name="GreenLight" type="MeshInstance3D" parent="Lights/LedModuleLight"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_oy1f8")
+skeleton = NodePath("../..")
+
+[node name="BrokenLight" type="MeshInstance3D" parent="Lights/LedModuleLight"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_cbnn5")
+skeleton = NodePath("../..")
+
+[node name="Outline" type="MeshInstance3D" parent="Lights/LedModuleLight"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_xavp3")
+skeleton = NodePath("../..")
+
+[node name="Collider" type="CollisionShape3D" parent="Lights/LedModuleLight"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_nwuwl")
+
+[node name="LedModuleLight2" type="StaticBody3D" parent="Lights" node_paths=PackedStringArray("redLight", "greenLight", "brokenLight", "outlineMesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.117313, 0.462508, 0)
+collision_layer = 8
+script = ExtResource("1_6fgsd")
+redLight = NodePath("RedLight")
+greenLight = NodePath("GreenLight")
+brokenLight = NodePath("BrokenLight")
+outlineMesh = NodePath("Outline")
+
+[node name="RedLight" type="MeshInstance3D" parent="Lights/LedModuleLight2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_xprql")
+skeleton = NodePath("../..")
+
+[node name="GreenLight" type="MeshInstance3D" parent="Lights/LedModuleLight2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_oy1f8")
+skeleton = NodePath("../..")
+
+[node name="BrokenLight" type="MeshInstance3D" parent="Lights/LedModuleLight2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_cbnn5")
+skeleton = NodePath("../..")
+
+[node name="Outline" type="MeshInstance3D" parent="Lights/LedModuleLight2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_xavp3")
+skeleton = NodePath("../..")
+
+[node name="Collider" type="CollisionShape3D" parent="Lights/LedModuleLight2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_nwuwl")
+
+[node name="LedModuleLight3" type="StaticBody3D" parent="Lights" node_paths=PackedStringArray("redLight", "greenLight", "brokenLight", "outlineMesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.182687, 0.462508, 0)
+collision_layer = 8
+script = ExtResource("1_6fgsd")
+redLight = NodePath("RedLight")
+greenLight = NodePath("GreenLight")
+brokenLight = NodePath("BrokenLight")
+outlineMesh = NodePath("Outline")
+
+[node name="RedLight" type="MeshInstance3D" parent="Lights/LedModuleLight3"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_xprql")
+skeleton = NodePath("../..")
+
+[node name="GreenLight" type="MeshInstance3D" parent="Lights/LedModuleLight3"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_oy1f8")
+skeleton = NodePath("../..")
+
+[node name="BrokenLight" type="MeshInstance3D" parent="Lights/LedModuleLight3"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_cbnn5")
+skeleton = NodePath("../..")
+
+[node name="Outline" type="MeshInstance3D" parent="Lights/LedModuleLight3"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_xavp3")
+skeleton = NodePath("../..")
+
+[node name="Collider" type="CollisionShape3D" parent="Lights/LedModuleLight3"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_nwuwl")
+
+[node name="LedModuleLight4" type="StaticBody3D" parent="Lights" node_paths=PackedStringArray("redLight", "greenLight", "brokenLight", "outlineMesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.482687, 0.462508, 0)
+collision_layer = 8
+script = ExtResource("1_6fgsd")
+redLight = NodePath("RedLight")
+greenLight = NodePath("GreenLight")
+brokenLight = NodePath("BrokenLight")
+outlineMesh = NodePath("Outline")
+
+[node name="RedLight" type="MeshInstance3D" parent="Lights/LedModuleLight4"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_xprql")
+skeleton = NodePath("../..")
+
+[node name="GreenLight" type="MeshInstance3D" parent="Lights/LedModuleLight4"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_oy1f8")
+skeleton = NodePath("../..")
+
+[node name="BrokenLight" type="MeshInstance3D" parent="Lights/LedModuleLight4"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_cbnn5")
+skeleton = NodePath("../..")
+
+[node name="Outline" type="MeshInstance3D" parent="Lights/LedModuleLight4"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_xavp3")
+skeleton = NodePath("../..")
+
+[node name="Collider" type="CollisionShape3D" parent="Lights/LedModuleLight4"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_nwuwl")
+
+[node name="LedModuleLight5" type="StaticBody3D" parent="Lights" node_paths=PackedStringArray("redLight", "greenLight", "brokenLight", "outlineMesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.417313, 0.162508, 0)
+collision_layer = 8
+script = ExtResource("1_6fgsd")
+redLight = NodePath("RedLight")
+greenLight = NodePath("GreenLight")
+brokenLight = NodePath("BrokenLight")
+outlineMesh = NodePath("Outline")
+
+[node name="RedLight" type="MeshInstance3D" parent="Lights/LedModuleLight5"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_xprql")
+skeleton = NodePath("../..")
+
+[node name="GreenLight" type="MeshInstance3D" parent="Lights/LedModuleLight5"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_oy1f8")
+skeleton = NodePath("../..")
+
+[node name="BrokenLight" type="MeshInstance3D" parent="Lights/LedModuleLight5"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_cbnn5")
+skeleton = NodePath("../..")
+
+[node name="Outline" type="MeshInstance3D" parent="Lights/LedModuleLight5"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_xavp3")
+skeleton = NodePath("../..")
+
+[node name="Collider" type="CollisionShape3D" parent="Lights/LedModuleLight5"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_nwuwl")
+
+[node name="LedModuleLight6" type="StaticBody3D" parent="Lights" node_paths=PackedStringArray("redLight", "greenLight", "brokenLight", "outlineMesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.117313, 0.162508, 0)
+collision_layer = 8
+script = ExtResource("1_6fgsd")
+redLight = NodePath("RedLight")
+greenLight = NodePath("GreenLight")
+brokenLight = NodePath("BrokenLight")
+outlineMesh = NodePath("Outline")
+
+[node name="RedLight" type="MeshInstance3D" parent="Lights/LedModuleLight6"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_xprql")
+skeleton = NodePath("../..")
+
+[node name="GreenLight" type="MeshInstance3D" parent="Lights/LedModuleLight6"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_oy1f8")
+skeleton = NodePath("../..")
+
+[node name="BrokenLight" type="MeshInstance3D" parent="Lights/LedModuleLight6"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_cbnn5")
+skeleton = NodePath("../..")
+
+[node name="Outline" type="MeshInstance3D" parent="Lights/LedModuleLight6"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_xavp3")
+skeleton = NodePath("../..")
+
+[node name="Collider" type="CollisionShape3D" parent="Lights/LedModuleLight6"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_nwuwl")
+
+[node name="LedModuleLight7" type="StaticBody3D" parent="Lights" node_paths=PackedStringArray("redLight", "greenLight", "brokenLight", "outlineMesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.182687, 0.162508, 0)
+collision_layer = 8
+script = ExtResource("1_6fgsd")
+redLight = NodePath("RedLight")
+greenLight = NodePath("GreenLight")
+brokenLight = NodePath("BrokenLight")
+outlineMesh = NodePath("Outline")
+
+[node name="RedLight" type="MeshInstance3D" parent="Lights/LedModuleLight7"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_xprql")
+skeleton = NodePath("../..")
+
+[node name="GreenLight" type="MeshInstance3D" parent="Lights/LedModuleLight7"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_oy1f8")
+skeleton = NodePath("../..")
+
+[node name="BrokenLight" type="MeshInstance3D" parent="Lights/LedModuleLight7"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_cbnn5")
+skeleton = NodePath("../..")
+
+[node name="Outline" type="MeshInstance3D" parent="Lights/LedModuleLight7"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_xavp3")
+skeleton = NodePath("../..")
+
+[node name="Collider" type="CollisionShape3D" parent="Lights/LedModuleLight7"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_nwuwl")
+
+[node name="LedModuleLight8" type="StaticBody3D" parent="Lights" node_paths=PackedStringArray("redLight", "greenLight", "brokenLight", "outlineMesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.482687, 0.162508, 0)
+collision_layer = 8
+script = ExtResource("1_6fgsd")
+redLight = NodePath("RedLight")
+greenLight = NodePath("GreenLight")
+brokenLight = NodePath("BrokenLight")
+outlineMesh = NodePath("Outline")
+
+[node name="RedLight" type="MeshInstance3D" parent="Lights/LedModuleLight8"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_xprql")
+skeleton = NodePath("../..")
+
+[node name="GreenLight" type="MeshInstance3D" parent="Lights/LedModuleLight8"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_oy1f8")
+skeleton = NodePath("../..")
+
+[node name="BrokenLight" type="MeshInstance3D" parent="Lights/LedModuleLight8"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_cbnn5")
+skeleton = NodePath("../..")
+
+[node name="Outline" type="MeshInstance3D" parent="Lights/LedModuleLight8"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_xavp3")
+skeleton = NodePath("../..")
+
+[node name="Collider" type="CollisionShape3D" parent="Lights/LedModuleLight8"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_nwuwl")
+
+[node name="LedModuleLight9" type="StaticBody3D" parent="Lights" node_paths=PackedStringArray("redLight", "greenLight", "brokenLight", "outlineMesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.417313, -0.137491, 0)
+collision_layer = 8
+script = ExtResource("1_6fgsd")
+redLight = NodePath("RedLight")
+greenLight = NodePath("GreenLight")
+brokenLight = NodePath("BrokenLight")
+outlineMesh = NodePath("Outline")
+
+[node name="RedLight" type="MeshInstance3D" parent="Lights/LedModuleLight9"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_xprql")
+skeleton = NodePath("../..")
+
+[node name="GreenLight" type="MeshInstance3D" parent="Lights/LedModuleLight9"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_oy1f8")
+skeleton = NodePath("../..")
+
+[node name="BrokenLight" type="MeshInstance3D" parent="Lights/LedModuleLight9"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_cbnn5")
+skeleton = NodePath("../..")
+
+[node name="Outline" type="MeshInstance3D" parent="Lights/LedModuleLight9"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_xavp3")
+skeleton = NodePath("../..")
+
+[node name="Collider" type="CollisionShape3D" parent="Lights/LedModuleLight9"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_nwuwl")
+
+[node name="LedModuleLight10" type="StaticBody3D" parent="Lights" node_paths=PackedStringArray("redLight", "greenLight", "brokenLight", "outlineMesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.117313, -0.137491, 0)
+collision_layer = 8
+script = ExtResource("1_6fgsd")
+redLight = NodePath("RedLight")
+greenLight = NodePath("GreenLight")
+brokenLight = NodePath("BrokenLight")
+outlineMesh = NodePath("Outline")
+
+[node name="RedLight" type="MeshInstance3D" parent="Lights/LedModuleLight10"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_xprql")
+skeleton = NodePath("../..")
+
+[node name="GreenLight" type="MeshInstance3D" parent="Lights/LedModuleLight10"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_oy1f8")
+skeleton = NodePath("../..")
+
+[node name="BrokenLight" type="MeshInstance3D" parent="Lights/LedModuleLight10"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_cbnn5")
+skeleton = NodePath("../..")
+
+[node name="Outline" type="MeshInstance3D" parent="Lights/LedModuleLight10"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_xavp3")
+skeleton = NodePath("../..")
+
+[node name="Collider" type="CollisionShape3D" parent="Lights/LedModuleLight10"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_nwuwl")
+
+[node name="LedModuleLight11" type="StaticBody3D" parent="Lights" node_paths=PackedStringArray("redLight", "greenLight", "brokenLight", "outlineMesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.182687, -0.137491, 0)
+collision_layer = 8
+script = ExtResource("1_6fgsd")
+redLight = NodePath("RedLight")
+greenLight = NodePath("GreenLight")
+brokenLight = NodePath("BrokenLight")
+outlineMesh = NodePath("Outline")
+
+[node name="RedLight" type="MeshInstance3D" parent="Lights/LedModuleLight11"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_xprql")
+skeleton = NodePath("../..")
+
+[node name="GreenLight" type="MeshInstance3D" parent="Lights/LedModuleLight11"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_oy1f8")
+skeleton = NodePath("../..")
+
+[node name="BrokenLight" type="MeshInstance3D" parent="Lights/LedModuleLight11"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_cbnn5")
+skeleton = NodePath("../..")
+
+[node name="Outline" type="MeshInstance3D" parent="Lights/LedModuleLight11"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_xavp3")
+skeleton = NodePath("../..")
+
+[node name="Collider" type="CollisionShape3D" parent="Lights/LedModuleLight11"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_nwuwl")
+
+[node name="LedModuleLight12" type="StaticBody3D" parent="Lights" node_paths=PackedStringArray("redLight", "greenLight", "brokenLight", "outlineMesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.482687, -0.137491, 0)
+collision_layer = 8
+script = ExtResource("1_6fgsd")
+redLight = NodePath("RedLight")
+greenLight = NodePath("GreenLight")
+brokenLight = NodePath("BrokenLight")
+outlineMesh = NodePath("Outline")
+
+[node name="RedLight" type="MeshInstance3D" parent="Lights/LedModuleLight12"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_xprql")
+skeleton = NodePath("../..")
+
+[node name="GreenLight" type="MeshInstance3D" parent="Lights/LedModuleLight12"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_oy1f8")
+skeleton = NodePath("../..")
+
+[node name="BrokenLight" type="MeshInstance3D" parent="Lights/LedModuleLight12"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_cbnn5")
+skeleton = NodePath("../..")
+
+[node name="Outline" type="MeshInstance3D" parent="Lights/LedModuleLight12"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_xavp3")
+skeleton = NodePath("../..")
+
+[node name="Collider" type="CollisionShape3D" parent="Lights/LedModuleLight12"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_nwuwl")
+
+[node name="LedModuleLight13" type="StaticBody3D" parent="Lights" node_paths=PackedStringArray("redLight", "greenLight", "brokenLight", "outlineMesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.417313, -0.437491, 0)
+collision_layer = 8
+script = ExtResource("1_6fgsd")
+redLight = NodePath("RedLight")
+greenLight = NodePath("GreenLight")
+brokenLight = NodePath("BrokenLight")
+outlineMesh = NodePath("Outline")
+
+[node name="RedLight" type="MeshInstance3D" parent="Lights/LedModuleLight13"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_xprql")
+skeleton = NodePath("../..")
+
+[node name="GreenLight" type="MeshInstance3D" parent="Lights/LedModuleLight13"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_oy1f8")
+skeleton = NodePath("../..")
+
+[node name="BrokenLight" type="MeshInstance3D" parent="Lights/LedModuleLight13"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_cbnn5")
+skeleton = NodePath("../..")
+
+[node name="Outline" type="MeshInstance3D" parent="Lights/LedModuleLight13"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_xavp3")
+skeleton = NodePath("../..")
+
+[node name="Collider" type="CollisionShape3D" parent="Lights/LedModuleLight13"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_nwuwl")
+
+[node name="LedModuleLight14" type="StaticBody3D" parent="Lights" node_paths=PackedStringArray("redLight", "greenLight", "brokenLight", "outlineMesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.117313, -0.437491, 0)
+collision_layer = 8
+script = ExtResource("1_6fgsd")
+redLight = NodePath("RedLight")
+greenLight = NodePath("GreenLight")
+brokenLight = NodePath("BrokenLight")
+outlineMesh = NodePath("Outline")
+
+[node name="RedLight" type="MeshInstance3D" parent="Lights/LedModuleLight14"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_xprql")
+skeleton = NodePath("../..")
+
+[node name="GreenLight" type="MeshInstance3D" parent="Lights/LedModuleLight14"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_oy1f8")
+skeleton = NodePath("../..")
+
+[node name="BrokenLight" type="MeshInstance3D" parent="Lights/LedModuleLight14"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_cbnn5")
+skeleton = NodePath("../..")
+
+[node name="Outline" type="MeshInstance3D" parent="Lights/LedModuleLight14"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_xavp3")
+skeleton = NodePath("../..")
+
+[node name="Collider" type="CollisionShape3D" parent="Lights/LedModuleLight14"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_nwuwl")
+
+[node name="LedModuleLight15" type="StaticBody3D" parent="Lights" node_paths=PackedStringArray("redLight", "greenLight", "brokenLight", "outlineMesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.182687, -0.437491, 0)
+collision_layer = 8
+script = ExtResource("1_6fgsd")
+redLight = NodePath("RedLight")
+greenLight = NodePath("GreenLight")
+brokenLight = NodePath("BrokenLight")
+outlineMesh = NodePath("Outline")
+
+[node name="RedLight" type="MeshInstance3D" parent="Lights/LedModuleLight15"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_xprql")
+skeleton = NodePath("../..")
+
+[node name="GreenLight" type="MeshInstance3D" parent="Lights/LedModuleLight15"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_oy1f8")
+skeleton = NodePath("../..")
+
+[node name="BrokenLight" type="MeshInstance3D" parent="Lights/LedModuleLight15"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_cbnn5")
+skeleton = NodePath("../..")
+
+[node name="Outline" type="MeshInstance3D" parent="Lights/LedModuleLight15"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_xavp3")
+skeleton = NodePath("../..")
+
+[node name="Collider" type="CollisionShape3D" parent="Lights/LedModuleLight15"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_nwuwl")
+
+[node name="LedModuleLight16" type="StaticBody3D" parent="Lights" node_paths=PackedStringArray("redLight", "greenLight", "brokenLight", "outlineMesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.482687, -0.437491, 0)
+collision_layer = 8
+script = ExtResource("1_6fgsd")
+redLight = NodePath("RedLight")
+greenLight = NodePath("GreenLight")
+brokenLight = NodePath("BrokenLight")
+outlineMesh = NodePath("Outline")
+
+[node name="RedLight" type="MeshInstance3D" parent="Lights/LedModuleLight16"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_xprql")
+skeleton = NodePath("../..")
+
+[node name="GreenLight" type="MeshInstance3D" parent="Lights/LedModuleLight16"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_oy1f8")
+skeleton = NodePath("../..")
+
+[node name="BrokenLight" type="MeshInstance3D" parent="Lights/LedModuleLight16"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_cbnn5")
+skeleton = NodePath("../..")
+
+[node name="Outline" type="MeshInstance3D" parent="Lights/LedModuleLight16"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_xavp3")
+skeleton = NodePath("../..")
+
+[node name="Collider" type="CollisionShape3D" parent="Lights/LedModuleLight16"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_nwuwl")
+
+[connection signal="led_module_button_pressed" from="Buttons/Button_plus_3" to="." method="on_button_pressed"]
+[connection signal="led_module_button_pressed" from="Buttons/Button_plus_5" to="." method="on_button_pressed"]
+[connection signal="led_module_button_pressed" from="Buttons/Button_plus_7" to="." method="on_button_pressed"]
+[connection signal="led_module_button_pressed" from="Buttons/Button_plus_13" to="." method="on_button_pressed"]
+[connection signal="led_module_button_pressed" from="Buttons/Button_plus_2" to="." method="on_button_pressed"]

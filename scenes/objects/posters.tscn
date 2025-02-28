@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqsten4ea5nk5"]
+
+[ext_resource type="ArrayMesh" uid="uid://2a81jpi13mn5" path="res://meshes/posters.obj" id="1_a04me"]
+[ext_resource type="Material" uid="uid://del0chswjkiqe" path="res://Materials/posters.tres" id="2_37c8p"]
+
+[node name="Posters" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_a04me")
+surface_material_override/0 = ExtResource("2_37c8p")

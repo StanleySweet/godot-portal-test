@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://ixbr3cp2e68n"]
+
+[ext_resource type="Texture2D" uid="uid://x5g0wbev4efi" path="res://textures/tilemap.png" id="1_as3vk"]
+[ext_resource type="ArrayMesh" uid="uid://c8woo3sbxbvay" path="res://meshes/bookshelf.obj" id="1_l4wku"]
+[ext_resource type="Material" uid="uid://bogn2sxxc3ajc" path="res://materials/tilemap.tres" id="2_e54f5"]
+[ext_resource type="PackedScene" uid="uid://b857uu4kd0rh7" path="res://scenes/objects/cyrillic_for_dummies.tscn" id="3_m3nmj"]
+[ext_resource type="PackedScene" uid="uid://dxofh3mspwuc0" path="res://scenes/objects/fission_for_dummies.tscn" id="4_314s7"]
+[ext_resource type="Material" uid="uid://bse76mpd2nq3f" path="res://Materials/picture_frame.tres" id="4_n2axe"]
+[ext_resource type="ArrayMesh" uid="uid://f47ins7qe3u6" path="res://meshes/picture_frame.obj" id="4_uitmi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svn6v"]
+albedo_texture = ExtResource("1_as3vk")
+
+[node name="Bookshelf" type="Node3D"]
+
+[node name="Picture Frame" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_svn6v")
+mesh = ExtResource("1_l4wku")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = ExtResource("2_e54f5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21559, 2.44566, 3.50359)
+material_override = ExtResource("4_n2axe")
+mesh = ExtResource("4_uitmi")
+surface_material_override/0 = ExtResource("2_e54f5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21559, 2.44566, 3.50359)
+mesh = ExtResource("4_uitmi")
+surface_material_override/0 = ExtResource("2_e54f5")
+
+[node name="CyrillicForDummies" parent="." instance=ExtResource("3_m3nmj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12807, 2.00234, 3.44099)
+
+[node name="FissionForDummies" parent="." instance=ExtResource("4_314s7")]
+transform = Transform3D(0.975791, 0.0462477, 0.21376, -0.218705, 0.206342, 0.953725, 0, -0.977386, 0.211461, 1.22817, 1.40054, 3.53935)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21559, 2.44566, 3.50359)
+mesh = ExtResource("4_uitmi")
+surface_material_override/0 = ExtResource("2_e54f5")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21559, 2.44566, 3.50359)
+mesh = ExtResource("4_uitmi")
+surface_material_override/0 = ExtResource("2_e54f5")

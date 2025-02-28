@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bb6d5xegcns1p"
+path="res://.godot/imported/Will Osborne & His Orchestra - Let's Call It All A Dream (1934).mp3-22e8c6383298ff5f9f8836a13c818f21.mp3str"
+
+[deps]
+
+source_file="res://sounds/songs/Will Osborne & His Orchestra - Let's Call It All A Dream (1934).mp3"
+dest_files=["res://.godot/imported/Will Osborne & His Orchestra - Let's Call It All A Dream (1934).mp3-22e8c6383298ff5f9f8836a13c818f21.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

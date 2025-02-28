@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccihpo2hc2npk"]
+
+[ext_resource type="ArrayMesh" uid="uid://ikmt28oqk6qf" path="res://meshes/drawer.obj" id="1_l2yn0"]
+[ext_resource type="Material" uid="uid://bogn2sxxc3ajc" path="res://materials/tilemap.tres" id="2_oihxv"]
+
+[node name="Drawer" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_l2yn0")
+surface_material_override/0 = ExtResource("2_oihxv")

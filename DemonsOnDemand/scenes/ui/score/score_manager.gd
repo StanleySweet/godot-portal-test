@@ -16,10 +16,11 @@ var isStopped : bool = true
 
 func  _ready():
 	_retrieveTimerAndPanel()
-	globalTimer.connect("timer_elapsed", _endGame)
-	config = get_tree().get_first_node_in_group("Config")
-	if config == null:
-		printerr("No Config found. Please add a config node to the scene and add it to the config group.")
+	if globalTimer:
+		globalTimer.connect("timer_elapsed", _endGame)
+		config = get_tree().get_first_node_in_group("Config")
+		if config == null:
+			printerr("No Config found. Please add a config node to the scene and add it to the config group.")
 
 func setIsStopped(newValue):
 	isStopped = newValue

@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://dacjjekdwrsi4"]
+
+[ext_resource type="Script" path="res://scripts/global_timer.gd" id="1_45tyv"]
+[ext_resource type="FontFile" uid="uid://e8qyj68na5ta" path="res://fonts/BAHNSCHRIFT.TTF" id="2_nwwmp"]
+[ext_resource type="AudioStream" uid="uid://11kcypix2j1l" path="res://sounds/Voices/Weekend.mp3" id="3_sw6ub"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cthf4"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hvojy"]
+material = SubResource("StandardMaterial3D_cthf4")
+size = Vector2(2, 1)
+orientation = 2
+
+[node name="GlobalTimer" type="Node3D" node_paths=PackedStringArray("display_time", "end_panel", "end_audio")]
+script = ExtResource("1_45tyv")
+display_time = NodePath("Label3D")
+end_panel = NodePath("CanvasLayer/Panel")
+end_audio = NodePath("Weekend")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_hvojy")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+modulate = Color(0.79, 0, 0, 1)
+outline_modulate = Color(0.09, 0, 0, 1)
+text = "5:00.000"
+font = ExtResource("2_nwwmp")
+font_size = 94
+outline_size = 40
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.454902, 0.447059, 0.388235, 1)
+
+[node name="Weekend" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_sw6ub")
